@@ -6,6 +6,7 @@ from src.pages.login import login_page
 from src.pages.account_create import account_create_page
 from src.pages.dashboard import dashboard_page
 from src.pages.learning_options import learning_options_page
+from src.pages.learning_page import learning_page
 
 
 def main_page():
@@ -39,8 +40,16 @@ def display_page(pathname, user_info):
     elif pathname == "/":
         return dashboard_page(username), navbar_component()
     elif pathname == "/learn-thai":
-        return learning_options_page(True), navbar_component()
+        return learning_options_page(True, username, pathname), navbar_component()
     elif pathname == "/learn-french":
-        return learning_options_page(False), navbar_component()
+        return learning_options_page(False, username, pathname), navbar_component()
+    elif pathname == "/learn-thai/learn-letters":
+        return learning_page(user_info=user_info, learned_language="thai", is_letters=True, is_practice=False), navbar_component()
+    elif pathname == "/learn-thai/practice-letters":
+        return learning_page(user_info=user_info, learned_language="thai", is_letters=True, is_practice=True), navbar_component()
+    elif pathname == "/learn-thai/learn-words":
+        return learning_page(user_info=user_info, learned_language="thai", is_letters=False, is_practice=False), navbar_component()
+    elif pathname == "/learn-thai/practice-words":
+        return learning_page(user_info=user_info, learned_language="thai", is_letters=False, is_practice=True), navbar_component()
     else:
         return "404 - Page Not Found", navbar_component()

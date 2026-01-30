@@ -1,0 +1,33 @@
+ansi2html @ file:///home/task_176156034870665/conda-bld/ansi2html_1761560396175/work
+backports.zstd @ file:///home/task_176459396708209/conda-bld/backports.zstd_1764593981363/work
+blinker @ file:///home/task_176433217861443/conda-bld/blinker_1764332191472/work
+Brotli @ file:///home/task_176236350079666/conda-bld/brotli-split_1762363540655/work
+brotlicffi @ file:///home/task_176496126124857/conda-bld/brotlicffi_1764961326114/work
+certifi @ file:///home/task_176765916174011/croot/certifi_1767659183877/work/certifi
+cffi @ file:///home/task_176183214835616/conda-bld/cffi_1761832774688/work
+charset-normalizer @ file:///home/task_176174481524083/conda-bld/charset-normalizer_1761744828711/work
+click @ file:///home/task_176433224228540/conda-bld/click_1764332256338/work
+dash @ file:///home/task_176164268338909/conda-bld/dash_1761643507804/work
+dash-bootstrap-components==2.0.4
+Flask @ file:///croot/flask_1756453126864/work
+Flask-Compress @ file:///home/task_176460438258151/conda-bld/flask-compress_1764604615235/work
+idna @ file:///home/task_176191175488988/conda-bld/idna_1761911981595/work
+importlib_metadata @ file:///home/task_176399614180195/conda-bld/importlib_metadata-suite_1763996574856/work
+itsdangerous @ file:///io/buildout/croot/itsdangerous_1732920215085/work
+Jinja2 @ file:///croot/jinja2_1741710844255/work
+MarkupSafe @ file:///croot/markupsafe_1738584038848/work
+narwhals @ file:///home/task_176000322806197/conda-bld/narwhals_1760003496182/work
+nest_asyncio @ file:///work/perseverance-python-buildout/croot/nest-asyncio_1728387361665/work
+packaging @ file:///home/task_176104878999627/conda-bld/packaging_1761049078606/work
+plotly @ file:///home/task_176425467319635/conda-bld/plotly_1764254686754/work
+pycparser @ file:///home/task_175749564936714/conda-bld/pycparser_1757496040682/work
+PySocks @ file:///home/task_176175235884818/conda-bld/pysocks_1761753009495/work
+requests @ file:///home/task_176235918788486/conda-bld/requests_1762359591632/work
+retrying @ file:///Users/ktietz/demo/mc3/conda-bld/retrying_1629465456590/work
+setuptools==80.10.1
+six @ file:///croot/six_1744271502820/work
+typing_extensions @ file:///croot/typing_extensions_1756280817316/work
+urllib3 @ file:///home/task_176781010304586/croot/urllib3_1767810267320/work
+Werkzeug @ file:///croot/werkzeug_1737448706492/work
+wheel==0.46.3
+zipp @ file:///home/task_176397781069023/conda-bld/zipp_1763977862013/work

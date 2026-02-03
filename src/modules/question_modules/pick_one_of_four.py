@@ -109,7 +109,8 @@ def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_co
     ctx = callback_context
 
     # If the validate button has been clicked, make buttons non-interactive and don't change the stored selection.
-    if not validate_clicks:
+    if "-btn-" in ctx.triggered[0]["prop_id"].split(".")[0]:
+        print("Updating selection")
         triggered = ctx.triggered[0]["prop_id"].split(".")[0]
         sel = None
         if triggered.endswith("-btn-1"):
@@ -127,7 +128,8 @@ def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_co
 
         return styles[0], styles[1], styles[2], styles[3], default_style, sel, True, no_update
     
-    else:
+    elif "learning-page-question-validate" in ctx.triggered[0]["prop_id"].split(".")[0]:
+        print("Validating selection")
         # On validate click, do not change styles or selection.
         unclickable_style = {
             "width": "100%",

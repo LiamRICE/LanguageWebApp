@@ -1,5 +1,6 @@
 from dash import dcc, html, callback, Input, Output
 import dash_bootstrap_components as dbc
+from src.utils.user_utils import get_num_learned_letters
 from src.modules.webbar import webbar_component
 from src.modules.navbar import navbar_component
 from src.pages.login import login_page
@@ -46,7 +47,15 @@ def display_page(pathname, user_info):
     elif pathname == "/learn-thai/learn-letters":
         return learning_page(user_info=user_info, learned_language="thai", is_letters=True, is_practice=False), navbar_component()
     elif pathname == "/learn-thai/practice-letters":
-        return learning_page(user_info=user_info, learned_language="thai", is_letters=True, is_practice=True), navbar_component()
+        if get_num_learned_letters(username=username) < 3:
+            return html.Div([
+                html.H2("You need to learn some letters before you can practice!", className="text-center my-4"),
+                html.Div([
+                    dbc.Button("Back to practice hub", href="/learn-thai", color="primary")
+                ], className="text-center")
+            ]), navbar_component()
+        else:
+            return learning_page(user_info=user_info, learned_language="thai", is_letters=True, is_practice=True), navbar_component()
     elif pathname == "/learn-thai/learn-words":
         return learning_page(user_info=user_info, learned_language="thai", is_letters=False, is_practice=False), navbar_component()
     elif pathname == "/learn-thai/practice-words":

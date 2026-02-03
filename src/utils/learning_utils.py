@@ -26,20 +26,21 @@ def load_thai_json_as_list(username:str = "", path: str = "src/data/language_dat
     else:
         data = data.get("thai_words", [])
 
+    final_data = []
     if isinstance(data, list):
-        return [it for it in data if isinstance(it, dict)]
+        final_data = [it for it in data if isinstance(it, dict)]
 
-    if isinstance(data, dict):
-        result: List[Dict[str, Any]] = []
+    elif isinstance(data, dict):
+        final_data = []
         for v in data.values():
             if isinstance(v, list):
-                result.extend([it for it in v if isinstance(it, dict)])
-        return result
+                final_data.extend([it for it in v if isinstance(it, dict)])
+    
+    print("Exercise data loaded:", len(final_data), "items.")
+    return final_data
 
-    return []
 
-
-def pick_lowest_priority_items(items: List[Dict[str, Any]], n: int, priority_key: str = "priority", is_unseen_only: bool = False) -> List[Dict[str, Any]]:
+def pick_lowest_priority_items(items: List[Dict[str, Any]], n: int, priority_key: str = "priority", is_seen: bool = False) -> List[Dict[str, Any]]:
     """
     Sorts items by priority_key, selects items that have the lowest priority value,
     and returns up to n unique items chosen randomly from that lowest-priority pool.
@@ -50,18 +51,25 @@ def pick_lowest_priority_items(items: List[Dict[str, Any]], n: int, priority_key
         return []
 
     valid = [it for it in items if priority_key in it]
-    if is_unseen_only:
-        valid = [it for it in valid if not it.get("is_seen", False)]
+    if is_seen:
+        valid = [it for it in valid if it.get("is_seen", True)]
+    else:
+        valid = [it for it in valid if it.get("is_seen", False)]
+    
     if not valid:
         return []
 
     # attempt numeric comparison first, fall back to direct comparison
-    try:
-        min_val = min(float(it[priority_key]) for it in valid)
-        pool = [it for it in valid if float(it[priority_key]) == min_val]
-    except Exception:
-        min_val = min(it[priority_key] for it in valid)
-        pool = [it for it in valid if it[priority_key] == min_val]
+    pool = []
+    i = 0
+    while len(pool) < n:
+        try:
+            min_val = min(float(it[priority_key]) for it in valid) + i
+            pool = [it for it in valid if float(it[priority_key]) <= min_val]
+        except Exception:
+            min_val = min(it[priority_key] for it in valid) + i
+            pool = [it for it in valid if it[priority_key] <= min_val]
+        i += 1
 
     if not pool:
         return []
@@ -91,11 +99,12 @@ def pick_lowest_priority_items(items: List[Dict[str, Any]], n: int, priority_key
         if len(selected) >= k:
             break
 
+    print(f"Picked {len(selected)} items with lowest priority ({min_val}).\nItems: {selected}")
     return selected
 
 
 def select_random_letters_excluding(selected: List[Dict[str, Any]], n: int,
-                                    data: Dict[str, Any],
+                                    data: List[Dict[str, Any]],
                                     list_key: str = "thai_letters"
                                     ) -> List[Dict[str, Any]]:
     """
@@ -105,15 +114,12 @@ def select_random_letters_excluding(selected: List[Dict[str, Any]], n: int,
     """
     if n <= 0:
         return []
-    if not isinstance(data, dict):
-        return []
-
-    letters = data.get(list_key, [])
-    if not letters or not isinstance(letters, list):
+    if not isinstance(data, list):
         return []
 
     sel_chars = set()
     sel_names = set()
+    sel_sounds = set()
     for it in selected:
         if not isinstance(it, dict):
             continue
@@ -121,16 +127,26 @@ def select_random_letters_excluding(selected: List[Dict[str, Any]], n: int,
             sel_chars.add(it["letter_char"])
         if "letter_name" in it and it["letter_name"] is not None:
             sel_names.add(it["letter_name"])
+        if "letter_sound" in it and it["letter_sound"] is not None:
+            sel_sounds.add(it["letter_sound"])
 
-    pool = [lt for lt in letters
-            if lt.get("letter_char") not in sel_chars and lt.get("letter_name") not in sel_names]
+    pool = [lt for lt in data
+            if lt.get("letter_char") not in sel_chars and lt.get("letter_name") not in sel_names and lt.get("letter_sound") not in sel_sounds]
+
+    print(f"Confusion pool size (excluding selected): {len(pool)}")
+    final_list = []
 
     if not pool:
-        return []
+        return final_list
 
     if n <= len(pool):
-        return random.sample(pool, n)
-    return [random.choice(pool) for _ in range(n)]
+        final_list = random.sample(pool, n)
+    else:
+        final_list = [random.choice(pool) for _ in range(n)]
+
+    print(f"Selected {len(final_list)} confusion items excluding selected ones.")
+
+    return final_list
 
 
 def make_mc_question(list1: List[Dict[str, Any]],
@@ -147,8 +163,6 @@ def make_mc_question(list1: List[Dict[str, Any]],
       (i.e. "letter_name" + "letter_sound" is not allowed)
     - answers_list is shuffled; correct_index is the index of the truth answer (0-based)
     """
-    print(list1)
-    print(list2)
     if num_choices < 2:
         raise ValueError("num_choices must be >= 2")
 
@@ -159,6 +173,9 @@ def make_mc_question(list1: List[Dict[str, Any]],
     truth = random.choice(valid1)
 
     pool = [it for it in (list1 + list2) if isinstance(it, dict) and it is not truth]
+    print("Learning item sized pool:", len(list1))
+    print("Confusion item sized pool:", len(list2))
+    print("Pool size for incorrect answers:", len(pool))
     needed = num_choices - 1
     if needed > 0 and not pool:
         raise ValueError("not enough items to build choices")
@@ -186,5 +203,8 @@ def make_mc_question(list1: List[Dict[str, Any]],
     answers = [truth.get(answer_key)] + [it.get(answer_key) for it in others]
     random.shuffle(answers)
     correct_index = answers.index(truth.get(answer_key))
+
+    print("Correct answer:", truth)
+    print("Incorrect answers:", others)
 
     return question_value, answers, correct_index

@@ -88,3 +88,16 @@ def save_user_json(username: str, user_data: dict) -> bool:
         return True
     except OSError:
         return False
+
+
+def get_num_learned_letters(username:str) -> int:
+    """
+    Reads the user's JSON file and returns the number of Thai letters marked as learned.
+    Returns 0 if the file does not exist or cannot be read/parsed.
+    """
+    user_data = read_user_json(username)
+    thai_letters = user_data.get("thai_letters", [])
+    if not isinstance(thai_letters, list):
+        return 0
+    learned_count = sum(1 for letter in thai_letters if letter.get("is_seen") == True)
+    return learned_count

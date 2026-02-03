@@ -5,7 +5,7 @@
             "letter_char": "ก",
             "letter_sound": "k",
             "letter_priority": 1,
-            "is_seen": true
+            "is_seen": false
         },
         {
             "letter_name": "kho khai",
@@ -26,7 +26,7 @@
             "letter_char": "ค",
             "letter_sound": "kh -k",
             "letter_priority": 1,
-            "is_seen": true
+            "is_seen": false
         },
         {
             "letter_name": "kho khon",
@@ -54,7 +54,7 @@
             "letter_char": "จ",
             "letter_sound": "ch -t",
             "letter_priority": 1,
-            "is_seen": true
+            "is_seen": false
         },
         {
             "letter_name": "cho ching",
@@ -138,7 +138,7 @@
             "letter_char": "ด",
             "letter_sound": "d -t",
             "letter_priority": 1,
-            "is_seen": true
+            "is_seen": false
         },
         {
             "letter_name": "to tao",
@@ -194,7 +194,7 @@
             "letter_char": "ผ",
             "letter_sound": "ph",
             "letter_priority": 1,
-            "is_seen": true
+            "is_seen": false
         },
         {
             "letter_name": "fo fa",
@@ -313,14 +313,15 @@
             "letter_char": "◌ะ",
             "letter_sound": "a (short)",
             "letter_priority": 1,
-            "is_seen": true
+            "is_seen": false
         },
         {
             "letter_name": "sara a",
             "letter_char": "◌ั◌",
             "letter_sound": "a (short)",
-            "letter_priority": 1,
-            "is_seen ": false
+            "letter_priority": 2,
+            "is_seen ": false,
+            "is_seen": true
         },
         {
             " letter_name ": " sara a ",
@@ -361,8 +362,8 @@
             "letter_name": "sara ue",
             "letter_char": "◌ื◌",
             "letter_sound": "ue (long)",
-            "letter_priority": 1,
-            "is_seen": false
+            "letter_priority": 2,
+            "is_seen": true
         },
         {
             "letter_name": "sara u",
@@ -383,7 +384,7 @@
             "letter_char": "เ◌ะ",
             "letter_sound": "e (short)",
             "letter_priority": 1,
-            "is_seen": true
+            "is_seen": false
         },
         {
             "letter_name": "sara e",
@@ -459,7 +460,7 @@
             "letter_name": "sara o",
             "letter_char": "◌็",
             "letter_sound": "o (long)",
-            "letter_priority": 1,
+            "letter_priority": 2,
             "is_seen ": false,
             "is_seen": true
         },

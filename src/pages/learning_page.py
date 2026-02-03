@@ -4,12 +4,12 @@ from src.utils.learning_utils import load_thai_json_as_list, pick_lowest_priorit
 from src.utils.user_utils import read_user_json, save_user_json
 
 
-def learning_page(user_info, learned_language: str = "thai", num_questions: int = 3, is_letters:bool=True, is_practice: bool = False):
+def learning_page(user_info, learned_language: str = "thai", num_questions: int = 20, is_letters:bool=True, is_practice: bool = False):
 
     user_data = read_user_json(username=user_info.get("username"))
 
     thai_data = load_thai_json_as_list(user_info.get("username"), is_letters=is_letters)
-    question_items = pick_lowest_priority_items(thai_data, n=3, priority_key="letter_priority", is_unseen_only=not(is_practice))
+    question_items = pick_lowest_priority_items(thai_data, n=3, priority_key="letter_priority", is_seen=is_practice)
     if is_letters:
         confusion_items = select_random_letters_excluding(question_items, n=10, data=thai_data)
     else:
@@ -41,6 +41,7 @@ def learning_page(user_info, learned_language: str = "thai", num_questions: int 
         dcc.Store(id="num-questions-correct", data=0),
         dcc.Store(id="total-questions", data=num_questions),
         dcc.Store(id="user-learning-info", data=user_data),
+        dcc.Store(id="is-practice", data=is_practice),
         dcc.Store(id="username-store", data=user_info.get("username")),
     ])
 
@@ -67,6 +68,7 @@ def load_question(header_text, next_clicks, question_items, confusion_items, cur
     if current_question_index > total_questions:
         return html.Div(f"Quiz Complete with {num_correct}/{total_questions} correct!"), "Finished!", current_question_index, hidden_style, visible_style
     else:
+        print("Updating question values:")
         value, answers, correct_id = make_mc_question(
             question_items,
             confusion_items,
@@ -88,14 +90,25 @@ def load_question(header_text, next_clicks, question_items, confusion_items, cur
     State("total-questions", "data"),
     State("question-items-store", "data"),
     State("username-store", "data"),
+    State("is-practice", "data"),
     prevent_initial_call=True
 )
-def go_to_learn_thai(n_clicks, user_learning_info, num_correct, total_questions, question_items, username):
-    if num_correct / total_questions >= 0.1:
-        question_names = {item.get("letter_char") for item in question_items}
+def go_to_learn_thai(n_clicks, user_learning_info, num_correct, total_questions, question_items, username, is_practice):
+    # letters that are practiced are marked as seen
+    question_names = {item.get("letter_char") for item in question_items}
+    if is_practice:
+        for letter in user_learning_info.get("thai_letters", []):
+            if letter.get("letter_char") in question_names:
+                if num_correct / total_questions >= 0.95:
+                    # letters that are practiced and answered 100% correctly have their priority decreased
+                    letter["letter_priority"] = max(0, letter.get("letter_priority", 0) + 1)
+    else:
         for letter in user_learning_info.get("thai_letters", []):
             if letter.get("letter_char") in question_names:
                 letter["is_seen"] = True
+                if num_correct / total_questions >= 0.95:
+                    # letters that are practiced and answered 100% correctly have their priority decreased
+                    letter["letter_priority"] = max(0, letter.get("letter_priority", 0) + 1)
     
     # write user info back to file
     save_user_json(username=username, user_data=user_learning_info)

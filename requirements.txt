@@ -3,3 +3,4 @@ dash==3.2.0
 flask==3.1.2
 plotly==6.5.0
 requests==2.32.5
+gunicorn==25.0.1

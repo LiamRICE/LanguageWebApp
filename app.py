@@ -7,6 +7,7 @@ from src.pages.main import main_page
 
 # Initialize the Dash app.
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = app.server
 
 # Define the app layout with two side-by-side pie charts.
 
@@ -16,4 +17,4 @@ app.layout = html.Div(children=[
 ])
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

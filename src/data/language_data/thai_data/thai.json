@@ -531,7 +531,7 @@
         },
         {
             "word": "ใช่",
-            "meaning": "yes",
+            "meaning": "correct/yes",
             "pronunciation": "chai",
             "spelling": ["ช", "ไ", "อี"],
             "priority": 1,
@@ -539,7 +539,7 @@
         },
         {
             "word": "ไม่ใช่",
-            "meaning": "no",
+            "meaning": "incorrect/no",
             "pronunciation": "mai-chai",
             "spelling": ["ม", "ไ", "ช", "อี"],
             "priority": 1,
@@ -550,6 +550,102 @@
             "meaning": "goodbye",
             "pronunciation": "la-gon",
             "spelling": ["ล", "อา", "ก", "โอะ", "น"],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "สวย",
+            "meaning": "beautiful",
+            "pronunciation": "suay",
+            "spelling": ["ส", "ว", "ย"],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "คน",
+            "meaning": "person",
+            "pronunciation": "khon",
+            "spelling": ["ค", "โอะ", "น"],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "กิน",
+            "meaning": "to eat",
+            "pronunciation": "gin",
+            "spelling": ["ก", "อิ", "น"],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "อยาก",
+            "meaning": "to want",
+            "pronunciation": "yaak",
+            "spelling": ["อ", "ย", "อา", "ก"],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ชอบ",
+            "meaning": "to like",
+            "pronunciation": "chop",
+            "spelling": ["ช", "ออ", "บ"],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "รัก",
+            "meaning": "to love",
+            "pronunciation": "rak",
+            "spelling": ["ร", "อะ", "ก"],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "อร่อย",
+            "meaning": "delicious",
+            "pronunciation": "a-roy",
+            "spelling": ["อ", "ร", "อ่", "อ", "ย"],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "เผ็ด",
+            "meaning": "spicy",
+            "pronunciation": "phet",
+            "spelling": ["ผ", "เอะ", "ด"],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "แฟน",
+            "meaning": "boyfriend/girlfriend",
+            "pronunciation": "faen",
+            "spelling": ["ฟ", "แอ", "น"],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ไป",
+            "meaning": "to go",
+            "pronunciation": "pai",
+            "spelling": ["ป", "ไ"],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ข้าว",
+            "meaning": "rice",
+            "pronunciation": "khao",
+            "spelling": ["ข", "อ้า", "ว"],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "เป็น",
+            "meaning": "to be",
+            "pronunciation": "pen",
+            "spelling": ["ป", "เอ็", "น"],
             "priority": 1,
             "is_seen": false
         }

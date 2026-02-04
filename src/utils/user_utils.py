@@ -25,6 +25,18 @@ def create_user(username: str, password: str) -> bool:
         if not file_exists:
             writer.writerow(['username', 'password'])
         writer.writerow([username, password])
+    
+    # copy the data from the thai.json file and create a new user json file
+    default_user_data_path = os.path.join(os.path.dirname(__file__), '..', 'data', 'language_data', 'thai_data', 'thai.json')
+    new_user_data_path = os.path.join(USER_FOLDER, f"{username}.json")
+    os.makedirs(USER_FOLDER, exist_ok=True)
+    try:
+        with open(default_user_data_path, 'r', encoding='utf-8') as src_file:
+            data = json.load(src_file)
+        with open(new_user_data_path, 'w', encoding='utf-8') as dest_file:
+            json.dump(data, dest_file, ensure_ascii=False, indent=4)
+    except (json.JSONDecodeError, OSError):
+        pass  # If copying fails, we still created the user in CSV
     return True
 
 

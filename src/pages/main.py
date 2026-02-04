@@ -7,7 +7,7 @@ from src.pages.login import login_page
 from src.pages.account_create import account_create_page
 from src.pages.dashboard import dashboard_page
 from src.pages.learning_options import learning_options_page
-from src.pages.learning_page import learning_page
+from src.pages.learning_page_letters import learning_page
 
 
 def main_page():

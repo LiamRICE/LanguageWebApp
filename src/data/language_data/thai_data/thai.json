@@ -279,9 +279,281 @@
             "letter_sound": "lɯː",
             "letter_priority": 6,
             "is_seen": false
+        },
+  {
+    "letter_name": "kho rakhang",
+    "letter_char": "ฆ",
+    "letter_sound": "kʰ",
+    "letter_priority": 3,
+    "is_seen": false
+  },
+  {
+    "letter_name": "cho ching",
+    "letter_char": "ฉ",
+    "letter_sound": "t͡ɕʰ",
+    "letter_priority": 2,
+    "is_seen": false
+  },
+  {
+    "letter_name": "cho choe",
+    "letter_char": "ฌ",
+    "letter_sound": "t͡ɕʰ",
+    "letter_priority": 4,
+    "is_seen": false
+  },
+  {
+    "letter_name": "yo ying",
+    "letter_char": "ญ",
+    "letter_sound": "j / n",
+    "letter_priority": 2,
+    "is_seen": false
+  },
+  {
+    "letter_name": "do chada",
+    "letter_char": "ฎ",
+    "letter_sound": "d",
+    "letter_priority": 4,
+    "is_seen": false
+  },
+  {
+    "letter_name": "to patak",
+    "letter_char": "ฏ",
+    "letter_sound": "t",
+    "letter_priority": 4,
+    "is_seen": false
+  },
+  {
+    "letter_name": "tho than",
+    "letter_char": "ฐ",
+    "letter_sound": "tʰ",
+    "letter_priority": 3,
+    "is_seen": false
+  },
+  {
+    "letter_name": "tho nangmontho",
+    "letter_char": "ฑ",
+    "letter_sound": "tʰ",
+    "letter_priority": 4,
+    "is_seen": false
+  },
+  {
+    "letter_name": "tho phuthao",
+    "letter_char": "ฒ",
+    "letter_sound": "tʰ",
+    "letter_priority": 4,
+    "is_seen": false
+  },
+  {
+    "letter_name": "no nen",
+    "letter_char": "ณ",
+    "letter_sound": "n",
+    "letter_priority": 3,
+    "is_seen": false
+  },
+  {
+    "letter_name": "do dek",
+    "letter_char": "ด",
+    "letter_sound": "d",
+    "letter_priority": 1,
+    "is_seen": false
+  },
+  {
+    "letter_name": "to tao",
+    "letter_char": "ต",
+    "letter_sound": "t",
+    "letter_priority": 1,
+    "is_seen": false
+  },
+  {
+    "letter_name": "tho thung",
+    "letter_char": "ถ",
+    "letter_sound": "tʰ",
+    "letter_priority": 2,
+    "is_seen": false
+  },
+  {
+    "letter_name": "tho thahan",
+    "letter_char": "ธ",
+    "letter_sound": "tʰ",
+    "letter_priority": 2,
+    "is_seen": false
+  },
+  {
+    "letter_name": "bo baimai",
+    "letter_char": "บ",
+    "letter_sound": "b",
+    "letter_priority": 1,
+    "is_seen": false
+  },
+  {
+    "letter_name": "po pla",
+    "letter_char": "ป",
+    "letter_sound": "p",
+    "letter_priority": 1,
+    "is_seen": false
+  },
+  {
+    "letter_name": "pho phueng",
+    "letter_char": "ผ",
+    "letter_sound": "pʰ",
+    "letter_priority": 2,
+    "is_seen": false
+  },
+  {
+    "letter_name": "fo fa",
+    "letter_char": "ฝ",
+    "letter_sound": "f",
+    "letter_priority": 2,
+    "is_seen": false
+  },
+  {
+    "letter_name": "pho samphao",
+    "letter_char": "ภ",
+    "letter_sound": "pʰ",
+    "letter_priority": 3,
+    "is_seen": false
+  },
+  {
+    "letter_name": "so sala",
+    "letter_char": "ศ",
+    "letter_sound": "s",
+    "letter_priority": 3,
+    "is_seen": false
+  },
+  {
+    "letter_name": "so ruesi",
+    "letter_char": "ษ",
+    "letter_sound": "s",
+    "letter_priority": 4,
+    "is_seen": false
+  },
+  {
+    "letter_name": "so suea",
+    "letter_char": "ส",
+    "letter_sound": "s",
+    "letter_priority": 1,
+    "is_seen": false
+  },
+  {
+    "letter_name": "lo chula",
+    "letter_char": "ฬ",
+    "letter_sound": "l",
+    "letter_priority": 4,
+    "is_seen": false
+  },
+  {
+    "letter_name": "ho hip",
+    "letter_char": "ห",
+    "letter_sound": "h",
+    "letter_priority": 1,
+    "is_seen": false
+  },
+  {
+    "letter_name": "sara ue (short)",
+    "letter_char": "อึ",
+    "letter_sound": "ɯ",
+    "letter_priority": 1,
+    "is_seen": false
+  },
+  {
+    "letter_name": "sara ue (long)",
+    "letter_char": "อือ",
+    "letter_sound": "ɯː",
+    "letter_priority": 1,
+    "is_seen": false
+  },
+  {
+    "letter_name": "sara ao",
+    "letter_char": "เอา",
+    "letter_sound": "aw",
+    "letter_priority": 1,
+    "is_seen": false
+  },
+  {
+    "letter_name": "sara am",
+    "letter_char": "อำ",
+    "letter_sound": "am",
+    "letter_priority": 1,
+    "is_seen": false
+  },
+  {
+    "letter_name": "sara uea (diphthong)",
+    "letter_char": "เอือ",
+    "letter_sound": "ɯə",
+    "letter_priority": 3,
+    "is_seen": false
+  },
+  {
+    "letter_name": "mai ek",
+    "letter_char": "่",
+    "letter_sound": "low / falling contour",
+    "letter_priority": 1,
+    "is_seen": false
+  },
+  {
+    "letter_name": "mai tho",
+    "letter_char": "้",
+    "letter_sound": "falling contour",
+    "letter_priority": 1,
+    "is_seen": false
+  },
+  {
+    "letter_name": "mai tri",
+    "letter_char": "๊",
+    "letter_sound": "high contour",
+    "letter_priority": 2,
+    "is_seen": false
+  },
+  {
+    "letter_name": "mai chattawa",
+    "letter_char": "๋",
+    "letter_sound": "rising contour",
+    "letter_priority": 2,
+    "is_seen": false
+  }
+],
+    "thai_words": [
+        {
+            "word": "สวัสดี",
+            "meaning": "hello",
+            "pronunciation": "sa-wat-dee",
+            "spelling": ["ส", "ว", "อะ", "ส", "ด", "อี"],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ขอบคุณ",
+            "meaning": "thank you",
+            "pronunciation": "khop-khun",
+            "spelling": ["ข", "อ", "บ", "ค", "อุ", "ณ"],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ใช่",
+            "meaning": "yes",
+            "pronunciation": "chai",
+            "spelling": ["ช", "ไ", "อี"],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ไม่ใช่",
+            "meaning": "no",
+            "pronunciation": "mai-chai",
+            "spelling": ["ม", "ไ", "ช", "อี"],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ลาก่อน",
+            "meaning": "goodbye",
+            "pronunciation": "la-gon",
+            "spelling": ["ล", "อา", "ก", "โอะ", "น"],
+            "priority": 1,
+            "is_seen": false
         }
     ],
-    "thai_words": [],
     "settings": {
         "letters_per_session": 3
     },

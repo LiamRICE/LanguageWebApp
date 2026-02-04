@@ -40,7 +40,7 @@ def load_thai_json_as_list(username:str = "", path: str = "src/data/language_dat
     return final_data
 
 
-def pick_lowest_priority_items(items: List[Dict[str, Any]], n: int, priority_key: str = "priority", is_seen: bool = False) -> List[Dict[str, Any]]:
+def pick_lowest_priority_items(items: List[Dict[str, Any]], n: int, priority_key: str = "letter_priority", is_seen: bool = False) -> List[Dict[str, Any]]:
     """
     Sorts items by priority_key, selects items that have the lowest priority value,
     and returns up to n unique items chosen randomly from that lowest-priority pool.
@@ -52,9 +52,11 @@ def pick_lowest_priority_items(items: List[Dict[str, Any]], n: int, priority_key
 
     valid = [it for it in items if priority_key in it]
     if is_seen:
-        valid = [it for it in valid if it.get("is_seen", True)]
+        valid = [it for it in valid if it.get("is_seen") == True]
     else:
-        valid = [it for it in valid if it.get("is_seen", False)]
+        valid = [it for it in valid if it.get("is_seen") == False]
+
+    print(valid, "\n\n")
     
     if not valid:
         return []
@@ -208,3 +210,25 @@ def make_mc_question(list1: List[Dict[str, Any]],
     print("Incorrect answers:", others)
 
     return question_value, answers, correct_index
+
+
+def get_user_settings(username:str) -> dict:
+    """
+    Reads the user's JSON file and returns their settings as a dict.
+    Returns an empty dict if the file does not exist or cannot be read/parsed.
+    """
+    if not username:
+        return {}
+    user_data = {}
+    path = f"src/data/user_data/user_data/{username}.json"
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            user_data = json.load(f)
+        if not isinstance(user_data, dict):
+            return {}
+    except Exception:
+        return {}
+    settings = user_data.get("settings", {})
+    if not isinstance(settings, dict):
+        return {}
+    return settings

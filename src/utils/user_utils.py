@@ -101,3 +101,13 @@ def get_num_learned_letters(username:str) -> int:
         return 0
     learned_count = sum(1 for letter in thai_letters if letter.get("is_seen") == True)
     return learned_count
+
+
+def add_user_settings(username:str, settings: dict) -> bool:
+    """
+    Adds or updates the user's settings in their JSON file.
+    Returns True if the settings were saved successfully, False otherwise.
+    """
+    user_data = read_user_json(username)
+    user_data['settings'] = settings
+    return save_user_json(username, user_data)

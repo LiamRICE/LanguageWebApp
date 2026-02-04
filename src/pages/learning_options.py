@@ -1,6 +1,8 @@
 import dash
 import dash_bootstrap_components as dbc
+from dash import dcc, html, callback, Input, State
 from src.utils.learning_utils import load_thai_json_as_list
+from src.utils.user_utils import add_user_settings, read_user_json
 from dash import html
 
 
@@ -38,6 +40,9 @@ def render_card(item):
 def learning_options_page(enable_letters: bool, user_name:str, url:str = ""):
     buttons = []
 
+    user_data = read_user_json(username=user_name)
+    n = user_data.get("settings", {}).get("letters_per_session", 3)
+
     if "learn-thai" in url:
         if enable_letters:
             buttons.append(dbc.Button("Learn Letters", color="primary", className="m-1", href="/learn-thai/learn-letters"))
@@ -69,6 +74,21 @@ def learning_options_page(enable_letters: bool, user_name:str, url:str = ""):
                 justify="center",
                 className="mb-4"
             ),
+            html.Div(
+                [
+                    html.Label("Quantity to learn/practice:", style={'fontWeight': '600', 'marginBottom': '6px'}),
+                    dash.dcc.Slider(
+                        id='letters-count-slider',
+                        min=1,
+                        max=10,
+                        step=1,
+                        value=n,
+                        marks={i: str(i) for i in range(1, 11)},
+                        tooltip={'placement': 'bottom', 'always_visible': False}
+                    )
+                ],
+                className="my-3 px-2"
+            ),
             # Learned Letters Section
             html.Div(
                 [
@@ -96,9 +116,18 @@ def learning_options_page(enable_letters: bool, user_name:str, url:str = ""):
                     )
                 ],
                 className="my-3"
-            )
+            ),
+            dcc.Store(id="user-name-store", data=user_name)
         ],
         fluid=True,
     )
     
     return layout
+
+
+@callback(
+    Input("letters-count-slider", "value"),
+    State("user-name-store", "data")
+)
+def update_letters_count(value, user_name):
+    add_user_settings(username=user_name, settings={"letters_per_session": value})

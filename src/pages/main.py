@@ -1,6 +1,6 @@
 from dash import dcc, html, callback, Input, Output
 import dash_bootstrap_components as dbc
-from src.utils.user_utils import get_num_learned_letters
+from src.utils.user_utils import get_num_learned_letters, read_user_json
 from src.modules.webbar import webbar_component
 from src.modules.navbar import navbar_component
 from src.pages.login import login_page
@@ -31,6 +31,7 @@ def main_page():
 )
 def display_page(pathname, user_info):
     username = user_info.get("username") if user_info else "Guest"
+    user_data = read_user_json(username=username)
     
     if pathname == "/login":
         return login_page(), webbar_component()
@@ -47,14 +48,17 @@ def display_page(pathname, user_info):
     elif pathname == "/learn-thai/learn-letters":
         return learning_page(user_info=user_info, learned_language="thai", is_letters=True, is_practice=False), navbar_component()
     elif pathname == "/learn-thai/practice-letters":
-        if get_num_learned_letters(username=username) < 3:
+        print(f"Checking if enough letters learned to practice, {get_num_learned_letters(username=username)} learned VS {user_data.get('settings', {}).get('letters_per_session', 3)} required")
+        if get_num_learned_letters(username=username) < user_data.get("settings", {}).get("letters_per_session", 3):
+            print("Not enough letters learned to practice")
             return html.Div([
-                html.H2("You need to learn some letters before you can practice!", className="text-center my-4"),
+                html.H2("You need to learn more letters before you can practice this many!", className="text-center my-4"),
                 html.Div([
                     dbc.Button("Back to practice hub", href="/learn-thai", color="primary")
                 ], className="text-center")
             ]), navbar_component()
         else:
+            print("Enough letters learned, proceeding to practice")
             return learning_page(user_info=user_info, learned_language="thai", is_letters=True, is_practice=True), navbar_component()
     elif pathname == "/learn-thai/learn-words":
         return learning_page(user_info=user_info, learned_language="thai", is_letters=False, is_practice=False), navbar_component()

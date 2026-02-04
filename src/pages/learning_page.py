@@ -7,9 +7,10 @@ from src.utils.user_utils import read_user_json, save_user_json
 def learning_page(user_info, learned_language: str = "thai", num_questions: int = 20, is_letters:bool=True, is_practice: bool = False):
 
     user_data = read_user_json(username=user_info.get("username"))
+    n = user_data.get("settings", {}).get("letters_per_session", 3)
 
     thai_data = load_thai_json_as_list(user_info.get("username"), is_letters=is_letters)
-    question_items = pick_lowest_priority_items(thai_data, n=3, priority_key="letter_priority", is_seen=is_practice)
+    question_items = pick_lowest_priority_items(thai_data, n=n, priority_key="letter_priority", is_seen=is_practice)
     if is_letters:
         confusion_items = select_random_letters_excluding(question_items, n=10, data=thai_data)
     else:

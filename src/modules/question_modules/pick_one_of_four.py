@@ -125,7 +125,7 @@ def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_co
         styles = []
         for i in range(1, 5):
             styles.append(selected_style if sel == i else default_style)
-
+        print(f"Returning selection {sel}, next-question disabled = {True}, no update for num_correct")
         return styles[0], styles[1], styles[2], styles[3], default_style, sel, True, no_update
     
     elif "learning-page-question-validate" in ctx.triggered[0]["prop_id"].split(".")[0]:

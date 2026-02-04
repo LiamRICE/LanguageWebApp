@@ -60,4 +60,6 @@ def check_login(n_clicks, username, password):
         if check_user(username, password):
             print(f"User {username} authenticated successfully.")
             return {"username": username, "authenticated": True}, "/"
+
+    print(f"Authentication failed for user {username}.")
     return {"authenticated": False}, "/login"

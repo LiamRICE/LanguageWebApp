@@ -7,23 +7,82 @@ from dash import html
 
 
 def render_card(item):
-    title = item.get('letter_name') + " (" + item.get('letter_char') + ")"
+    title = f"{item.get('letter_name')} ({item.get('letter_char')})"
     details = [
         html.Div(item.get("letter_sound"), style={'fontSize': '12px', 'color': '#555', 'lineHeight': '1.2'})
     ]
+
+    # stats
+    last20 = item.get('last_20_answers', []) or []
+    total = len(last20)
+    correct = sum(1 for v in last20 if v)
+    incorrect = total - correct
+    times_practiced = item.get('times_learned', 0)
+    accuracy_text = f"{round((correct / total) * 100)}%" if total > 0 else "N/A"
+
+    # small pie figure (uses raw plotly figure dict so no extra imports needed)
+    pie_values = [correct, incorrect] if total > 0 else [1, 0]
+    pie_figure = {
+        "data": [
+            {
+                "values": pie_values,
+                "labels": ["Correct", "Incorrect"],
+                "type": "pie",
+                "marker": {"colors": ["#28a745", "#dc3545"]},
+                "hole": 0.6,
+                "textinfo": "none",
+                "showlegend": False,
+            }
+        ],
+        "layout": {
+            "margin": {"l": 0, "r": 0, "t": 0, "b": 0},
+            "height": 50,
+            "width": 50,
+            "paper_bgcolor": "rgba(0,0,0,0)",
+            "showlegend": False,
+        },
+    }
+
     card_children = []
     if item.get('image'):
         card_children.append(
             dbc.CardImg(src=item.get('image'), top=True, style={'height': '140px', 'objectFit': 'cover'})
         )
+
     card_children.append(
         dbc.CardBody(
             [
                 html.H5(title, className='card-title', style={'marginBottom': '6px'}),
-                html.Div(details)
+                html.Div(details),
+                # Stats row: pie + numbers
+                dbc.Row(
+                    [
+                        dbc.Col(
+                            dcc.Graph(figure=pie_figure, config={'displayModeBar': False}, style={'height': '50px', 'width':'300px'}),
+                            width=4,
+                            style={'display': 'flex', 'alignItems': 'center', 'justifyContent': 'center'}
+                        ),
+                        dbc.Col(
+                            html.Div(
+                                [
+                                    html.Div("Times practiced", style={'fontSize': '12px', 'color': '#666'}),
+                                    html.Div(str(times_practiced), style={'fontSize': '20px', 'fontWeight': '700'}),
+                                    html.Div("Accuracy (last 20)", style={'fontSize': '12px', 'color': '#666', 'marginTop': '6px'}),
+                                    html.Div(accuracy_text, style={'fontSize': '16px', 'fontWeight': '600', 'color': '#333'}),
+                                ],
+                                style={'textAlign': 'left'}
+                            ),
+                            width=8,
+                            style={'display': 'flex', 'alignItems': 'center'}
+                        )
+                    ],
+                    align='center',
+                    className='mt-2'
+                )
             ]
         )
     )
+
     return dbc.Card(
         card_children,
         className='h-100',

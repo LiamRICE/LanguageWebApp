@@ -283,6 +283,11 @@
     ],
     "thai_words": [],
     "settings": {
-        "letters_per_session": 5
+        "letters_per_session": 3
+    },
+    "statistics": {
+        "total_sessions": 0,
+        "total_questions": 0,
+        "total_correct": 0
     }
 }

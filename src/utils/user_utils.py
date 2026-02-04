@@ -111,3 +111,38 @@ def add_user_settings(username:str, settings: dict) -> bool:
     user_data = read_user_json(username)
     user_data['settings'] = settings
     return save_user_json(username, user_data)
+
+
+def get_global_learning_statistics(username:str) -> dict:
+    """
+    Reads the user's JSON file and returns their learning statistics.
+    Returns an empty dict if the file does not exist or cannot be read/parsed.
+    """
+    user_data = read_user_json(username)
+    return user_data.get("statistics", {})
+
+
+def get_thai_letters_learning_statistics(username:str) -> dict:
+    """
+    Reads the user's JSON file and returns their Thai letters learning statistics.
+    Returns an empty dict if the file does not exist or cannot be read/parsed.
+    """
+    learning_info = read_user_json(username)
+    thai_letters = learning_info.get("thai_letters", [])
+    total_letters = len(thai_letters)
+    learned_letters = sum(1 for letter in thai_letters if letter.get("is_seen") == True)
+
+    return {
+        "total_letters": total_letters,
+        "learned_letters": learned_letters
+    }
+
+
+def add_user_statistics(username:str, statistics: dict) -> bool:
+    """
+    Adds or updates the user's learning statistics in their JSON file.
+    Returns True if the statistics were saved successfully, False otherwise.
+    """
+    user_data = read_user_json(username)
+    user_data['statistics'] = statistics
+    return save_user_json(username, user_data)

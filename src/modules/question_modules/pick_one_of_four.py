@@ -1,9 +1,11 @@
-from typing import List, Optional
+from typing import List
 from dash import html, dcc
 from dash import Input, Output, State, callback, callback_context
 from dash import html, no_update
+from src.utils.user_utils import read_user_json, save_user_json, get_global_learning_statistics, add_user_statistics
 
-def create_pick_one_of_four(question: str, options: List[str], correct_id: int, prefix: str = "learning-page-question") -> html.Div:
+
+def create_pick_one_of_four(question: str, options: List[str], correct_id: int, instruction:str, prefix: str = "learning-page-question") -> html.Div:
     """
     Create a Dash component for a "pick one of four" question.
 
@@ -49,6 +51,7 @@ def create_pick_one_of_four(question: str, options: List[str], correct_id: int, 
     # Store the correct answer id (1..4) and the user's current selection.
     truth_store = dcc.Store(id=f"{prefix}-truth", data=int(correct_id))
     selected_store = dcc.Store(id=f"{prefix}-selected", data=None)
+    letter_in_question = dcc.Store(id="letter-in-question", data=options[correct_id - 1])
 
     # Validate button to trigger checking the answer; result_div can show feedback.
     validate_button = html.Button(
@@ -62,12 +65,14 @@ def create_pick_one_of_four(question: str, options: List[str], correct_id: int, 
     container = html.Div(
         [
             html.H1(question, id=f"{prefix}-question", style={"fontWeight": "600", "textAlign": "center"}),
+            html.Div(instruction, id=f"{prefix}-instruction", style={"fontWeight": "400", "textAlign": "center"}),
             html.Div(buttons, style=grid_style, id=f"{prefix}-grid"),
             validate_button,
             result_div,
             # stores (hidden)
             truth_store,
             selected_store,
+            letter_in_question,
         ],
         id=f"{prefix}-container",
         style={"maxWidth": "600px"}
@@ -94,9 +99,12 @@ def create_pick_one_of_four(question: str, options: List[str], correct_id: int, 
     State("learning-page-question-selected", "data"),
     State("learning-page-question-truth", "data"),
     State("num-questions-correct", "data"),
+    State("letter-in-question", "data"),
+    State("username-store", "data"),
     prevent_initial_call=True,
 )
-def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_correct):
+def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_correct, letter_in_question, username):
+    print("Truth:", truth)
     default_style = {
         "width": "100%",
         "padding": "10px 12px",
@@ -110,7 +118,6 @@ def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_co
 
     # If the validate button has been clicked, make buttons non-interactive and don't change the stored selection.
     if "-btn-" in ctx.triggered[0]["prop_id"].split(".")[0]:
-        print("Updating selection")
         triggered = ctx.triggered[0]["prop_id"].split(".")[0]
         sel = None
         if triggered.endswith("-btn-1"):
@@ -125,11 +132,9 @@ def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_co
         styles = []
         for i in range(1, 5):
             styles.append(selected_style if sel == i else default_style)
-        print(f"Returning selection {sel}, next-question disabled = {True}, no update for num_correct")
         return styles[0], styles[1], styles[2], styles[3], default_style, sel, True, no_update
     
     elif "learning-page-question-validate" in ctx.triggered[0]["prop_id"].split(".")[0]:
-        print("Validating selection")
         # On validate click, do not change styles or selection.
         unclickable_style = {
             "width": "100%",
@@ -163,7 +168,9 @@ def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_co
             correct_idx = None
 
         # If selection is correct: make that button green
+        is_correct = False
         if correct_idx is not None and sel_idx == correct_idx:
+            is_correct = True
             if 1 <= sel_idx <= 4:
                 styles[sel_idx - 1] = correct_style
             num_correct += 1
@@ -175,6 +182,39 @@ def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_co
             if correct_idx is not None and 1 <= correct_idx <= 4:
                 styles[correct_idx - 1] = correct_style
         
+        # update letter statistics
+        user_data = read_user_json(username)
+        letters = user_data.get("thai_letters", [])
+        # find the letter being questioned
+        print("Letter in question:", letter_in_question)
+        question_letter = None
+        for letter in letters:
+            if letter.get("letter_char") == letter_in_question or letter.get("letter_name") == letter_in_question or letter.get("letter_sound") == letter_in_question:
+                question_letter = letter
+                break
+        if question_letter is not None:
+            question_letter["times_learned"] = question_letter.get("times_learned", 0) + 1
+            if is_correct:
+                question_letter["times_correct"] = question_letter.get("times_correct", 0) + 1
+            # update last_20_answers
+            last_20 = question_letter.get("last_20_answers", [])
+            last_20.append(is_correct)
+            if len(last_20) > 20:
+                last_20 = last_20[-20:]
+            question_letter["last_20_answers"] = last_20
+        
+        user_data["thai_letters"] = letters
+        print(user_data["thai_letters"][letters.index(question_letter)])
+        # write back updated user data
+        saved = save_user_json(username, user_data)
+        print("Saving information :", saved)
+
+        # update global user statistics
+        user_statistics = get_global_learning_statistics(username)
+        user_statistics["total_questions"] = user_statistics.get("total_questions", 0) + 1
+        user_statistics["total_correct"] = user_statistics.get("total_correct", 0) + (1 if is_correct else 0)
+        add_user_statistics(username, user_statistics)
+
         return styles[0], styles[1], styles[2], styles[3], unclickable_style, no_update, False, num_correct
 
 

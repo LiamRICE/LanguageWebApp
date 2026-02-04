@@ -173,6 +173,7 @@ def make_mc_question(list1: List[Dict[str, Any]],
         raise ValueError("first list must contain at least one dict")
 
     truth = random.choice(valid1)
+    instruction = ""
 
     pool = [it for it in (list1 + list2) if isinstance(it, dict) and it is not truth]
     print("Learning item sized pool:", len(list1))
@@ -202,6 +203,8 @@ def make_mc_question(list1: List[Dict[str, Any]],
     question_key, answer_key = random.choice(possible_pairs)
     question_value = truth.get(question_key)
 
+    instruction = question_key.replace("_", " ").capitalize() + " => " + " Select the correct " + answer_key.replace("_", " ") + "."
+
     answers = [truth.get(answer_key)] + [it.get(answer_key) for it in others]
     random.shuffle(answers)
     correct_index = answers.index(truth.get(answer_key))
@@ -209,26 +212,4 @@ def make_mc_question(list1: List[Dict[str, Any]],
     print("Correct answer:", truth)
     print("Incorrect answers:", others)
 
-    return question_value, answers, correct_index
-
-
-def get_user_settings(username:str) -> dict:
-    """
-    Reads the user's JSON file and returns their settings as a dict.
-    Returns an empty dict if the file does not exist or cannot be read/parsed.
-    """
-    if not username:
-        return {}
-    user_data = {}
-    path = f"src/data/user_data/user_data/{username}.json"
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            user_data = json.load(f)
-        if not isinstance(user_data, dict):
-            return {}
-    except Exception:
-        return {}
-    settings = user_data.get("settings", {})
-    if not isinstance(settings, dict):
-        return {}
-    return settings
+    return question_value, answers, correct_index, instruction

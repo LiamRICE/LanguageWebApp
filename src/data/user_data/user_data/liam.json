@@ -5,14 +5,29 @@
             "letter_char": "ก",
             "letter_sound": "k / k",
             "letter_priority": 1,
-            "is_seen": true
+            "is_seen": false
         },
         {
             "letter_name": "kho khai",
             "letter_char": "ข",
             "letter_sound": "kʰ / k",
-            "letter_priority": 1,
-            "is_seen": false
+            "letter_priority": 4,
+            "is_seen": true,
+            "times_learned": 11,
+            "times_correct": 11,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
         },
         {
             "letter_name": "kho khwai",
@@ -32,8 +47,19 @@
             "letter_name": "cho chang",
             "letter_char": "ช",
             "letter_sound": "t͡ɕʰ",
-            "letter_priority": 1,
-            "is_seen": false
+            "letter_priority": 2,
+            "is_seen": true,
+            "times_learned": 7,
+            "times_correct": 7,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
         },
         {
             "letter_name": "so so",
@@ -47,7 +73,7 @@
             "letter_char": "จ",
             "letter_sound": "t͡ɕ",
             "letter_priority": 1,
-            "is_seen": true
+            "is_seen": false
         },
         {
             "letter_name": "yo yak",
@@ -67,29 +93,101 @@
             "letter_name": "mo ma",
             "letter_char": "ม",
             "letter_sound": "m",
-            "letter_priority": 1,
-            "is_seen": true
+            "letter_priority": 3,
+            "is_seen": true,
+            "times_learned": 14,
+            "times_correct": 14,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
         },
         {
             "letter_name": "lo ling",
             "letter_char": "ล",
             "letter_sound": "l",
-            "letter_priority": 1,
-            "is_seen": false
+            "letter_priority": 4,
+            "is_seen": true,
+            "times_learned": 17,
+            "times_correct": 17,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
         },
         {
             "letter_name": "wo waen",
             "letter_char": "ว",
             "letter_sound": "w",
-            "letter_priority": 1,
-            "is_seen": false
+            "letter_priority": 2,
+            "is_seen": true,
+            "times_learned": 16,
+            "last_20_answers": [
+                false,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ],
+            "times_correct": 15
         },
         {
             "letter_name": "or aang",
             "letter_char": "อ",
             "letter_sound": "ʔ (silent)",
-            "letter_priority": 1,
-            "is_seen": false
+            "letter_priority": 3,
+            "is_seen": true,
+            "times_learned": 9,
+            "times_correct": 9,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
         },
         {
             "letter_name": "pho phan",
@@ -137,36 +235,118 @@
             "letter_name": "sara aa (long)",
             "letter_char": "อา",
             "letter_sound": "aː",
-            "letter_priority": 1,
-            "is_seen": false
+            "letter_priority": 3,
+            "is_seen": true,
+            "times_learned": 9,
+            "times_correct": 9,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
         },
         {
             "letter_name": "sara i (short)",
             "letter_char": "อิ",
             "letter_sound": "i",
-            "letter_priority": 1,
-            "is_seen": true
+            "letter_priority": 3,
+            "is_seen": true,
+            "times_learned": 6,
+            "times_correct": 6,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
         },
         {
             "letter_name": "sara ii (long)",
             "letter_char": "อี",
             "letter_sound": "iː",
-            "letter_priority": 1,
-            "is_seen": false
+            "letter_priority": 4,
+            "is_seen": true,
+            "times_learned": 15,
+            "times_correct": 15,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
         },
         {
             "letter_name": "sara u (short)",
             "letter_char": "อุ",
             "letter_sound": "u",
-            "letter_priority": 1,
-            "is_seen": false
+            "letter_priority": 4,
+            "is_seen": true,
+            "times_learned": 18,
+            "times_correct": 17,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                false,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
         },
         {
             "letter_name": "sara uu (long)",
             "letter_char": "อู",
             "letter_sound": "uː",
-            "letter_priority": 1,
-            "is_seen": false
+            "letter_priority": 3,
+            "is_seen": true,
+            "times_learned": 14,
+            "times_correct": 13,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                false,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
         },
         {
             "letter_name": "sara e (short)",
@@ -180,7 +360,7 @@
             "letter_char": "เอ",
             "letter_sound": "eː",
             "letter_priority": 1,
-            "is_seen": true
+            "is_seen": false
         },
         {
             "letter_name": "sara o (short)",
@@ -193,8 +373,32 @@
             "letter_name": "sara oo (long)",
             "letter_char": "โอ",
             "letter_sound": "oː",
-            "letter_priority": 1,
-            "is_seen": false
+            "letter_priority": 4,
+            "is_seen": true,
+            "times_learned": 24,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ],
+            "times_correct": 23
         },
         {
             "letter_name": "sara ae (short)",
@@ -283,6 +487,11 @@
     ],
     "thai_words": [],
     "settings": {
-        "letters_per_session": 8
+        "letters_per_session": 3
+    },
+    "statistics": {
+        "total_sessions": 16,
+        "total_questions": 160,
+        "total_correct": 156
     }
 }

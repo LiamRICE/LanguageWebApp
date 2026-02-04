@@ -1,7 +1,7 @@
 from dash import html, dcc, callback, Input, Output, State
 from src.modules.question_modules.pick_one_of_four import create_pick_one_of_four
 from src.utils.learning_utils import load_thai_json_as_list, pick_lowest_priority_items, select_random_letters_excluding, make_mc_question
-from src.utils.user_utils import read_user_json, save_user_json
+from src.utils.user_utils import add_user_statistics, get_global_learning_statistics, read_user_json, save_user_json
 
 
 def learning_page(user_info, learned_language: str = "thai", num_questions: int = 20, is_letters:bool=True, is_practice: bool = False):
@@ -9,8 +9,12 @@ def learning_page(user_info, learned_language: str = "thai", num_questions: int 
     user_data = read_user_json(username=user_info.get("username"))
     n = user_data.get("settings", {}).get("letters_per_session", 3)
 
+    priority_key = "letter_priority"
+    if is_practice:
+        priority_key = "times_learned"
+
     thai_data = load_thai_json_as_list(user_info.get("username"), is_letters=is_letters)
-    question_items = pick_lowest_priority_items(thai_data, n=n, priority_key="letter_priority", is_seen=is_practice)
+    question_items = pick_lowest_priority_items(thai_data, n=n, priority_key=priority_key, is_seen=is_practice)
     if is_letters:
         confusion_items = select_random_letters_excluding(question_items, n=10, data=thai_data)
     else:
@@ -70,7 +74,7 @@ def load_question(header_text, next_clicks, question_items, confusion_items, cur
         return html.Div(f"Quiz Complete with {num_correct}/{total_questions} correct!"), "Finished!", current_question_index, hidden_style, visible_style
     else:
         print("Updating question values:")
-        value, answers, correct_id = make_mc_question(
+        value, answers, correct_id, instruction = make_mc_question(
             question_items,
             confusion_items,
             num_choices=4
@@ -79,14 +83,14 @@ def load_question(header_text, next_clicks, question_items, confusion_items, cur
         return create_pick_one_of_four(
             question=value,
             options=answers,
-            correct_id=correct_id+1
+            correct_id=correct_id+1,
+            instruction=instruction
         ), header_text, current_question_index+1, visible_style, hidden_style
 
 
 @callback(
     Output("url", "pathname", allow_duplicate=True),
     Input("finish-button", "n_clicks"),
-    State("user-learning-info", "data"),
     State("num-questions-correct", "data"),
     State("total-questions", "data"),
     State("question-items-store", "data"),
@@ -94,7 +98,9 @@ def load_question(header_text, next_clicks, question_items, confusion_items, cur
     State("is-practice", "data"),
     prevent_initial_call=True
 )
-def go_to_learn_thai(n_clicks, user_learning_info, num_correct, total_questions, question_items, username, is_practice):
+def go_to_learn_thai(n_clicks, num_correct, total_questions, question_items, username, is_practice):
+    # read user info from file
+    user_learning_info = read_user_json(username=username)
     # letters that are practiced are marked as seen
     question_names = {item.get("letter_char") for item in question_items}
     if is_practice:
@@ -113,5 +119,10 @@ def go_to_learn_thai(n_clicks, user_learning_info, num_correct, total_questions,
     
     # write user info back to file
     save_user_json(username=username, user_data=user_learning_info)
+
+    # update user statistics
+    user_statistics = get_global_learning_statistics("liam")
+    user_statistics["total_sessions"] = user_statistics.get("total_sessions", 0) + 1
+    add_user_statistics("liam", user_statistics)
 
     return "/learn-thai"

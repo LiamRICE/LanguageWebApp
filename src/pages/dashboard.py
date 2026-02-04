@@ -1,5 +1,8 @@
 from dash import html, dcc
 from src.utils.user_utils import get_global_learning_statistics, get_thai_letters_learning_statistics, read_user_json
+import json
+import urllib.parse
+
 
 def dashboard_page(user_name):
 
@@ -16,8 +19,32 @@ def dashboard_page(user_name):
     total_letters = thai_letters_statistics.get("total_letters", 0)
     letters_learned_pct = (num_learned_letters / total_letters * 100) if total_letters > 0 else 0.0
 
+    user_json = read_user_json(user_name)
+    json_str = json.dumps(user_json, ensure_ascii=False, indent=2)
+    data_uri = "data:application/json;charset=utf-8," + urllib.parse.quote(json_str)
+
+    download_button = html.A(
+        "Download your data",
+        href=data_uri,
+        download=f"{user_name}_data.json",
+        style={
+            "display": "inline-block",
+            "margin": "10px 0",
+            "padding": "8px 12px",
+            "background": "#007BFF",
+            "color": "white",
+            "borderRadius": "4px",
+            "textDecoration": "none",
+        },
+    )
+
+    download_component = html.Div(download_button, style={"textAlign": "center", "width": "100%", "marginBottom": "10px"})
     layout = html.Div([
         html.H1(f"Hi {user_name}", style={'textAlign': 'center'}),
+        html.Div(
+            download_component,
+            style={"textAlign": "center"}
+        ),
         html.Div(
             [
                 html.Div(

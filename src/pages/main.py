@@ -43,8 +43,6 @@ def display_page(pathname, user_info):
         return dashboard_page(username), navbar_component()
     elif pathname == "/learn-thai":
         return learning_options_page(True, username, pathname), navbar_component()
-    elif pathname == "/learn-french":
-        return learning_options_page(False, username, pathname), navbar_component()
     elif pathname == "/learn-thai/learn-letters":
         return learning_page(user_info=user_info, learned_language="thai", is_letters=True, is_practice=False), navbar_component()
     elif pathname == "/learn-thai/practice-letters":

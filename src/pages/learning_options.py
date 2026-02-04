@@ -110,15 +110,7 @@ def learning_options_page(enable_letters: bool, user_name:str, url:str = ""):
             buttons.append(dbc.Button("Practice Letters", color="secondary", className="m-1", href="/learn-thai/practice-letters"))
         buttons.append(dbc.Button("Practice Words", color="secondary", className="m-1", href="/learn-thai/practice-words"))
         buttons.append(dbc.Button("Sentences", color="info", className="m-1", href="/learn-thai/sentences"))
-    elif "learn-french" in url:
-        if enable_letters:
-            buttons.append(dbc.Button("Learn Letters", color="primary", className="m-1", href="/learn-french/learn-letters"))
-        buttons.append(dbc.Button("Learn Words", color="primary", className="m-1", href="/learn-french/learn-words"))
-        if enable_letters:
-            buttons.append(dbc.Button("Practice Letters", color="secondary", className="m-1", href="/learn-french/practice-letters"))
-        buttons.append(dbc.Button("Practice Words", color="secondary", className="m-1", href="/learn-french/practice-words"))
-        buttons.append(dbc.Button("Sentences", color="info", className="m-1", href="/learn-french/sentences"))
-
+    
     user_data_letters = load_thai_json_as_list(username=user_name, is_letters=True)
     user_data_words = load_thai_json_as_list(username=user_name, is_letters=False)
 

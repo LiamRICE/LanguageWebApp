@@ -3,7 +3,6 @@ import dash_bootstrap_components as dbc
 
 NAV_ITEMS = [
     {"name": "Learn Thai", "href": "/learn-thai"},
-    {"name": "Learn French", "href": "/learn-french"},
 ]
 
 def navbar_component():

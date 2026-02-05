@@ -162,7 +162,6 @@ def add_user_statistics(username:str, statistics: dict) -> bool:
 
 def update_user_information_letter(username:str, letter_to_update:str, result:bool) -> bool:
     # update stats
-    print(f"Updating statistics : {letter_to_update} with result {result} for user {username}")
     user_data = read_user_json(username)
     letters = user_data.get("thai_letters", [])
 
@@ -170,7 +169,6 @@ def update_user_information_letter(username:str, letter_to_update:str, result:bo
     for letter in letters:
         if letter.get("letter_char") == letter_to_update or letter.get("letter_name") == letter_to_update or letter.get("letter_sound") == letter_to_update:
             question_letter = letter
-            print(f"Updating {letter}")
             break
     if question_letter is not None:
         question_letter["times_learned"] = question_letter.get("times_learned", 0) + 1
@@ -184,7 +182,6 @@ def update_user_information_letter(username:str, letter_to_update:str, result:bo
         question_letter["last_20_answers"] = last_20
     
     user_data["thai_letters"] = letters
-    print(f"Saving letter {question_letter}")
     saved = save_user_json(username, user_data)
 
     # update global user statistics

@@ -13,6 +13,7 @@ def render_card(item):
     ]
 
     # stats
+    # print(item)
     last20 = item.get('last_20_answers', []) or []
     total = len(last20)
     correct = sum(1 for v in last20 if v)
@@ -114,8 +115,8 @@ def learning_options_page(enable_letters: bool, user_name:str, url:str = ""):
     user_data_letters = load_thai_json_as_list(username=user_name, is_letters=True)
     user_data_words = load_thai_json_as_list(username=user_name, is_letters=False)
 
-    learned_letters = [i for i in user_data_letters if i.get('is_seen')]
-    learned_words = [i for i in user_data_words if i.get('is_seen')]
+    learned_letters = [i for i in user_data_letters if i.get('is_seen') == True]
+    learned_words = [i for i in user_data_words if i.get('is_seen') == True]
 
     layout = dbc.Container(
         [

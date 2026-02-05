@@ -2,7 +2,7 @@ from typing import List
 from dash import html, dcc
 from dash import Input, Output, State, callback, callback_context
 from dash import html, no_update
-from src.utils.user_utils import read_user_json, save_user_json, get_global_learning_statistics, add_user_statistics
+from src.utils.user_utils import update_user_information_letter
 
 
 def create_pick_one_of_four(question: str, options: List[str], correct_id: int, instruction:str, prefix: str = "learning-page-question", small_buttons:bool = False) -> html.Div:
@@ -109,7 +109,7 @@ def create_pick_one_of_four(question: str, options: List[str], correct_id: int, 
     prevent_initial_call=True,
 )
 def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_correct, letter_in_question, username, small_buttons):
-    print("Pick one of Four callback active")
+    # print("Pick one of Four callback active")
     default_style = {
         "width": "100%",
         "padding": "10px 12px",
@@ -192,34 +192,7 @@ def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_co
                 styles[correct_idx - 1] = correct_style
         
         # update letter statistics
-        user_data = read_user_json(username)
-        letters = user_data.get("thai_letters", [])
-        # find the letter being questioned
-        question_letter = None
-        for letter in letters:
-            if letter.get("letter_char") == letter_in_question or letter.get("letter_name") == letter_in_question or letter.get("letter_sound") == letter_in_question:
-                question_letter = letter
-                break
-        if question_letter is not None:
-            question_letter["times_learned"] = question_letter.get("times_learned", 0) + 1
-            if is_correct:
-                question_letter["times_correct"] = question_letter.get("times_correct", 0) + 1
-            # update last_20_answers
-            last_20 = question_letter.get("last_20_answers", [])
-            last_20.append(is_correct)
-            if len(last_20) > 20:
-                last_20 = last_20[-20:]
-            question_letter["last_20_answers"] = last_20
-        
-        user_data["thai_letters"] = letters
-        # write back updated user data
-        saved = save_user_json(username, user_data)
-
-        # update global user statistics
-        user_statistics = get_global_learning_statistics(username)
-        user_statistics["total_questions"] = user_statistics.get("total_questions", 0) + 1
-        user_statistics["total_correct"] = user_statistics.get("total_correct", 0) + (1 if is_correct else 0)
-        add_user_statistics(username, user_statistics)
+        update_user_information_letter(username, letter_in_question, is_correct)
 
         return styles[0], styles[1], styles[2], styles[3], unclickable_style, no_update, False, num_correct
 

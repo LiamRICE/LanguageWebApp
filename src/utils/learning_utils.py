@@ -37,7 +37,7 @@ def load_thai_json_as_list(username:str = "", path: str = "src/data/language_dat
             if isinstance(v, list):
                 final_data.extend([it for it in v if isinstance(it, dict)])
     
-    print("Exercise data loaded:", len(final_data), "items.")
+    # print("Exercise data loaded:", len(final_data), "items.")
     return final_data
 
 
@@ -57,7 +57,7 @@ def pick_lowest_priority_items(items: List[Dict[str, Any]], n: int, priority_key
     else:
         valid = [it for it in valid if it.get("is_seen") == False]
 
-    print(valid, "\n\n")
+    # print(valid, "\n\n")
     
     if not valid:
         return []
@@ -102,7 +102,7 @@ def pick_lowest_priority_items(items: List[Dict[str, Any]], n: int, priority_key
         if len(selected) >= k:
             break
 
-    print(f"Picked {len(selected)} items with lowest priority ({min_val}).\nItems: {selected}")
+    # print(f"Picked {len(selected)} items with lowest priority ({min_val}).\nItems: {selected}")
     return selected
 
 
@@ -136,7 +136,7 @@ def select_random_letters_excluding(selected: List[Dict[str, Any]], n: int,
     pool = [lt for lt in data
             if lt.get("letter_char") not in sel_chars and lt.get("letter_name") not in sel_names and lt.get("letter_sound") not in sel_sounds]
 
-    print(f"Confusion pool size (excluding selected): {len(pool)}")
+    # print(f"Confusion pool size (excluding selected): {len(pool)}")
     final_list = []
 
     if not pool:
@@ -147,7 +147,7 @@ def select_random_letters_excluding(selected: List[Dict[str, Any]], n: int,
     else:
         final_list = [random.choice(pool) for _ in range(n)]
 
-    print(f"Selected {len(final_list)} confusion items excluding selected ones.")
+    # print(f"Selected {len(final_list)} confusion items excluding selected ones.")
 
     return final_list
 
@@ -185,9 +185,9 @@ def get_pick_one_of_four_question_data(list1: List[Dict[str, Any]],
     truth = random.choice(valid1)
 
     pool = [it for it in (list1 + list2) if isinstance(it, dict) and it is not truth]
-    print("Learning item sized pool:", len(list1))
-    print("Confusion item sized pool:", len(list2))
-    print("Pool size for incorrect answers:", len(pool))
+    # print("Learning item sized pool:", len(list1))
+    # print("Confusion item sized pool:", len(list2))
+    # print("Pool size for incorrect answers:", len(pool))
     needed = num_choices - 1
     if needed > 0 and not pool:
         raise ValueError("not enough items to build choices")
@@ -221,8 +221,8 @@ def get_pick_one_of_four_question_data(list1: List[Dict[str, Any]],
     random.shuffle(answers)
     correct_index = answers.index(truth.get(answer_key))
 
-    print("Correct answer:", truth)
-    print("Incorrect answers:", others)
+    # print("Correct answer:", truth)
+    # print("Incorrect answers:", others)
 
     return question_value, answers, correct_index, instruction, small_buttons
 
@@ -266,7 +266,7 @@ def check_text_answer_is_valid(answer:str, truth:str) -> bool:
 
     similarity = max(similarity_score, alt_similarity_score)
 
-    print(f"Similarity between {answer} and {truth} or {alt_truth} is {similarity_score} or {alt_similarity_score}")
+    # print(f"Similarity between {answer} and {truth} or {alt_truth} is {similarity_score} or {alt_similarity_score}")
 
     if similarity >= 0.8:
         return True

@@ -60,7 +60,7 @@ def string_similarity(a: str, b: str) -> float:
     if b_norm == "chh":
         b_norm = "ch"
 
-    print(f"Normalised a = {a_norm}\nNormalised b = {b_norm}")
+    # print(f"Normalised a = {a_norm}\nNormalised b = {b_norm}")
 
     if not a_norm and not b_norm:
         return 1.0

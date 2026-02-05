@@ -11,7 +11,7 @@
             "letter_name": "kho khai",
             "letter_char": "ข",
             "letter_sound": "kʰ / k",
-            "letter_priority": 4,
+            "letter_priority": 5,
             "is_seen": true,
             "times_learned": 11,
             "times_correct": 11,
@@ -49,8 +49,8 @@
             "letter_sound": "t͡ɕʰ",
             "letter_priority": 2,
             "is_seen": true,
-            "times_learned": 13,
-            "times_correct": 11,
+            "times_learned": 14,
+            "times_correct": 12,
             "last_20_answers": [
                 true,
                 true,
@@ -64,7 +64,8 @@
                 false,
                 true,
                 true,
-                false
+                false,
+                true
             ]
         },
         {
@@ -79,21 +80,21 @@
             "letter_char": "จ",
             "letter_sound": "t͡ɕ",
             "letter_priority": 1,
-            "is_seen": false
+            "is_seen": true
         },
         {
             "letter_name": "yo yak",
             "letter_char": "ย",
             "letter_sound": "j",
             "letter_priority": 1,
-            "is_seen": false
+            "is_seen": true
         },
         {
             "letter_name": "no nu",
             "letter_char": "น",
             "letter_sound": "n",
             "letter_priority": 1,
-            "is_seen": false
+            "is_seen": true
         },
         {
             "letter_name": "mo ma",
@@ -247,7 +248,7 @@
             "letter_name": "sara aa (long)",
             "letter_char": "อา",
             "letter_sound": "aː",
-            "letter_priority": 3,
+            "letter_priority": 4,
             "is_seen": true,
             "times_learned": 12,
             "times_correct": 11,
@@ -270,7 +271,7 @@
             "letter_name": "sara i (short)",
             "letter_char": "อิ",
             "letter_sound": "i",
-            "letter_priority": 3,
+            "letter_priority": 4,
             "is_seen": true,
             "times_learned": 13,
             "times_correct": 10,
@@ -588,7 +589,7 @@
             "letter_char": "ต",
             "letter_sound": "t",
             "letter_priority": 1,
-            "is_seen": false
+            "is_seen": true
         },
         {
             "letter_name": "tho thung",
@@ -672,7 +673,7 @@
             "letter_char": "ห",
             "letter_sound": "h",
             "letter_priority": 1,
-            "is_seen": false
+            "is_seen": true
         },
         {
             "letter_name": "sara ue (short)",
@@ -721,7 +722,7 @@
             "letter_char": "้",
             "letter_sound": "falling contour",
             "letter_priority": 1,
-            "is_seen": false
+            "is_seen": true
         },
         {
             "letter_name": "mai tri",
@@ -743,8 +744,8 @@
         "letters_per_session": 3
     },
     "statistics": {
-        "total_sessions": 60,
-        "total_questions": 283,
-        "total_correct": 240
+        "total_sessions": 70,
+        "total_questions": 313,
+        "total_correct": 266
     }
 }

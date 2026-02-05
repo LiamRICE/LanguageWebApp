@@ -73,8 +73,8 @@ def load_question(header_text, next_clicks, question_items, confusion_items, cur
 
     min_learned = -1
     for letter in question_items:
-        if min_learned == -1 or letter.get("times_learned") < min_learned:
-            min_learned = letter.get("times_learned")
+        if min_learned == -1 or letter.get("times_learned", -1) < min_learned:
+            min_learned = letter.get("times_learned", -1)
 
     if current_question_index > total_questions:
         return html.Div(f"Quiz Complete with {num_correct}/{total_questions} correct!"), "Finished!", current_question_index, hidden_style, visible_style
@@ -89,7 +89,7 @@ def load_question(header_text, next_clicks, question_items, confusion_items, cur
         if question_type == "pick_one_of_four":
             value, answers, correct_id, instruction, small_buttons = get_pick_one_of_four_question_data(question_items, confusion_items, num_choices=4)
 
-            print(small_buttons)
+            # print(small_buttons)
 
             return create_pick_one_of_four(
                 question=value,

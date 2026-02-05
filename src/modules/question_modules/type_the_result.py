@@ -2,7 +2,7 @@ from typing import List
 from dash import html, dcc
 from dash import Input, Output, State, callback, callback_context
 from dash import html, no_update
-from src.utils.user_utils import read_user_json, save_user_json, get_global_learning_statistics, add_user_statistics
+from src.utils.user_utils import update_user_information_letter
 from src.utils.learning_utils import check_text_answer_is_valid
 
 
@@ -74,9 +74,9 @@ def create_type_the_result(question: str, correct_answer: str, instruction:str, 
     prevent_initial_call=True
 )
 def _check_result(n_clicks, user_input, ground_truth, num_questions_correct, question_letter, username):
-    print("Complete text callback active")
+    # print("Complete text callback active")
     ctx = callback_context
-    print(ctx.triggered[0])
+    # print(ctx.triggered[0])
 
     unclickable_style = {
         "width": "100%",
@@ -111,11 +111,11 @@ def _check_result(n_clicks, user_input, ground_truth, num_questions_correct, que
     }
 
     if "learning-page-question-complete-let-validate" in ctx.triggered[0]["prop_id"].split(".")[0] and n_clicks > 0:
-        print("Validate button clicked")
+        # print("Validate button clicked")
         # check answer is valid
-        print("User input :", user_input)
+        # print("User input :", user_input)
         result = check_text_answer_is_valid(user_input, ground_truth)
-        print(f"Provided answer is {result}")
+        # print(f"Provided answer is {result}")
 
         style = false_style
         text = html.P("")
@@ -128,38 +128,11 @@ def _check_result(n_clicks, user_input, ground_truth, num_questions_correct, que
         else:
             text = html.P(children=f"Sorry, the correct answer is {ground_truth}")
         
-        # update stats
-        user_data = read_user_json(username)
-        letters = user_data.get("thai_letters", [])
-
-        question_letter = None
-        for letter in letters:
-            if letter.get("letter_char") == question_letter or letter.get("letter_name") == question_letter or letter.get("letter_sound") == question_letter:
-                question_letter = letter
-                break
-        if question_letter is not None:
-            question_letter["times_learned"] = question_letter.get("times_learned", 0) + 1
-            if result:
-                question_letter["times_correct"] = question_letter.get("times_correct", 0) + 1
-            # update last_20_answers
-            last_20 = question_letter.get("last_20_answers", [])
-            last_20.append(result)
-            if len(last_20) > 20:
-                last_20 = last_20[-20:]
-            question_letter["last_20_answers"] = last_20
-        
-        user_data["thai_letters"] = letters
-        saved = save_user_json(username, user_data)
-
-        # update global user statistics
-        user_statistics = get_global_learning_statistics(username)
-        user_statistics["total_questions"] = user_statistics.get("total_questions", 0) + 1
-        user_statistics["total_correct"] = user_statistics.get("total_correct", 0) + (1 if result else 0)
-        add_user_statistics(username, user_statistics)
+        update_user_information_letter(username, question_letter, result)
 
         return unclickable_style, False, num_questions_correct, style, text
 
     else:
-        print("No update")
+        # print("No update")
         return no_update, no_update, no_update, no_update, no_update
 

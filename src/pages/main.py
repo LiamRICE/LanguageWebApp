@@ -46,9 +46,9 @@ def display_page(pathname, user_info):
     elif pathname == "/learn-thai/learn-letters":
         return learning_page(user_info=user_info, learned_language="thai", is_letters=True, is_practice=False), navbar_component()
     elif pathname == "/learn-thai/practice-letters":
-        print(f"Checking if enough letters learned to practice, {get_num_learned_letters(username=username)} learned VS {user_data.get('settings', {}).get('letters_per_session', 3)} required")
+        # print(f"Checking if enough letters learned to practice, {get_num_learned_letters(username=username)} learned VS {user_data.get('settings', {}).get('letters_per_session', 3)} required")
         if get_num_learned_letters(username=username) < user_data.get("settings", {}).get("letters_per_session", 3):
-            print("Not enough letters learned to practice")
+            # print("Not enough letters learned to practice")
             return html.Div([
                 html.H2("You need to learn more letters before you can practice this many!", className="text-center my-4"),
                 html.Div([
@@ -56,7 +56,7 @@ def display_page(pathname, user_info):
                 ], className="text-center")
             ]), navbar_component()
         else:
-            print("Enough letters learned, proceeding to practice")
+            # print("Enough letters learned, proceeding to practice")
             return learning_page(user_info=user_info, learned_language="thai", is_letters=True, is_practice=True), navbar_component()
     elif pathname == "/learn-thai/learn-words":
         return learning_page(user_info=user_info, learned_language="thai", is_letters=False, is_practice=False), navbar_component()

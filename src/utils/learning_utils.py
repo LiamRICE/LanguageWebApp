@@ -1,6 +1,7 @@
 import random
 from typing import List, Dict, Any
 import json
+from src.utils.technical_utils import string_similarity
 
 
 def load_thai_json_as_list(username:str = "", path: str = "src/data/language_data/thai_data/thai.json", is_letters: bool = True) -> List[Dict[str, Any]]:
@@ -151,7 +152,16 @@ def select_random_letters_excluding(selected: List[Dict[str, Any]], n: int,
     return final_list
 
 
-def make_mc_question(list1: List[Dict[str, Any]],
+def random_question_from_pool(is_letters:bool=True) -> str:
+    letter_question_pool = ["pick_one_of_four", "type_the_result"]
+    word_question_pool = ["pick_one_of_four"]
+    if is_letters:
+        return random.choice(letter_question_pool)
+    else:
+        return random.choice(word_question_pool)
+
+
+def get_pick_one_of_four_question_data(list1: List[Dict[str, Any]],
                         list2: List[Dict[str, Any]],
                         num_choices: int,
                         priority_key: str = "letter_priority") -> tuple:
@@ -173,7 +183,6 @@ def make_mc_question(list1: List[Dict[str, Any]],
         raise ValueError("first list must contain at least one dict")
 
     truth = random.choice(valid1)
-    instruction = ""
 
     pool = [it for it in (list1 + list2) if isinstance(it, dict) and it is not truth]
     print("Learning item sized pool:", len(list1))
@@ -204,6 +213,9 @@ def make_mc_question(list1: List[Dict[str, Any]],
     question_value = truth.get(question_key)
 
     instruction = question_key.replace("_", " ").capitalize() + " => " + " Select the correct " + answer_key.replace("_", " ") + "."
+    small_buttons = False
+    if answer_key in ["letter_name"]:
+        small_buttons = True
 
     answers = [truth.get(answer_key)] + [it.get(answer_key) for it in others]
     random.shuffle(answers)
@@ -212,4 +224,52 @@ def make_mc_question(list1: List[Dict[str, Any]],
     print("Correct answer:", truth)
     print("Incorrect answers:", others)
 
-    return question_value, answers, correct_index, instruction
+    return question_value, answers, correct_index, instruction, small_buttons
+
+
+def get_type_the_result_question_data(list1: List[Dict[str, Any]],
+                                    priority_key: str = "letter_priority") -> tuple:
+    valid1 = [it for it in list1 if isinstance(it, dict)]
+    if not valid1:
+        raise ValueError("first list must contain at least one dict")
+    
+    truth = random.choice(valid1)
+
+    # allowed ordered key pairs
+    allowed_pairs = [
+        ("letter_char", "letter_name"),
+        ("letter_char", "letter_sound"),
+    ]
+    possible_pairs = [pair for pair in allowed_pairs if pair[0] in truth and pair[1] in truth]
+
+    if not possible_pairs:
+        raise ValueError("truth item must contain a valid key pair (char => name or char => sound)")
+    
+    question_key, answer_key = random.choice(possible_pairs)
+
+    instruction = "Type the correct <b>" + answer_key.replace("_", " ") + " </b>."
+
+    question_value = truth.get(question_key)
+    answer_raw_value = truth.get(answer_key)
+
+    # process the raw answer value to improve the ease of answer typing
+
+    return question_value, answer_raw_value, instruction
+
+
+def check_text_answer_is_valid(answer:str, truth:str) -> bool:
+    # remove parts of characters between parentheses
+    alt_truth = truth.split(" (")[0]
+    # compute similarity between the two strings
+    similarity_score = string_similarity(answer, truth)
+    alt_similarity_score = string_similarity(answer, alt_truth)
+
+    similarity = max(similarity_score, alt_similarity_score)
+
+    print(f"Similarity between {answer} and {truth} or {alt_truth} is {similarity_score} or {alt_similarity_score}")
+
+    if similarity >= 0.8:
+        return True
+    else:
+        return False
+

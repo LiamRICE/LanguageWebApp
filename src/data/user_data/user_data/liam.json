@@ -49,8 +49,8 @@
             "letter_sound": "t͡ɕʰ",
             "letter_priority": 2,
             "is_seen": true,
-            "times_learned": 7,
-            "times_correct": 7,
+            "times_learned": 13,
+            "times_correct": 11,
             "last_20_answers": [
                 true,
                 true,
@@ -58,7 +58,13 @@
                 true,
                 true,
                 true,
-                true
+                true,
+                true,
+                true,
+                false,
+                true,
+                true,
+                false
             ]
         },
         {
@@ -175,8 +181,8 @@
             "letter_sound": "ʔ (silent)",
             "letter_priority": 3,
             "is_seen": true,
-            "times_learned": 9,
-            "times_correct": 9,
+            "times_learned": 15,
+            "times_correct": 13,
             "last_20_answers": [
                 true,
                 true,
@@ -186,7 +192,13 @@
                 true,
                 true,
                 true,
-                true
+                true,
+                true,
+                true,
+                false,
+                true,
+                true,
+                false
             ]
         },
         {
@@ -237,8 +249,8 @@
             "letter_sound": "aː",
             "letter_priority": 3,
             "is_seen": true,
-            "times_learned": 9,
-            "times_correct": 9,
+            "times_learned": 12,
+            "times_correct": 11,
             "last_20_answers": [
                 true,
                 true,
@@ -248,7 +260,10 @@
                 true,
                 true,
                 true,
-                true
+                true,
+                true,
+                true,
+                false
             ]
         },
         {
@@ -257,12 +272,19 @@
             "letter_sound": "i",
             "letter_priority": 3,
             "is_seen": true,
-            "times_learned": 6,
-            "times_correct": 6,
+            "times_learned": 13,
+            "times_correct": 10,
             "last_20_answers": [
                 true,
                 true,
                 true,
+                true,
+                true,
+                true,
+                true,
+                false,
+                false,
+                false,
                 true,
                 true,
                 true
@@ -721,8 +743,8 @@
         "letters_per_session": 3
     },
     "statistics": {
-        "total_sessions": 17,
-        "total_questions": 160,
-        "total_correct": 156
+        "total_sessions": 60,
+        "total_questions": 283,
+        "total_correct": 240
     }
 }

@@ -1,6 +1,7 @@
 from dash import html, dcc, callback, Input, Output, State
 from src.modules.question_modules.pick_one_of_four import create_pick_one_of_four
-from src.utils.learning_utils import load_thai_json_as_list, pick_lowest_priority_items, select_random_letters_excluding, make_mc_question
+from src.modules.question_modules.type_the_result import create_type_the_result
+from src.utils.learning_utils import load_thai_json_as_list, pick_lowest_priority_items, select_random_letters_excluding, get_pick_one_of_four_question_data, random_question_from_pool, get_type_the_result_question_data
 from src.utils.user_utils import add_user_statistics, get_global_learning_statistics, read_user_json, save_user_json
 
 
@@ -70,22 +71,42 @@ def load_question(header_text, next_clicks, question_items, confusion_items, cur
     visible_style = {"marginTop": "12px", "width": "100%", "padding": "10px 12px", "display": "block"}
     hidden_style = {"display": "none"}
 
+    min_learned = -1
+    for letter in question_items:
+        if min_learned == -1 or letter.get("times_learned") < min_learned:
+            min_learned = letter.get("times_learned")
+
     if current_question_index > total_questions:
         return html.Div(f"Quiz Complete with {num_correct}/{total_questions} correct!"), "Finished!", current_question_index, hidden_style, visible_style
     else:
-        print("Updating question values:")
-        value, answers, correct_id, instruction = make_mc_question(
-            question_items,
-            confusion_items,
-            num_choices=4
-        )
+        if min_learned >= 20:
+            question_type = random_question_from_pool(is_letters=True)
+        else:
+            question_type = "pick_one_of_four"
+        # question_type = "type_the_result" # temporary, for testing
+        # question_type = "pick_one_of_four" # temporary, for testing
 
-        return create_pick_one_of_four(
-            question=value,
-            options=answers,
-            correct_id=correct_id+1,
-            instruction=instruction
-        ), header_text, current_question_index+1, visible_style, hidden_style
+        if question_type == "pick_one_of_four":
+            value, answers, correct_id, instruction, small_buttons = get_pick_one_of_four_question_data(question_items, confusion_items, num_choices=4)
+
+            print(small_buttons)
+
+            return create_pick_one_of_four(
+                question=value,
+                options=answers,
+                correct_id=correct_id+1,
+                instruction=instruction,
+                small_buttons=small_buttons
+            ), header_text, current_question_index+1, visible_style, hidden_style
+        
+        elif question_type == "type_the_result":
+            question, correct_answer, instruction = get_type_the_result_question_data(question_items)
+            
+            return create_type_the_result(
+                question=question,
+                correct_answer=correct_answer,
+                instruction=instruction
+            ), header_text, current_question_index+1, visible_style, hidden_style
 
 
 @callback(

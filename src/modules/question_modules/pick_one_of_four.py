@@ -5,7 +5,7 @@ from dash import html, no_update
 from src.utils.user_utils import read_user_json, save_user_json, get_global_learning_statistics, add_user_statistics
 
 
-def create_pick_one_of_four(question: str, options: List[str], correct_id: int, instruction:str, prefix: str = "learning-page-question") -> html.Div:
+def create_pick_one_of_four(question: str, options: List[str], correct_id: int, instruction:str, prefix: str = "learning-page-question", small_buttons:bool = False) -> html.Div:
     """
     Create a Dash component for a "pick one of four" question.
 
@@ -32,6 +32,8 @@ def create_pick_one_of_four(question: str, options: List[str], correct_id: int, 
         "cursor": "pointer",
         "fontSize": "48px"
     }
+    if small_buttons == True:
+        btn_style["fontSize"] = "24px"
 
     # Buttons: include a data-index attribute and a className so callbacks can toggle a "selected" class/style.
     buttons = []
@@ -52,11 +54,12 @@ def create_pick_one_of_four(question: str, options: List[str], correct_id: int, 
     truth_store = dcc.Store(id=f"{prefix}-truth", data=int(correct_id))
     selected_store = dcc.Store(id=f"{prefix}-selected", data=None)
     letter_in_question = dcc.Store(id="letter-in-question", data=options[correct_id - 1])
+    small_buttons_store = dcc.Store(id="small-buttons-store", data=small_buttons)
 
     # Validate button to trigger checking the answer; result_div can show feedback.
     validate_button = html.Button(
         "Validate",
-        id=f"{prefix}-validate",
+        id=f"{prefix}-one-four-validate",
         n_clicks=0,
         style={"marginTop": "12px", "width": "100%", "padding": "10px 12px"}
     )
@@ -73,6 +76,7 @@ def create_pick_one_of_four(question: str, options: List[str], correct_id: int, 
             truth_store,
             selected_store,
             letter_in_question,
+            small_buttons_store,
         ],
         id=f"{prefix}-container",
         style={"maxWidth": "600px"}
@@ -87,7 +91,7 @@ def create_pick_one_of_four(question: str, options: List[str], correct_id: int, 
     Output("learning-page-question-btn-2", "style", allow_duplicate=True),
     Output("learning-page-question-btn-3", "style", allow_duplicate=True),
     Output("learning-page-question-btn-4", "style", allow_duplicate=True),
-    Output("learning-page-question-validate", "style", allow_duplicate=True),
+    Output("learning-page-question-one-four-validate", "style", allow_duplicate=True),
     Output("learning-page-question-selected", "data", allow_duplicate=True),
     Output("next-question-button", "disabled", allow_duplicate=True),
     Output("num-questions-correct", "data", allow_duplicate=True),
@@ -95,16 +99,17 @@ def create_pick_one_of_four(question: str, options: List[str], correct_id: int, 
     Input("learning-page-question-btn-2", "n_clicks"),
     Input("learning-page-question-btn-3", "n_clicks"),
     Input("learning-page-question-btn-4", "n_clicks"),
-    Input("learning-page-question-validate", "n_clicks"),
+    Input("learning-page-question-one-four-validate", "n_clicks"),
     State("learning-page-question-selected", "data"),
     State("learning-page-question-truth", "data"),
     State("num-questions-correct", "data"),
     State("letter-in-question", "data"),
     State("username-store", "data"),
+    State("small-buttons-store", "data"),
     prevent_initial_call=True,
 )
-def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_correct, letter_in_question, username):
-    print("Truth:", truth)
+def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_correct, letter_in_question, username, small_buttons):
+    print("Pick one of Four callback active")
     default_style = {
         "width": "100%",
         "padding": "10px 12px",
@@ -112,6 +117,8 @@ def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_co
         "cursor": "pointer",
         "fontSize": "48px"
     }
+    if small_buttons == True:
+        default_style["fontSize"] = "24px"
     selected_style = {**default_style, "backgroundColor": "#cfe8ff", "border": "2px solid #0074D9"}
 
     ctx = callback_context
@@ -134,7 +141,7 @@ def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_co
             styles.append(selected_style if sel == i else default_style)
         return styles[0], styles[1], styles[2], styles[3], default_style, sel, True, no_update
     
-    elif "learning-page-question-validate" in ctx.triggered[0]["prop_id"].split(".")[0]:
+    elif "learning-page-question-one-four-validate" in ctx.triggered[0]["prop_id"].split(".")[0] and validate_clicks > 0:
         # On validate click, do not change styles or selection.
         unclickable_style = {
             "width": "100%",
@@ -148,6 +155,8 @@ def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_co
             "pointerEvents": "none",
             "fontSize": "48px"
         }
+        if small_buttons == True:
+            unclickable_style["fontSize"] = "24px"
         correct_style = {**unclickable_style, "backgroundColor": "#d4ffd4", "border": "2px solid #2ecc40"}
         incorrect_style = {**unclickable_style, "backgroundColor": "#ffd4d4", "border": "2px solid #ff4136"}
 
@@ -186,7 +195,6 @@ def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_co
         user_data = read_user_json(username)
         letters = user_data.get("thai_letters", [])
         # find the letter being questioned
-        print("Letter in question:", letter_in_question)
         question_letter = None
         for letter in letters:
             if letter.get("letter_char") == letter_in_question or letter.get("letter_name") == letter_in_question or letter.get("letter_sound") == letter_in_question:
@@ -204,10 +212,8 @@ def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_co
             question_letter["last_20_answers"] = last_20
         
         user_data["thai_letters"] = letters
-        print(user_data["thai_letters"][letters.index(question_letter)])
         # write back updated user data
         saved = save_user_json(username, user_data)
-        print("Saving information :", saved)
 
         # update global user statistics
         user_statistics = get_global_learning_statistics(username)

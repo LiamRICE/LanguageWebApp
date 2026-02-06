@@ -115,6 +115,19 @@ def get_num_learned_letters(username:str) -> int:
     return learned_count
 
 
+def get_num_learned_words(username:str) -> int:
+    """
+    Reads the user's JSON file and returns the number of Thai letters marked as learned.
+    Returns 0 if the file does not exist or cannot be read/parsed.
+    """
+    user_data = read_user_json(username)
+    thai_words = user_data.get("thai_words", [])
+    if not isinstance(thai_words, list):
+        return 0
+    learned_count = sum(1 for word in thai_words if word.get("is_seen") == True)
+    return learned_count
+
+
 def add_user_settings(username:str, settings: dict) -> bool:
     """
     Adds or updates the user's settings in their JSON file.
@@ -180,6 +193,8 @@ def update_user_information_letter(username:str, letter_to_update:str, result:bo
         if len(last_20) > 20:
             last_20 = last_20[-20:]
         question_letter["last_20_answers"] = last_20
+    else:
+        return False
     
     user_data["thai_letters"] = letters
     saved = save_user_json(username, user_data)
@@ -189,3 +204,40 @@ def update_user_information_letter(username:str, letter_to_update:str, result:bo
     user_statistics["total_questions"] = user_statistics.get("total_questions", 0) + 1
     user_statistics["total_correct"] = user_statistics.get("total_correct", 0) + (1 if result else 0)
     add_user_statistics(username, user_statistics)
+
+    return True
+
+
+def update_user_information_word(username:str, word_to_update:str, result:bool) -> bool:
+    # update stats
+    user_data = read_user_json(username)
+    words = user_data.get("thai_words", [])
+
+    question_word = None
+    for word in words:
+        if word.get("word") == word_to_update or word.get("meaning") == word_to_update or word.get("pronunciation") == word_to_update:
+            question_word = word
+            break
+    if question_word is not None:
+        question_word["times_learned"] = question_word.get("times_learned", 0) + 1
+        if result:
+            question_word["times_correct"] = question_word.get("times_correct", 0) + 1
+        # update last_20_answers
+        last_20 = question_word.get("last_20_answers", [])
+        last_20.append(result)
+        if len(last_20) > 20:
+            last_20 = last_20[-20:]
+        question_word["last_20_answers"] = last_20
+    else:
+        return False
+    
+    user_data["thai_words"] = words
+    saved = save_user_json(username, user_data)
+
+    # update global user statistics
+    user_statistics = get_global_learning_statistics(username)
+    user_statistics["total_questions"] = user_statistics.get("total_questions", 0) + 1
+    user_statistics["total_correct"] = user_statistics.get("total_correct", 0) + (1 if result else 0)
+    add_user_statistics(username, user_statistics)
+
+    return True

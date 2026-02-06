@@ -1,22 +1,22 @@
 from dash import html, dcc, callback, Input, Output, State
 from src.modules.question_modules.pick_one_of_four import create_pick_one_of_four
 from src.modules.question_modules.type_the_result import create_type_the_result
-from src.utils.learning_utils import load_thai_json_as_list, pick_lowest_priority_items, select_random_letters_excluding, get_pick_one_of_four_question_data, random_question_from_pool, get_type_the_result_question_data
+from src.utils.learning_utils import load_thai_json_as_list, pick_lowest_priority_items, select_random_words_excluding, get_pick_one_of_four_question_data, random_question_from_pool, get_type_the_result_question_data
 from src.utils.user_utils import add_user_statistics, get_global_learning_statistics, read_user_json, save_user_json
 
 
-def learning_page(user_info, learned_language: str = "thai", num_questions: int = 20, is_letters:bool=True, is_practice: bool = False):
+def learning_page(user_info, learned_language: str = "thai", num_questions: int = 20, is_letters:bool=False, is_practice: bool = False):
 
     user_data = read_user_json(username=user_info.get("username"))
     n = user_data.get("settings", {}).get("letters_per_session", 3)
 
-    priority_key = "letter_priority"
+    priority_key = "priority"
     if is_practice:
         priority_key = "times_learned"
 
     thai_data = load_thai_json_as_list(user_info.get("username"), is_letters=is_letters)
     question_items = pick_lowest_priority_items(thai_data, n=n, priority_key=priority_key, is_seen=is_practice)
-    confusion_items = select_random_letters_excluding(question_items, n=10, data=thai_data)
+    confusion_items = select_random_words_excluding(question_items, n=10, data=thai_data)
 
     next_button = html.Button(
         "Next Question",
@@ -69,19 +69,21 @@ def load_question(header_text, next_clicks, question_items, confusion_items, cur
     hidden_style = {"display": "none"}
 
     min_learned = -1
-    for letter in question_items:
-        if min_learned == -1 or letter.get("times_learned", -1) < min_learned:
-            min_learned = letter.get("times_learned", -1)
+    for word in question_items:
+        if min_learned == -1 or word.get("times_learned", -1) < min_learned:
+            min_learned = word.get("times_learned", -1)
 
     if current_question_index > total_questions:
         return html.Div(f"Quiz Complete with {num_correct}/{total_questions} correct!"), "Finished!", current_question_index, hidden_style, visible_style
     else:
         if min_learned >= 20:
-            question_type = random_question_from_pool(is_letters=True)
+            question_type = random_question_from_pool(is_letters=False)
         else:
             question_type = "pick_one_of_four"
         # question_type = "type_the_result" # temporary, for testing
         # question_type = "pick_one_of_four" # temporary, for testing
+
+        # TODO - upddate below this point for words
 
         if question_type == "pick_one_of_four":
             value, answers, correct_id, instruction, small_buttons = get_pick_one_of_four_question_data(question_items, confusion_items, num_choices=4)

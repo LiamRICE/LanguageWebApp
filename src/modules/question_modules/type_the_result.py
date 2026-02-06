@@ -2,11 +2,11 @@ from typing import List
 from dash import html, dcc
 from dash import Input, Output, State, callback, callback_context
 from dash import html, no_update
-from src.utils.user_utils import update_user_information_letter
+from src.utils.user_utils import update_user_information_letter, update_user_information_word
 from src.utils.learning_utils import check_text_answer_is_valid
 
 
-def create_type_the_result(question: str, correct_answer: str, instruction:str, prefix: str = "learning-page-question") -> html.Div:
+def create_type_the_result(question: str, correct_answer: str, instruction:str, prefix: str = "learning-page-question", is_letters:bool = True) -> html.Div:
     """
     Create a Dash component for a "type the result" question.
 
@@ -36,7 +36,7 @@ def create_type_the_result(question: str, correct_answer: str, instruction:str, 
     truth_store = dcc.Store(id=f"{prefix}-truth", data=correct_answer.lower())
     user_input_store = dcc.Store(id=f"{prefix}-user-input", data="")
     question_store = dcc.Store(id="letter-in-question", data=question)
-    # username_store = dcc.Store(id="username-store")
+    is_letters_store = dcc.Store(id="is-letters-store", data=is_letters)
 
     # Validate button to trigger checking the answer; result_div can show feedback.
     validate_button = html.Button(
@@ -56,6 +56,7 @@ def create_type_the_result(question: str, correct_answer: str, instruction:str, 
         truth_store,
         user_input_store,
         question_store,
+        is_letters_store,
     ])
 
 
@@ -71,9 +72,10 @@ def create_type_the_result(question: str, correct_answer: str, instruction:str, 
     State("num-questions-correct", "data"),
     State("letter-in-question", "data"),
     State("username-store", "data"),
+    State("is-letters-store", "data"),
     prevent_initial_call=True
 )
-def _check_result(n_clicks, user_input, ground_truth, num_questions_correct, question_letter, username):
+def _check_result(n_clicks, user_input, ground_truth, num_questions_correct, question_letter, username, is_letters):
     # print("Complete text callback active")
     ctx = callback_context
     # print(ctx.triggered[0])
@@ -127,8 +129,11 @@ def _check_result(n_clicks, user_input, ground_truth, num_questions_correct, que
 
         else:
             text = html.P(children=f"Sorry, the correct answer is {ground_truth}")
-        
-        update_user_information_letter(username, question_letter, result)
+
+        if is_letters:
+            update_user_information_letter(username, question_letter, result)
+        else:
+            update_user_information_word(username, question_letter, result)
 
         return unclickable_style, False, num_questions_correct, style, text
 

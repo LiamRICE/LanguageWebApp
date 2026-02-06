@@ -79,6 +79,11 @@ def pick_lowest_priority_items(items: List[Dict[str, Any]], n: int, priority_key
 
     k = min(n, len(pool))
 
+    if priority_key == "letter_priority":
+        keys = ["letter_name", "letter_sound"]
+    else:
+        keys = ["meaning", "pronunciation"]
+
     # select up to k items ensuring unique letter_name and letter_sound
     random.shuffle(pool)
     selected: List[Dict[str, Any]] = []
@@ -87,8 +92,8 @@ def pick_lowest_priority_items(items: List[Dict[str, Any]], n: int, priority_key
     for it in pool:
         if not isinstance(it, dict):
             continue
-        name = it.get("letter_name")
-        sound = it.get("letter_sound")
+        name = it.get(keys[0])
+        sound = it.get(keys[1])
         # skip if would duplicate a seen name or sound (only consider non-None values)
         if name is not None and name in seen_names:
             continue
@@ -107,8 +112,7 @@ def pick_lowest_priority_items(items: List[Dict[str, Any]], n: int, priority_key
 
 
 def select_random_letters_excluding(selected: List[Dict[str, Any]], n: int,
-                                    data: List[Dict[str, Any]],
-                                    list_key: str = "thai_letters"
+                                    data: List[Dict[str, Any]]
                                     ) -> List[Dict[str, Any]]:
     """
     Return n random items from data[list_key] not present in `selected`.
@@ -135,6 +139,46 @@ def select_random_letters_excluding(selected: List[Dict[str, Any]], n: int,
 
     pool = [lt for lt in data
             if lt.get("letter_char") not in sel_chars and lt.get("letter_name") not in sel_names and lt.get("letter_sound") not in sel_sounds]
+
+    # print(f"Confusion pool size (excluding selected): {len(pool)}")
+    final_list = []
+
+    if not pool:
+        return final_list
+
+    if n <= len(pool):
+        final_list = random.sample(pool, n)
+    else:
+        final_list = [random.choice(pool) for _ in range(n)]
+
+    # print(f"Selected {len(final_list)} confusion items excluding selected ones.")
+
+    return final_list
+
+
+def select_random_words_excluding(selected: List[Dict[str, Any]], n: int,
+                                    data: List[Dict[str, Any]]
+                                    ) -> List[Dict[str, Any]]:
+    if n <= 0:
+        return []
+    if not isinstance(data, list):
+        return []
+
+    sel_words = set()
+    sel_pronunciation = set()
+    sel_meaning = set()
+    for it in selected:
+        if not isinstance(it, dict):
+            continue
+        if "word" in it and it["word"] is not None:
+            sel_words.add(it["word"])
+        if "pronunciation" in it and it["pronunciation"] is not None:
+            sel_pronunciation.add(it["pronunciation"])
+        if "meaning" in it and it["meaning"] is not None:
+            sel_meaning.add(it["meaning"])
+
+    pool = [lt for lt in data
+            if lt.get("word") not in sel_words and lt.get("pronunciation") not in sel_pronunciation and lt.get("meaning") not in sel_meaning]
 
     # print(f"Confusion pool size (excluding selected): {len(pool)}")
     final_list = []

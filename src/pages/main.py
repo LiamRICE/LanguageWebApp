@@ -1,6 +1,6 @@
 from dash import dcc, html, callback, Input, Output
 import dash_bootstrap_components as dbc
-from src.utils.user_utils import get_num_learned_letters, get_num_learned_words, read_user_json
+from src.utils.user_utils import get_num_learned_letters, get_num_learned_words, read_user_json, words_can_learn
 from src.modules.webbar import webbar_component
 from src.modules.navbar import navbar_component
 from src.pages.login import login_page
@@ -60,7 +60,15 @@ def display_page(pathname, user_info):
             # print("Enough letters learned, proceeding to practice")
             return learning_page_letters(user_info=user_info, learned_language="thai", is_letters=True, is_practice=True), navbar_component()
     elif pathname == "/learn-thai/learn-words":
-        return learning_page_words(user_info=user_info, learned_language="thai", is_letters=False, is_practice=False), navbar_component()
+        if len(words_can_learn(username=username)) > user_data.get("settings", {}).get("letters_per_session", 3):
+            return learning_page_words(user_info=user_info, learned_language="thai", is_letters=False, is_practice=False), navbar_component()
+        else:
+            return html.Div([
+                html.H2(f"You need to learn more letters before you can learn any words! You can only learn {len(words_can_learn(username=username))} words.", className="text-center my-4"),
+                html.Div([
+                    dbc.Button("Back to practice hub", href="/learn-thai", color="primary")
+                ], className="text-center")
+            ]), navbar_component()
     elif pathname == "/learn-thai/practice-words":
         if get_num_learned_words(username) < user_data.get("settings", {}).get("letters_per_session", 3):
             return html.Div([

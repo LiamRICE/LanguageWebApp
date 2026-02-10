@@ -207,8 +207,7 @@ def random_question_from_pool(is_letters:bool=True) -> str:
 
 def get_pick_one_of_four_question_data(list1: List[Dict[str, Any]],
                         list2: List[Dict[str, Any]],
-                        num_choices: int,
-                        priority_key: str = "letter_priority") -> tuple:
+                        num_choices: int) -> tuple:
     """
     Return (question_value, answers_list, correct_index).
     - truth: one random dict from list1
@@ -260,6 +259,61 @@ def get_pick_one_of_four_question_data(list1: List[Dict[str, Any]],
     small_buttons = False
     if answer_key in ["letter_name"]:
         small_buttons = True
+
+    answers = [truth.get(answer_key)] + [it.get(answer_key) for it in others]
+    random.shuffle(answers)
+    correct_index = answers.index(truth.get(answer_key))
+
+    # print("Correct answer:", truth)
+    # print("Incorrect answers:", others)
+
+    return question_value, answers, correct_index, instruction, small_buttons
+
+
+def pick_one_of_four_question_data_words(list1: List[Dict[str, Any]],
+                        list2: List[Dict[str, Any]],
+                        num_choices: int) -> tuple:
+    if num_choices < 2:
+        raise ValueError("num_choices must be >= 2")
+
+    valid1 = [it for it in list1 if isinstance(it, dict)]
+    if not valid1:
+        raise ValueError("first list must contain at least one dict")
+
+    truth = random.choice(valid1)
+
+    pool = [it for it in (list1 + list2) if isinstance(it, dict) and it is not truth]
+    # print("Learning item sized pool:", len(list1))
+    # print("Confusion item sized pool:", len(list2))
+    # print("Pool size for incorrect answers:", len(pool))
+    needed = num_choices - 1
+    if needed > 0 and not pool:
+        raise ValueError("not enough items to build choices")
+
+    if needed <= len(pool):
+        others = random.sample(pool, needed)
+    else:
+        others = [random.choice(pool) for _ in range(needed)]
+
+    # allowed ordered key pairs
+    allowed_pairs = [
+        ("word", "meaning"),
+        ("meaning", "word"),
+        ("word", "pronunciation"),
+        ("pronunciation", "word"),
+        ("meaning", "pronunciation"),
+        ("pronunciation", "meaning")
+    ]
+    possible_pairs = [pair for pair in allowed_pairs if pair[0] in truth and pair[1] in truth]
+
+    if not possible_pairs:
+        raise ValueError("truth item must contain a valid key pair (name/char or sound/char)")
+
+    question_key, answer_key = random.choice(possible_pairs)
+    question_value = truth.get(question_key)
+
+    instruction = question_key.replace("_", " ").capitalize() + " => " + " Select the correct " + answer_key.replace("_", " ") + "."
+    small_buttons = True
 
     answers = [truth.get(answer_key)] + [it.get(answer_key) for it in others]
     random.shuffle(answers)

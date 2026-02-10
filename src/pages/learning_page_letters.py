@@ -50,18 +50,19 @@ def learning_page(user_info, learned_language: str = "thai", num_questions: int 
 
 
 @callback(
-    Output("question-container", "children"),
-    Output("current-question-header", "children"),
-    Output("current-question-index", "data"),
-    Output("next-question-button", "style"),
-    Output("finish-button", "style"),
+    Output("question-container", "children", allow_duplicate=True),
+    Output("current-question-header", "children", allow_duplicate=True),
+    Output("current-question-index", "data", allow_duplicate=True),
+    Output("next-question-button", "style", allow_duplicate=True),
+    Output("finish-button", "style", allow_duplicate=True),
     Input("current-question-header", "children"),
     Input("next-question-button", "n_clicks"),
     State("question-items-store", "data"),
     State("confusion-items-store", "data"),
     State("current-question-index", "data"),
     State("total-questions", "data"),
-    State("num-questions-correct", "data")
+    State("num-questions-correct", "data"),
+    prevent_initial_call=True
 )
 def load_question(header_text, next_clicks, question_items, confusion_items, current_question_index, total_questions, num_correct):
     header_text = f"Question {current_question_index}/{total_questions}"

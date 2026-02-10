@@ -241,3 +241,23 @@ def update_user_information_word(username:str, word_to_update:str, result:bool) 
     add_user_statistics(username, user_statistics)
 
     return True
+
+
+def words_can_learn(username:str) -> list:
+    user_data = read_user_json(username)
+
+    user_letters = user_data.get("thai_letters", [])
+    user_words = user_data.get("thai_words", [])
+
+    learned_letters = [let.get("letter_char") for let in user_letters if let.get("is_seen", False) == True]
+
+    final_words = []
+    for word in user_words:
+        know_all_letters = True
+        for let in word.get("spelling"):
+            if let not in learned_letters:
+                know_all_letters = False
+        if know_all_letters:
+            final_words.add(word)
+    
+    return final_words

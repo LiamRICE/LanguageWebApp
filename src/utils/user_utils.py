@@ -70,6 +70,7 @@ def user_exists(username: str) -> bool:
             if row['username'] == username:
                 return True
     return False
+<<<<<<< Updated upstream
 
 
 def read_user_json(username: str) -> dict:
@@ -189,3 +190,5 @@ def update_user_information_letter(username:str, letter_to_update:str, result:bo
     user_statistics["total_questions"] = user_statistics.get("total_questions", 0) + 1
     user_statistics["total_correct"] = user_statistics.get("total_correct", 0) + (1 if result else 0)
     add_user_statistics(username, user_statistics)
+=======
+>>>>>>> Stashed changes

@@ -4,6 +4,7 @@ from dash import dcc, html, callback, Input, State
 from src.utils.learning_utils import load_thai_json_as_list
 from src.utils.user_utils import add_user_settings, read_user_json
 from dash import html
+from flask import request
 
 
 def render_card(item):

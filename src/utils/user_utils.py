@@ -241,3 +241,4 @@ def update_user_information_word(username:str, word_to_update:str, result:bool) 
     add_user_statistics(username, user_statistics)
 
     return True
+

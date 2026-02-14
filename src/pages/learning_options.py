@@ -6,7 +6,6 @@ from src.utils.user_utils import add_user_settings, read_user_json
 from dash import html
 from flask import request
 
-<<<<<<< Updated upstream
 
 def render_card(item):
     title = f"{item.get('letter_name')} ({item.get('letter_char')})"
@@ -120,19 +119,6 @@ def learning_options_page(enable_letters: bool, user_name:str, url:str = ""):
     learned_letters = [i for i in user_data_letters if i.get('is_seen') == True]
     learned_words = [i for i in user_data_words if i.get('is_seen') == True]
 
-=======
-def learning_options_page(enable_letters: bool, base_url: str = None):
-    buttons = []
-
-    if enable_letters:
-        buttons.append(dbc.Button("Learn Letters", color="primary", className="m-1", href=f"{base_url}/learn-letters"))
-    buttons.append(dbc.Button("Learn Words", color="primary", className="m-1", href=f"{base_url}/learn-words"))
-    if enable_letters:
-        buttons.append(dbc.Button("Practice Letters", color="secondary", className="m-1", href=f"{base_url}/practice-letters"))
-    buttons.append(dbc.Button("Practice Words", color="secondary", className="m-1", href=f"{base_url}/practice-words"))
-    buttons.append(dbc.Button("Sentences", color="info", className="m-1", href=f"{base_url}/sentences"))
-    
->>>>>>> Stashed changes
     layout = dbc.Container(
         [
             html.H1("Select Your Learning Method", className="text-center my-4"),

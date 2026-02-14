@@ -64,8 +64,7 @@ def create_type_the_result(question: str, correct_answer: str, instruction:str, 
     Output("learning-page-question-complete-let-validate", "style", allow_duplicate=True),
     Output("next-question-button", "disabled", allow_duplicate=True),
     Output("num-questions-correct", "data", allow_duplicate=True),
-    Output("learning-page-question-complete-let-validate", "style"),
-    Output("learning-page-question-result", "children"),
+    Output("learning-page-question-result", "children", allow_duplicate=True),
     Input("learning-page-question-complete-let-validate", "n_clicks"),
     State("learning-page-question-input", "value"),
     State("learning-page-question-truth", "data"),
@@ -135,9 +134,9 @@ def _check_result(n_clicks, user_input, ground_truth, num_questions_correct, que
         else:
             update_user_information_word(username, question_letter, result)
 
-        return unclickable_style, False, num_questions_correct, style, text
+        return unclickable_style, False, num_questions_correct, text
 
     else:
         # print("No update")
-        return no_update, no_update, no_update, no_update, no_update
+        return no_update, no_update, no_update, no_update
 

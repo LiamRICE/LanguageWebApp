@@ -454,7 +454,7 @@
       "letter_char": "ไ",
       "letter_sound": "aj",
       "letter_priority": 2,
-      "is_seen": false
+      "is_seen": true
     },
     {
       "letter_name": "vowel reu",
@@ -594,7 +594,7 @@
     "letter_char": "ป",
     "letter_sound": "p",
     "letter_priority": 1,
-    "is_seen": false
+    "is_seen": true
   },
   {
     "letter_name": "pho phueng",

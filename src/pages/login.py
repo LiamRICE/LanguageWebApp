@@ -48,7 +48,7 @@ def login_page():
 
 
 @callback(
-    Output("user-info", "data"),
+    Output("user-info", "data", allow_duplicate=True),
     Output("url", "pathname", allow_duplicate=True),
     Input("login-button", "n_clicks"),
     State("username", "value"),

@@ -32,9 +32,11 @@ def learning_page(user_info, learned_language: str = "thai", num_questions: int 
         style={"marginTop": "12px", "width": "100%", "padding": "10px 12px", "display": "none"},
     )
 
+    question_container, question_header, _, _, _ = load_question("", None, question_items, confusion_items, 1, num_questions, 0)
+
     return html.Div([
-        html.H2(f"Question 1/{num_questions}", id="current-question-header", className="text-center my-4"),
-        html.Div(id="question-container", children=[]),
+        html.H2(question_header, id="current-question-header", className="text-center my-4"),
+        html.Div(id="question-container", children=question_container),
         next_button,
         finish_button,
         # Stores to keep track of state
@@ -68,6 +70,8 @@ def load_question(header_text, next_clicks, question_items, confusion_items, cur
     header_text = f"Question {current_question_index}/{total_questions}"
     visible_style = {"marginTop": "12px", "width": "100%", "padding": "10px 12px", "display": "block"}
     hidden_style = {"display": "none"}
+
+    print("Loading question...")
 
     min_learned = -1
     for letter in question_items:

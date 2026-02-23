@@ -66,7 +66,7 @@
             "letter_char": "ซ",
             "letter_sound": "s",
             "letter_priority": 1,
-            "is_seen": false
+            "is_seen": true
         },
         {
             "letter_name": "cho chan",
@@ -175,7 +175,7 @@
             "letter_sound": "ʔ (silent)",
             "letter_priority": 3,
             "is_seen": true,
-            "times_learned": 9,
+            "times_learned": 10,
             "times_correct": 9,
             "last_20_answers": [
                 true,
@@ -186,7 +186,8 @@
                 true,
                 true,
                 true,
-                true
+                true,
+                false
             ]
         },
         {
@@ -257,7 +258,7 @@
             "letter_sound": "i",
             "letter_priority": 3,
             "is_seen": true,
-            "times_learned": 6,
+            "times_learned": 7,
             "times_correct": 6,
             "last_20_answers": [
                 true,
@@ -265,7 +266,8 @@
                 true,
                 true,
                 true,
-                true
+                true,
+                false
             ]
         },
         {
@@ -353,7 +355,13 @@
             "letter_char": "เอะ",
             "letter_sound": "e",
             "letter_priority": 1,
-            "is_seen": false
+            "is_seen": true,
+            "times_learned": 3,
+            "last_20_answers": [
+                false,
+                false,
+                false
+            ]
         },
         {
             "letter_name": "sara ee (long)",
@@ -566,7 +574,7 @@
             "letter_char": "ต",
             "letter_sound": "t",
             "letter_priority": 1,
-            "is_seen": false
+            "is_seen": true
         },
         {
             "letter_name": "tho thung",
@@ -671,14 +679,18 @@
             "letter_char": "เอา",
             "letter_sound": "aw",
             "letter_priority": 1,
-            "is_seen": false
+            "is_seen": true,
+            "times_learned": 1,
+            "last_20_answers": [
+                false
+            ]
         },
         {
             "letter_name": "sara am",
             "letter_char": "อำ",
             "letter_sound": "am",
             "letter_priority": 1,
-            "is_seen": false
+            "is_seen": true
         },
         {
             "letter_name": "sara uea (diphthong)",
@@ -692,7 +704,7 @@
             "letter_char": "่",
             "letter_sound": "low / falling contour",
             "letter_priority": 1,
-            "is_seen": false
+            "is_seen": true
         },
         {
             "letter_name": "mai tho",
@@ -937,8 +949,8 @@
         "letters_per_session": 3
     },
     "statistics": {
-        "total_sessions": 19,
-        "total_questions": 160,
+        "total_sessions": 26,
+        "total_questions": 166,
         "total_correct": 156
     }
 }

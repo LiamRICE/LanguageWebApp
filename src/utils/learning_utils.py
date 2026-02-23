@@ -42,7 +42,6 @@ def load_thai_json_as_list(username:str = "", path: str = "src/data/language_dat
 
 
 def pick_lowest_priority_items(items: List[Dict[str, Any]], n: int, priority_key: str = "letter_priority", is_seen: bool = False) -> List[Dict[str, Any]]:
-    # TODO - pick N randomly from 2*N lowest priority items
     """
     Sorts items by priority_key, selects items that have the lowest priority value,
     and returns up to n unique items chosen randomly from that lowest-priority pool.
@@ -66,7 +65,7 @@ def pick_lowest_priority_items(items: List[Dict[str, Any]], n: int, priority_key
     # attempt numeric comparison first, fall back to direct comparison
     pool = []
     i = 0
-    while len(pool) < n:
+    while len(pool) < n * 2:
         try:
             min_val = min(float(it[priority_key]) for it in valid) + i
             pool = [it for it in valid if float(it[priority_key]) <= min_val]
@@ -78,8 +77,7 @@ def pick_lowest_priority_items(items: List[Dict[str, Any]], n: int, priority_key
     if not pool:
         return []
 
-    k = min(n, len(pool))
-
+    k = n
     if priority_key == "letter_priority":
         keys = ["letter_name", "letter_sound"]
     else:

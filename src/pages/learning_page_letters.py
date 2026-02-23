@@ -32,6 +32,7 @@ def learning_page(user_info, learned_language: str = "thai", num_questions: int 
         style={"marginTop": "12px", "width": "100%", "padding": "10px 12px", "display": "none"},
     )
 
+    # TODO - 21/20 correct? Overcount by 1?
     question_container, question_header, _, _, _ = load_question("", None, question_items, confusion_items, 1, num_questions, 0)
 
     return html.Div([

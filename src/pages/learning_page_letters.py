@@ -1,7 +1,7 @@
 from dash import html, dcc, callback, Input, Output, State
 from src.modules.question_modules.pick_one_of_four import create_pick_one_of_four
 from src.modules.question_modules.type_the_result import create_type_the_result
-from src.utils.learning_utils import load_thai_json_as_list, pick_lowest_priority_items, select_random_letters_excluding, get_pick_one_of_four_question_data, random_question_from_pool, get_type_the_result_question_data
+from src.utils.learning_utils import load_thai_json_as_list, pick_lowest_priority_items, select_random_letters_excluding, get_pick_one_of_four_question_data, random_question_from_pool, get_type_the_result_question_data, last_20_percentage
 from src.utils.user_utils import add_user_statistics, get_global_learning_statistics, read_user_json, save_user_json
 
 
@@ -129,14 +129,14 @@ def go_to_learn_thai(n_clicks, num_correct, total_questions, question_items, use
     if is_practice:
         for letter in user_learning_info.get("thai_letters", []):
             if letter.get("letter_char") in question_names:
-                if num_correct / total_questions >= 0.95:
+                if last_20_percentage(letter) >= 0.95:
                     # letters that are practiced and answered 100% correctly have their priority decreased
                     letter["letter_priority"] = max(0, letter.get("letter_priority", 0) + 1)
     else:
         for letter in user_learning_info.get("thai_letters", []):
             if letter.get("letter_char") in question_names:
                 letter["is_seen"] = True
-                if num_correct / total_questions >= 0.95:
+                if last_20_percentage(letter) >= 0.95:
                     # letters that are practiced and answered 100% correctly have their priority decreased
                     letter["letter_priority"] = max(0, letter.get("letter_priority", 0) + 1)
     

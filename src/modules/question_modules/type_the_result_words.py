@@ -41,7 +41,7 @@ def create_type_the_result(question: str, correct_answer: str, instruction:str, 
     # Validate button to trigger checking the answer; result_div can show feedback.
     validate_button = html.Button(
         "Validate",
-        id=f"{prefix}-complete-let-validate",
+        id=f"{prefix}-complete-let-validate-words",
         n_clicks=0,
         style={"marginTop": "12px", "width": "100%", "padding": "10px 12px"}
     )
@@ -61,14 +61,14 @@ def create_type_the_result(question: str, correct_answer: str, instruction:str, 
 
 
 @callback(
-    Output("learning-page-question-complete-let-validate", "style", allow_duplicate=True),
-    Output("next-question-button", "disabled", allow_duplicate=True),
-    Output("num-questions-correct", "data", allow_duplicate=True),
-    Output("learning-page-question-result", "children", allow_duplicate=True),
-    Input("learning-page-question-complete-let-validate", "n_clicks"),
+    Output("learning-page-question-complete-let-validate-words", "style", allow_duplicate=True),
+    Output("next-question-button-words", "disabled", allow_duplicate=True),
+    Output("num-questions-correct-words", "data", allow_duplicate=True),
+    Output("learning-page-question-result-words", "children", allow_duplicate=True),
+    Input("learning-page-question-complete-let-validate-words", "n_clicks"),
     State("learning-page-question-input", "value"),
     State("learning-page-question-truth", "data"),
-    State("num-questions-correct", "data"),
+    State("num-questions-correct-words", "data"),
     State("letter-in-question", "data"),
     State("username-store", "data"),
     State("is-letters-store", "data"),
@@ -111,7 +111,7 @@ def _check_result(n_clicks, user_input, ground_truth, num_questions_correct, que
         "color": "#ff0000",
     }
 
-    if "learning-page-question-complete-let-validate" in ctx.triggered[0]["prop_id"].split(".")[0] and n_clicks > 0:
+    if "learning-page-question-complete-let-validate-words" in ctx.triggered[0]["prop_id"].split(".")[0] and n_clicks > 0:
         # print("Validate button clicked")
         # check answer is valid
         # print("User input :", user_input)

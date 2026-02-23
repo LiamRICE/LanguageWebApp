@@ -163,6 +163,22 @@ def get_thai_letters_learning_statistics(username:str) -> dict:
     }
 
 
+def get_thai_words_learning_statistics(username:str) -> dict:
+    """
+    Reads the user's JSON file and returns their Thai words learning statistics.
+    Returns an empty dict if the file does not exist or cannot be read/parsed.
+    """
+    learning_info = read_user_json(username)
+    thai_words = learning_info.get("thai_words", [])
+    total_words = len(thai_words)
+    learned_words = sum(1 for word in thai_words if word.get("is_seen") == True)
+
+    return {
+        "total_words": total_words,
+        "learned_words": learned_words
+    }
+
+
 def add_user_statistics(username:str, statistics: dict) -> bool:
     """
     Adds or updates the user's learning statistics in their JSON file.
@@ -258,6 +274,6 @@ def words_can_learn(username:str) -> list:
             if let not in learned_letters:
                 know_all_letters = False
         if know_all_letters:
-            final_words.add(word)
+            final_words.append(word)
     
     return final_words

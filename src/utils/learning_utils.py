@@ -371,3 +371,11 @@ def check_text_answer_is_valid(answer:str, truth:str) -> bool:
     else:
         return False
 
+
+def last_20_percentage(item:dict) -> float:
+    if len(item.get("last_20_answers", [])) < 20:
+        percent = 0
+    else:
+        percent = sum(item.get("last_20_answers", []))
+    return percent
+

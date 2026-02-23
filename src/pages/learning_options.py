@@ -7,11 +7,17 @@ from dash import html
 from flask import request
 
 
-def render_card(item):
-    title = f"{item.get('letter_name')} ({item.get('letter_char')})"
-    details = [
-        html.Div(item.get("letter_sound"), style={'fontSize': '12px', 'color': '#555', 'lineHeight': '1.2'})
-    ]
+def render_card(item, is_letter=True):
+    if is_letter:
+        title = f"{item.get('letter_name')} ({item.get('letter_char')})"
+        details = [
+            html.Div(item.get("letter_sound"), style={'fontSize': '12px', 'color': '#555', 'lineHeight': '1.2'})
+        ]
+    else:
+        title = f"{item.get('word')} ({item.get('meaning')})"
+        details = [
+            html.Div(item.get("pronunciation"), style={'fontSize': '12px', 'color': '#555', 'lineHeight': '1.2'})
+        ]
 
     # stats
     # print(item)
@@ -148,7 +154,7 @@ def learning_options_page(enable_letters: bool, user_name:str, url:str = ""):
                     html.H2("Learned Letters", style={'textAlign': 'center', 'marginTop': '12px'}),
                     dbc.Row(
                         [
-                            dbc.Col(render_card(item), xs=12, sm=6, md=4, lg=3)
+                            dbc.Col(render_card(item, is_letter=True), xs=12, sm=6, md=4, lg=3)
                             for item in learned_letters
                         ] or [dbc.Col(html.Div("No learned letters yet.", className="text-muted p-3"))],
                         className="g-3"
@@ -162,7 +168,7 @@ def learning_options_page(enable_letters: bool, user_name:str, url:str = ""):
                     html.H2("Learned Words", style={'textAlign': 'center', 'marginTop': '18px'}),
                     dbc.Row(
                         [
-                            dbc.Col(render_card(item), xs=12, sm=6, md=4, lg=3)
+                            dbc.Col(render_card(item, is_letter=False), xs=12, sm=6, md=4, lg=3)
                             for item in learned_words
                         ] or [dbc.Col(html.Div("No learned words yet.", className="text-muted p-3"))],
                         className="g-3"

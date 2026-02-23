@@ -2,10 +2,10 @@ from typing import List
 from dash import html, dcc
 from dash import Input, Output, State, callback, callback_context
 from dash import html, no_update
-from src.utils.user_utils import update_user_information_letter
+from src.utils.user_utils import update_user_information_letter, update_user_information_word
 
 
-def create_pick_one_of_four(question: str, options: List[str], correct_id: int, instruction:str, prefix: str = "learning-page-question", small_buttons:bool = False) -> html.Div:
+def create_pick_one_of_four(question: str, options: List[str], correct_id: int, instruction:str, prefix: str = "learning-page-question", small_buttons:bool = False, is_letters:bool = True) -> html.Div:
     """
     Create a Dash component for a "pick one of four" question.
 
@@ -55,6 +55,7 @@ def create_pick_one_of_four(question: str, options: List[str], correct_id: int, 
     selected_store = dcc.Store(id=f"{prefix}-selected", data=None)
     letter_in_question = dcc.Store(id="letter-in-question", data=options[correct_id - 1])
     small_buttons_store = dcc.Store(id="small-buttons-store", data=small_buttons)
+    is_letters_store = dcc.Store(id="is-letters-store", data=is_letters)
 
     # Validate button to trigger checking the answer; result_div can show feedback.
     validate_button = html.Button(
@@ -77,6 +78,7 @@ def create_pick_one_of_four(question: str, options: List[str], correct_id: int, 
             selected_store,
             letter_in_question,
             small_buttons_store,
+            is_letters_store,
         ],
         id=f"{prefix}-container",
         style={"maxWidth": "600px"}
@@ -106,9 +108,10 @@ def create_pick_one_of_four(question: str, options: List[str], correct_id: int, 
     State("letter-in-question", "data"),
     State("username-store", "data"),
     State("small-buttons-store", "data"),
+    State("is-letters-store", "data"),
     prevent_initial_call=True,
 )
-def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_correct, letter_in_question, username, small_buttons):
+def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_correct, letter_in_question, username, small_buttons, is_letters):
     # print("Pick one of Four callback active")
     default_style = {
         "width": "100%",
@@ -192,7 +195,10 @@ def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_co
                 styles[correct_idx - 1] = correct_style
         
         # update letter statistics
-        update_user_information_letter(username, letter_in_question, is_correct)
+        if is_letters:
+            update_user_information_letter(username, letter_in_question, is_correct)
+        else:
+            update_user_information_word(username, letter_in_question, is_correct)
 
         return styles[0], styles[1], styles[2], styles[3], unclickable_style, no_update, False, num_correct
 

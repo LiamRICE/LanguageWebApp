@@ -32,7 +32,7 @@ def learning_page(user_info, learned_language: str = "thai", num_questions: int 
         style={"marginTop": "12px", "width": "100%", "padding": "10px 12px", "display": "none"},
     )
 
-    # TODO - 21/20 correct? Overcount by 1?
+    # TODO - 21/20 correct? Does not count this, the first, loaded question.
     question_container, question_header, _, _, _ = load_question("", None, question_items, confusion_items, 1, num_questions, 0)
 
     return html.Div([
@@ -71,8 +71,6 @@ def load_question(header_text, next_clicks, question_items, confusion_items, cur
     header_text = f"Question {current_question_index}/{total_questions}"
     visible_style = {"marginTop": "12px", "width": "100%", "padding": "10px 12px", "display": "block"}
     hidden_style = {"display": "none"}
-
-    print("Loading question...")
 
     min_learned = -1
     for letter in question_items:

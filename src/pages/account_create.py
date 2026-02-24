@@ -18,6 +18,10 @@ def account_create_page():
                         ],
                         className="mb-3"
                     ),
+                    html.P(
+                        children="DISCLAIMER : This website never asks you for personal information as it is not built with security in mind. Do not include personally identifiable information in any part of your usage of this tool."
+                        # style={}
+                    ),
                     html.Div(
                         [
                             dbc.Label("Password"),
@@ -48,7 +52,8 @@ def account_create_page():
     Input("create-account-button", "n_clicks"),
     State("username", "value"),
     State("password", "value"),
-    State("password-repeat", "value")
+    State("password-repeat", "value"),
+    prevent_initial_call = True
 )
 def handle_account_creation(n_clicks, username, password, password_repeat):
     if n_clicks and username and password and password_repeat:

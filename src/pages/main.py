@@ -15,7 +15,7 @@ def main_page():
 
     main_component = html.Div([
         html.Div(id="top-component", children=[webbar_component()]),
-        dcc.Store(id='user-info', storage_type='memory', data={"authenticated": False}),
+        dcc.Store(id='user-info', storage_type='session', data={"authenticated": False}),
         dcc.Location(id="url", refresh=False),
         html.Div(id="page-content")
     ])

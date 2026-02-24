@@ -15,14 +15,21 @@ def learning_page(user_info, learned_language: str = "thai", num_questions: int 
         priority_key = "times_learned"
 
     thai_data = words_can_learn(user_info.get("username"))
+    if is_practice:
+        thai_data = [word for word in user_data.get("thai_words", []) if word.get("is_seen") == True]
+    
+    print("Num Thai Words in DATA:", len(thai_data))
     question_items = pick_lowest_priority_items(thai_data, n=n, priority_key=priority_key, is_seen=is_practice)
-    confusion_items = select_random_words_excluding(question_items, n=10, data=thai_data)
+    confusion_items = select_random_words_excluding(question_items, n=10, data=user_data.get("thai_words"))
+
+    print("Num Question Items:", len(question_items))
+    print("Num Confusion Items:", len(confusion_items))
 
     next_button = html.Button(
         "Next Question",
         id="next-question-button-words",
         n_clicks=0,
-        style={"marginTop": "12px", "width": "100%", "padding": "10px 12px"},
+        style={"marginTop": "12px", "width": "100%", "padding": "10px 12px", "display": "none"},
         disabled=True
     )
     finish_button = html.Button(
@@ -31,15 +38,19 @@ def learning_page(user_info, learned_language: str = "thai", num_questions: int 
         n_clicks=0,
         style={"marginTop": "12px", "width": "100%", "padding": "10px 12px", "display": "none"},
     )
-
-    # TODO - 21/20 correct? Does not count this, the first, loaded question.
-    question_container, question_header, _, _, _ = load_question_word("", None, question_items, confusion_items, 1, num_questions, 0)
+    trigger_store = html.Button(
+        "Start",
+        id="trigger-store-words",
+        n_clicks=0,
+        style={"marginTop": "12px", "width": "100%", "padding": "10px 12px"}
+    )
 
     return html.Div([
-        html.H2(question_header, id="current-question-header-words", className="text-center my-4"),
-        html.Div(id="question-container-words", children=question_container),
+        html.H2("", id="current-question-header-words", className="text-center my-4"),
+        html.Div(id="question-container-words", children=[]),
         next_button,
         finish_button,
+        trigger_store,
         # Stores to keep track of state
         dcc.Store(id="question-items-store-words", data=question_items),
         dcc.Store(id="confusion-items-store-words", data=confusion_items),
@@ -58,6 +69,7 @@ def learning_page(user_info, learned_language: str = "thai", num_questions: int 
     Output("current-question-index-words", "data", allow_duplicate=True),
     Output("next-question-button-words", "style", allow_duplicate=True),
     Output("finish-button-words", "style", allow_duplicate=True),
+    Input("trigger-store-words", "n_clicks"),
     Input("current-question-header-words", "children"),
     Input("next-question-button-words", "n_clicks"),
     State("question-items-store-words", "data"),
@@ -67,7 +79,7 @@ def learning_page(user_info, learned_language: str = "thai", num_questions: int 
     State("num-questions-correct-words", "data"),
     prevent_initial_call=True
 )
-def load_question_word(header_text, next_clicks, question_items, confusion_items, current_question_index, total_questions, num_correct):
+def load_question_word(_, header_text, next_clicks, question_items, confusion_items, current_question_index, total_questions, num_correct):
     header_text = f"Question {current_question_index}/{total_questions}"
     visible_style = {"marginTop": "12px", "width": "100%", "padding": "10px 12px", "display": "block"}
     hidden_style = {"display": "none"}
@@ -148,3 +160,15 @@ def go_to_learn_thai_word(n_clicks, num_correct, total_questions, question_items
     add_user_statistics("liam", user_statistics)
 
     return "/learn-thai"
+
+
+@callback(
+    Output("trigger-store-words", "style"),
+    Output("next-question-button-words", "style", allow_duplicate=True),
+    Input("trigger-store-words", "n_clicks"),
+    prevent_initial_call = True
+)
+def make_button_invisible(n_clicks):
+    invisible_style = {"marginTop": "12px", "width": "100%", "padding": "10px 12px", "display": "none"}
+    visible_style = {"marginTop": "12px", "width": "100%", "padding": "10px 12px"}
+    return invisible_style, visible_style

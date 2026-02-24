@@ -50,6 +50,10 @@ def pick_lowest_priority_items(items: List[Dict[str, Any]], n: int, priority_key
     """
     if n <= 0:
         return []
+    
+    print(priority_key)
+    for item in items:
+        print(item.get("word"), priority_key in item.keys())
 
     valid = [it for it in items if priority_key in it]
     if is_seen:
@@ -57,7 +61,9 @@ def pick_lowest_priority_items(items: List[Dict[str, Any]], n: int, priority_key
     else:
         valid = [it for it in valid if it.get("is_seen") == False]
 
-    # print(valid, "\n\n")
+    print(valid, "\n\n")
+
+    max = min(n * 2, len(valid))
     
     if not valid:
         return []
@@ -65,7 +71,7 @@ def pick_lowest_priority_items(items: List[Dict[str, Any]], n: int, priority_key
     # attempt numeric comparison first, fall back to direct comparison
     pool = []
     i = 0
-    while len(pool) < n * 2:
+    while len(pool) < max:
         try:
             min_val = min(float(it[priority_key]) for it in valid) + i
             pool = [it for it in valid if float(it[priority_key]) <= min_val]

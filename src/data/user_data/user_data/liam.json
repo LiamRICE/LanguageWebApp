@@ -883,7 +883,20 @@
                 "ด"
             ],
             "priority": 1,
-            "is_seen": false
+            "is_seen": true,
+            "times_learned": 10,
+            "times_correct": 9,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
         },
         {
             "word": "แฟน",
@@ -906,7 +919,18 @@
                 "ไ"
             ],
             "priority": 1,
-            "is_seen": false
+            "is_seen": true,
+            "times_learned": 8,
+            "times_correct": 7,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
         },
         {
             "word": "ข้าว",
@@ -918,7 +942,15 @@
                 "ว"
             ],
             "priority": 1,
-            "is_seen": false
+            "is_seen": true,
+            "times_learned": 5,
+            "times_correct": 3,
+            "last_20_answers": [
+                true,
+                false,
+                true,
+                true
+            ]
         },
         {
             "word": "เป็น",
@@ -937,8 +969,8 @@
         "letters_per_session": 3
     },
     "statistics": {
-        "total_sessions": 19,
-        "total_questions": 160,
-        "total_correct": 156
+        "total_sessions": 42,
+        "total_questions": 180,
+        "total_correct": 175
     }
 }

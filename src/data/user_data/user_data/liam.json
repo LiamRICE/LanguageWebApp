@@ -1,1047 +1,2418 @@
 {
-  "thai_letters": [
-    {
-      "letter_name": "ko kai",
-      "letter_char": "ก",
-      "letter_sound": "k",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "kho khai",
-      "letter_char": "ข",
-      "letter_sound": "kh / k",
-      "letter_priority": 4,
-      "is_seen": true,
-      "times_learned": 11,
-      "times_correct": 11,
-      "last_20_answers": [true,true,true,true,true,true,true,true,true,true,true]
-    },
-    {
-      "letter_name": "kho khwai",
-      "letter_char": "ค",
-      "letter_sound": "kh",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "ngo ngu",
-      "letter_char": "ง",
-      "letter_sound": "ng",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "cho chang",
-      "letter_char": "ช",
-      "letter_sound": "ch",
-      "letter_priority": 2,
-      "is_seen": true,
-      "times_learned": 7,
-      "times_correct": 7,
-      "last_20_answers": [true,true,true,true,true,true,true]
-    },
-    {
-      "letter_name": "so so",
-      "letter_char": "ซ",
-      "letter_sound": "s",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "cho chan",
-      "letter_char": "จ",
-      "letter_sound": "j",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "yo yak",
-      "letter_char": "ย",
-      "letter_sound": "y",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "no nu",
-      "letter_char": "น",
-      "letter_sound": "n",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "mo ma",
-      "letter_char": "ม",
-      "letter_sound": "m",
-      "letter_priority": 3,
-      "is_seen": true,
-      "times_learned": 14,
-      "times_correct": 14,
-      "last_20_answers": [true,true,true,true,true,true,true,true,true,true,true,true,true,true]
-    },
-    {
-      "letter_name": "lo ling",
-      "letter_char": "ล",
-      "letter_sound": "l",
-      "letter_priority": 4,
-      "is_seen": true,
-      "times_learned": 17,
-      "times_correct": 17,
-      "last_20_answers": [true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]
-    },
-    {
-      "letter_name": "wo waen",
-      "letter_char": "ว",
-      "letter_sound": "w",
-      "letter_priority": 2,
-      "is_seen": true,
-      "times_learned": 16,
-      "times_correct": 15,
-      "last_20_answers": [false,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]
-    },
-    {
-      "letter_name": "or aang",
-      "letter_char": "อ",
-      "letter_sound": "silent / placeholder",
-      "letter_priority": 3,
-      "is_seen": true,
-      "times_learned": 9,
-      "times_correct": 9,
-      "last_20_answers": [true,true,true,true,true,true,true,true,true]
-    },
-    {
-      "letter_name": "pho phan",
-      "letter_char": "พ",
-      "letter_sound": "ph",
-      "letter_priority": 2,
-      "is_seen": false
-    },
-    {
-      "letter_name": "fo fan",
-      "letter_char": "ฟ",
-      "letter_sound": "f",
-      "letter_priority": 2,
-      "is_seen": false
-    },
-    {
-      "letter_name": "tho thong",
-      "letter_char": "ท",
-      "letter_sound": "th",
-      "letter_priority": 2,
-      "is_seen": false
-    },
-    {
-      "letter_name": "ro rua",
-      "letter_char": "ร",
-      "letter_sound": "r",
-      "letter_priority": 2,
-      "is_seen": false
-    },
-    {
-      "letter_name": "ho hip",
-      "letter_char": "ฮ",
-      "letter_sound": "h",
-      "letter_priority": 2,
-      "is_seen": false
-    },
-
-    {
-      "letter_name": "sara a (short)",
-      "letter_char": "อะ",
-      "letter_sound": "a",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "sara aa (long)",
-      "letter_char": "อา",
-      "letter_sound": "aa",
-      "letter_priority": 3,
-      "is_seen": true,
-      "times_learned": 9,
-      "times_correct": 9,
-      "last_20_answers": [true,true,true,true,true,true,true,true,true]
-    },
-    {
-      "letter_name": "sara i (short)",
-      "letter_char": "อิ",
-      "letter_sound": "i",
-      "letter_priority": 3,
-      "is_seen": true,
-      "times_learned": 6,
-      "times_correct": 6,
-      "last_20_answers": [true,true,true,true,true,true]
-    },
-    {
-      "letter_name": "sara ii (long)",
-      "letter_char": "อี",
-      "letter_sound": "ii",
-      "letter_priority": 4,
-      "is_seen": true,
-      "times_learned": 15,
-      "times_correct": 15,
-      "last_20_answers": [true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]
-    },
-    {
-      "letter_name": "sara u (short)",
-      "letter_char": "อุ",
-      "letter_sound": "u",
-      "letter_priority": 4,
-      "is_seen": true,
-      "times_learned": 18,
-      "times_correct": 17,
-      "last_20_answers": [true,true,true,true,true,false,true,true,true,true,true,true,true,true,true,true,true,true]
-    },
-    {
-      "letter_name": "sara uu (long)",
-      "letter_char": "อู",
-      "letter_sound": "uu",
-      "letter_priority": 3,
-      "is_seen": true,
-      "times_learned": 14,
-      "times_correct": 13,
-      "last_20_answers": [true,true,true,true,true,false,true,true,true,true,true,true,true,true]
-    },
-
-    {
-      "letter_name": "sara e (short)",
-      "letter_char": "เอะ",
-      "letter_sound": "e",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "sara ee (long)",
-      "letter_char": "เอ",
-      "letter_sound": "ee",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "sara o (short)",
-      "letter_char": "โอะ",
-      "letter_sound": "o",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "sara oo (long)",
-      "letter_char": "โอ",
-      "letter_sound": "oo",
-      "letter_priority": 4,
-      "is_seen": true,
-      "times_learned": 24,
-      "times_correct": 23,
-      "last_20_answers": [true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]
-    },
-
-    {
-      "letter_name": "sara ae (short)",
-      "letter_char": "แอะ",
-      "letter_sound": "ae",
-      "letter_priority": 2,
-      "is_seen": false
-    },
-    {
-      "letter_name": "sara aae (long)",
-      "letter_char": "แอ",
-      "letter_sound": "aae",
-      "letter_priority": 2,
-      "is_seen": false
-    },
-    {
-      "letter_name": "sara oe",
-      "letter_char": "เอาะ",
-      "letter_sound": "aw (short)",
-      "letter_priority": 2,
-      "is_seen": false
-    },
-    {
-      "letter_name": "sara aw",
-      "letter_char": "ออ",
-      "letter_sound": "aw",
-      "letter_priority": 2,
-      "is_seen": false
-    },
-
-    {
-      "letter_name": "sara ia (diphthong)",
-      "letter_char": "เอีย",
-      "letter_sound": "ia",
-      "letter_priority": 3,
-      "is_seen": false
-    },
-    {
-      "letter_name": "sara ua (diphthong)",
-      "letter_char": "อัว",
-      "letter_sound": "ua",
-      "letter_priority": 3,
-      "is_seen": false
-    },
-    {
-      "letter_name": "sara ai",
-      "letter_char": "ใ",
-      "letter_sound": "ai",
-      "letter_priority": 2,
-      "is_seen": false
-    },
-    {
-      "letter_name": "sara ai (alt)",
-      "letter_char": "ไ",
-      "letter_sound": "ai",
-      "letter_priority": 2,
-      "is_seen": false
-    },
-
-    {
-      "letter_name": "vowel reu",
-      "letter_char": "ฤ",
-      "letter_sound": "rue",
-      "letter_priority": 6,
-      "is_seen": false
-    },
-    {
-      "letter_name": "vowel reu long",
-      "letter_char": "ฤา",
-      "letter_sound": "ruee",
-      "letter_priority": 6,
-      "is_seen": false
-    },
-    {
-      "letter_name": "vowel lue",
-      "letter_char": "ฦ",
-      "letter_sound": "lue",
-      "letter_priority": 6,
-      "is_seen": false
-    },
-    {
-      "letter_name": "vowel lue long",
-      "letter_char": "ฦา",
-      "letter_sound": "luee",
-      "letter_priority": 6,
-      "is_seen": false
-    },
-
-    {
-      "letter_name": "kho rakhang",
-      "letter_char": "ฆ",
-      "letter_sound": "kh",
-      "letter_priority": 3,
-      "is_seen": false
-    },
-    {
-      "letter_name": "cho ching",
-      "letter_char": "ฉ",
-      "letter_sound": "ch",
-      "letter_priority": 2,
-      "is_seen": false
-    },
-    {
-      "letter_name": "cho choe",
-      "letter_char": "ฌ",
-      "letter_sound": "ch",
-      "letter_priority": 4,
-      "is_seen": false
-    },
-    {
-      "letter_name": "yo ying",
-      "letter_char": "ญ",
-      "letter_sound": "y / n",
-      "letter_priority": 2,
-      "is_seen": false
-    },
-
-    {
-      "letter_name": "do chada",
-      "letter_char": "ฎ",
-      "letter_sound": "d",
-      "letter_priority": 4,
-      "is_seen": false
-    },
-    {
-      "letter_name": "to patak",
-      "letter_char": "ฏ",
-      "letter_sound": "t",
-      "letter_priority": 4,
-      "is_seen": false
-    },
-    {
-      "letter_name": "tho than",
-      "letter_char": "ฐ",
-      "letter_sound": "th",
-      "letter_priority": 3,
-      "is_seen": false
-    },
-    {
-      "letter_name": "tho nangmontho",
-      "letter_char": "ฑ",
-      "letter_sound": "th",
-      "letter_priority": 4,
-      "is_seen": false
-    },
-    {
-      "letter_name": "tho phuthao",
-      "letter_char": "ฒ",
-      "letter_sound": "th",
-      "letter_priority": 4,
-      "is_seen": false
-    },
-    {
-      "letter_name": "no nen",
-      "letter_char": "ณ",
-      "letter_sound": "n",
-      "letter_priority": 3,
-      "is_seen": false
-    },
-
-    {
-      "letter_name": "do dek",
-      "letter_char": "ด",
-      "letter_sound": "d",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "to tao",
-      "letter_char": "ต",
-      "letter_sound": "t",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "tho thung",
-      "letter_char": "ถ",
-      "letter_sound": "th",
-      "letter_priority": 2,
-      "is_seen": false
-    },
-    {
-      "letter_name": "tho thahan",
-      "letter_char": "ธ",
-      "letter_sound": "th",
-      "letter_priority": 2,
-      "is_seen": false
-    },
-
-    {
-      "letter_name": "bo baimai",
-      "letter_char": "บ",
-      "letter_sound": "b",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "po pla",
-      "letter_char": "ป",
-      "letter_sound": "p",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "pho phueng",
-      "letter_char": "ผ",
-      "letter_sound": "ph",
-      "letter_priority": 2,
-      "is_seen": false
-    },
-    {
-      "letter_name": "fo fa",
-      "letter_char": "ฝ",
-      "letter_sound": "f",
-      "letter_priority": 2,
-      "is_seen": false
-    },
-    {
-      "letter_name": "pho samphao",
-      "letter_char": "ภ",
-      "letter_sound": "ph",
-      "letter_priority": 3,
-      "is_seen": false
-    },
-
-    {
-      "letter_name": "so sala",
-      "letter_char": "ศ",
-      "letter_sound": "s",
-      "letter_priority": 3,
-      "is_seen": false
-    },
-    {
-      "letter_name": "so ruesi",
-      "letter_char": "ษ",
-      "letter_sound": "s",
-      "letter_priority": 4,
-      "is_seen": false
-    },
-    {
-      "letter_name": "so suea",
-      "letter_char": "ส",
-      "letter_sound": "s",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "lo chula",
-      "letter_char": "ฬ",
-      "letter_sound": "l",
-      "letter_priority": 4,
-      "is_seen": false
-    },
-    {
-      "letter_name": "ho hip",
-      "letter_char": "ห",
-      "letter_sound": "h",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-
-    {
-      "letter_name": "sara ue (short)",
-      "letter_char": "อึ",
-      "letter_sound": "ue",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "sara ue (long)",
-      "letter_char": "อือ",
-      "letter_sound": "uee",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "sara ao",
-      "letter_char": "เอา",
-      "letter_sound": "ao",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "sara am",
-      "letter_char": "อำ",
-      "letter_sound": "am",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "sara uea (diphthong)",
-      "letter_char": "เอือ",
-      "letter_sound": "uea",
-      "letter_priority": 3,
-      "is_seen": false
-    },
-
-    {
-      "letter_name": "mai ek",
-      "letter_char": "่",
-      "letter_sound": "low tone mark",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "mai tho",
-      "letter_char": "้",
-      "letter_sound": "falling tone mark",
-      "letter_priority": 1,
-      "is_seen": false
-    },
-    {
-      "letter_name": "mai tri",
-      "letter_char": "๊",
-      "letter_sound": "high tone mark",
-      "letter_priority": 2,
-      "is_seen": false
-    },
-    {
-      "letter_name": "mai chattawa",
-      "letter_char": "๋",
-      "letter_sound": "rising tone mark",
-      "letter_priority": 2,
-      "is_seen": false
+    "thai_letters": [
+        {
+            "letter_name": "ko kai",
+            "letter_char": "ก",
+            "letter_sound": "k",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "kho khai",
+            "letter_char": "ข",
+            "letter_sound": "kh / k",
+            "letter_priority": 4,
+            "is_seen": true,
+            "times_learned": 11,
+            "times_correct": 11,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
+        },
+        {
+            "letter_name": "kho khwai",
+            "letter_char": "ค",
+            "letter_sound": "kh",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "ngo ngu",
+            "letter_char": "ง",
+            "letter_sound": "ng",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "cho chang",
+            "letter_char": "ช",
+            "letter_sound": "ch",
+            "letter_priority": 3,
+            "is_seen": true,
+            "times_learned": 27,
+            "times_correct": 27,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
+        },
+        {
+            "letter_name": "so so",
+            "letter_char": "ซ",
+            "letter_sound": "s",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "cho chan",
+            "letter_char": "จ",
+            "letter_sound": "j",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "yo yak",
+            "letter_char": "ย",
+            "letter_sound": "y",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "no nu",
+            "letter_char": "น",
+            "letter_sound": "n",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "mo ma",
+            "letter_char": "ม",
+            "letter_sound": "m",
+            "letter_priority": 3,
+            "is_seen": true,
+            "times_learned": 14,
+            "times_correct": 14,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
+        },
+        {
+            "letter_name": "lo ling",
+            "letter_char": "ล",
+            "letter_sound": "l",
+            "letter_priority": 4,
+            "is_seen": true,
+            "times_learned": 17,
+            "times_correct": 17,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
+        },
+        {
+            "letter_name": "wo waen",
+            "letter_char": "ว",
+            "letter_sound": "w",
+            "letter_priority": 2,
+            "is_seen": true,
+            "times_learned": 16,
+            "times_correct": 15,
+            "last_20_answers": [
+                false,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
+        },
+        {
+            "letter_name": "or aang",
+            "letter_char": "อ",
+            "letter_sound": "silent / placeholder",
+            "letter_priority": 4,
+            "is_seen": true,
+            "times_learned": 29,
+            "times_correct": 29,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
+        },
+        {
+            "letter_name": "pho phan",
+            "letter_char": "พ",
+            "letter_sound": "ph",
+            "letter_priority": 2,
+            "is_seen": false
+        },
+        {
+            "letter_name": "fo fan",
+            "letter_char": "ฟ",
+            "letter_sound": "f",
+            "letter_priority": 2,
+            "is_seen": false
+        },
+        {
+            "letter_name": "tho thong",
+            "letter_char": "ท",
+            "letter_sound": "th",
+            "letter_priority": 2,
+            "is_seen": false
+        },
+        {
+            "letter_name": "ro rua",
+            "letter_char": "ร",
+            "letter_sound": "r",
+            "letter_priority": 2,
+            "is_seen": false
+        },
+        {
+            "letter_name": "ho hip",
+            "letter_char": "ฮ",
+            "letter_sound": "h",
+            "letter_priority": 2,
+            "is_seen": false
+        },
+        {
+            "letter_name": "sara a (short)",
+            "letter_char": "อะ",
+            "letter_sound": "a",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "sara aa (long)",
+            "letter_char": "อา",
+            "letter_sound": "aa",
+            "letter_priority": 4,
+            "is_seen": true,
+            "times_learned": 29,
+            "times_correct": 29,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
+        },
+        {
+            "letter_name": "sara i (short)",
+            "letter_char": "อิ",
+            "letter_sound": "i",
+            "letter_priority": 3,
+            "is_seen": true,
+            "times_learned": 7,
+            "times_correct": 7,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
+        },
+        {
+            "letter_name": "sara ii (long)",
+            "letter_char": "อี",
+            "letter_sound": "ii",
+            "letter_priority": 4,
+            "is_seen": true,
+            "times_learned": 15,
+            "times_correct": 15,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
+        },
+        {
+            "letter_name": "sara u (short)",
+            "letter_char": "อุ",
+            "letter_sound": "u",
+            "letter_priority": 4,
+            "is_seen": true,
+            "times_learned": 18,
+            "times_correct": 17,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                false,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
+        },
+        {
+            "letter_name": "sara uu (long)",
+            "letter_char": "อู",
+            "letter_sound": "uu",
+            "letter_priority": 3,
+            "is_seen": true,
+            "times_learned": 14,
+            "times_correct": 13,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                false,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
+        },
+        {
+            "letter_name": "sara e (short)",
+            "letter_char": "เอะ",
+            "letter_sound": "e",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "sara ee (long)",
+            "letter_char": "เอ",
+            "letter_sound": "ee",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "sara o (short)",
+            "letter_char": "โอะ",
+            "letter_sound": "o",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "sara oo (long)",
+            "letter_char": "โอ",
+            "letter_sound": "oo",
+            "letter_priority": 4,
+            "is_seen": true,
+            "times_learned": 24,
+            "times_correct": 23,
+            "last_20_answers": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+            ]
+        },
+        {
+            "letter_name": "sara ae (short)",
+            "letter_char": "แอะ",
+            "letter_sound": "ae",
+            "letter_priority": 2,
+            "is_seen": false
+        },
+        {
+            "letter_name": "sara aae (long)",
+            "letter_char": "แอ",
+            "letter_sound": "aae",
+            "letter_priority": 2,
+            "is_seen": false
+        },
+        {
+            "letter_name": "sara oe",
+            "letter_char": "เอาะ",
+            "letter_sound": "aw (short)",
+            "letter_priority": 2,
+            "is_seen": false
+        },
+        {
+            "letter_name": "sara aw",
+            "letter_char": "ออ",
+            "letter_sound": "aw",
+            "letter_priority": 2,
+            "is_seen": false
+        },
+        {
+            "letter_name": "sara ia (diphthong)",
+            "letter_char": "เอีย",
+            "letter_sound": "ia",
+            "letter_priority": 3,
+            "is_seen": false
+        },
+        {
+            "letter_name": "sara ua (diphthong)",
+            "letter_char": "อัว",
+            "letter_sound": "ua",
+            "letter_priority": 3,
+            "is_seen": false
+        },
+        {
+            "letter_name": "sara ai",
+            "letter_char": "ใ",
+            "letter_sound": "ai",
+            "letter_priority": 2,
+            "is_seen": false
+        },
+        {
+            "letter_name": "sara ai (alt)",
+            "letter_char": "ไ",
+            "letter_sound": "ai",
+            "letter_priority": 2,
+            "is_seen": false
+        },
+        {
+            "letter_name": "vowel reu",
+            "letter_char": "ฤ",
+            "letter_sound": "rue",
+            "letter_priority": 6,
+            "is_seen": false
+        },
+        {
+            "letter_name": "vowel reu long",
+            "letter_char": "ฤา",
+            "letter_sound": "ruee",
+            "letter_priority": 6,
+            "is_seen": false
+        },
+        {
+            "letter_name": "vowel lue",
+            "letter_char": "ฦ",
+            "letter_sound": "lue",
+            "letter_priority": 6,
+            "is_seen": false
+        },
+        {
+            "letter_name": "vowel lue long",
+            "letter_char": "ฦา",
+            "letter_sound": "luee",
+            "letter_priority": 6,
+            "is_seen": false
+        },
+        {
+            "letter_name": "kho rakhang",
+            "letter_char": "ฆ",
+            "letter_sound": "kh",
+            "letter_priority": 3,
+            "is_seen": false
+        },
+        {
+            "letter_name": "cho ching",
+            "letter_char": "ฉ",
+            "letter_sound": "ch",
+            "letter_priority": 2,
+            "is_seen": false
+        },
+        {
+            "letter_name": "cho choe",
+            "letter_char": "ฌ",
+            "letter_sound": "ch",
+            "letter_priority": 4,
+            "is_seen": false
+        },
+        {
+            "letter_name": "yo ying",
+            "letter_char": "ญ",
+            "letter_sound": "y / n",
+            "letter_priority": 2,
+            "is_seen": false
+        },
+        {
+            "letter_name": "do chada",
+            "letter_char": "ฎ",
+            "letter_sound": "d",
+            "letter_priority": 4,
+            "is_seen": false
+        },
+        {
+            "letter_name": "to patak",
+            "letter_char": "ฏ",
+            "letter_sound": "t",
+            "letter_priority": 4,
+            "is_seen": false
+        },
+        {
+            "letter_name": "tho than",
+            "letter_char": "ฐ",
+            "letter_sound": "th",
+            "letter_priority": 3,
+            "is_seen": false
+        },
+        {
+            "letter_name": "tho nangmontho",
+            "letter_char": "ฑ",
+            "letter_sound": "th",
+            "letter_priority": 4,
+            "is_seen": false
+        },
+        {
+            "letter_name": "tho phuthao",
+            "letter_char": "ฒ",
+            "letter_sound": "th",
+            "letter_priority": 4,
+            "is_seen": false
+        },
+        {
+            "letter_name": "no nen",
+            "letter_char": "ณ",
+            "letter_sound": "n",
+            "letter_priority": 3,
+            "is_seen": false
+        },
+        {
+            "letter_name": "do dek",
+            "letter_char": "ด",
+            "letter_sound": "d",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "to tao",
+            "letter_char": "ต",
+            "letter_sound": "t",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "tho thung",
+            "letter_char": "ถ",
+            "letter_sound": "th",
+            "letter_priority": 2,
+            "is_seen": false
+        },
+        {
+            "letter_name": "tho thahan",
+            "letter_char": "ธ",
+            "letter_sound": "th",
+            "letter_priority": 2,
+            "is_seen": false
+        },
+        {
+            "letter_name": "bo baimai",
+            "letter_char": "บ",
+            "letter_sound": "b",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "po pla",
+            "letter_char": "ป",
+            "letter_sound": "p",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "pho phueng",
+            "letter_char": "ผ",
+            "letter_sound": "ph",
+            "letter_priority": 2,
+            "is_seen": false
+        },
+        {
+            "letter_name": "fo fa",
+            "letter_char": "ฝ",
+            "letter_sound": "f",
+            "letter_priority": 2,
+            "is_seen": false
+        },
+        {
+            "letter_name": "pho samphao",
+            "letter_char": "ภ",
+            "letter_sound": "ph",
+            "letter_priority": 3,
+            "is_seen": false
+        },
+        {
+            "letter_name": "so sala",
+            "letter_char": "ศ",
+            "letter_sound": "s",
+            "letter_priority": 3,
+            "is_seen": false
+        },
+        {
+            "letter_name": "so ruesi",
+            "letter_char": "ษ",
+            "letter_sound": "s",
+            "letter_priority": 4,
+            "is_seen": false
+        },
+        {
+            "letter_name": "so suea",
+            "letter_char": "ส",
+            "letter_sound": "s",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "lo chula",
+            "letter_char": "ฬ",
+            "letter_sound": "l",
+            "letter_priority": 4,
+            "is_seen": false
+        },
+        {
+            "letter_name": "ho hip",
+            "letter_char": "ห",
+            "letter_sound": "h",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "sara ue (short)",
+            "letter_char": "อึ",
+            "letter_sound": "ue",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "sara ue (long)",
+            "letter_char": "อือ",
+            "letter_sound": "uee",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "sara ao",
+            "letter_char": "เอา",
+            "letter_sound": "ao",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "sara am",
+            "letter_char": "อำ",
+            "letter_sound": "am",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "sara uea (diphthong)",
+            "letter_char": "เอือ",
+            "letter_sound": "uea",
+            "letter_priority": 3,
+            "is_seen": false
+        },
+        {
+            "letter_name": "mai ek",
+            "letter_char": "่",
+            "letter_sound": "low tone mark",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "mai tho",
+            "letter_char": "้",
+            "letter_sound": "falling tone mark",
+            "letter_priority": 1,
+            "is_seen": false
+        },
+        {
+            "letter_name": "mai tri",
+            "letter_char": "๊",
+            "letter_sound": "high tone mark",
+            "letter_priority": 2,
+            "is_seen": false
+        },
+        {
+            "letter_name": "mai chattawa",
+            "letter_char": "๋",
+            "letter_sound": "rising tone mark",
+            "letter_priority": 2,
+            "is_seen": false
+        }
+    ],
+    "thai_words": [
+        {
+            "word": "สวัสดี",
+            "meaning": "hello",
+            "pronunciation": "sa-wat-dee",
+            "spelling": [
+                "ส",
+                "ว",
+                "อะ",
+                "ส",
+                "ด",
+                "อี"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ขอบคุณ",
+            "meaning": "thank you",
+            "pronunciation": "khop-khun",
+            "spelling": [
+                "ข",
+                "อ",
+                "บ",
+                "ค",
+                "อุ",
+                "ณ"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ใช่",
+            "meaning": "correct/yes",
+            "pronunciation": "chai",
+            "spelling": [
+                "ช",
+                "ไ",
+                "อี"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ไม่ใช่",
+            "meaning": "incorrect/no",
+            "pronunciation": "mai-chai",
+            "spelling": [
+                "ม",
+                "ไ",
+                "ช",
+                "อี"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ลาก่อน",
+            "meaning": "goodbye",
+            "pronunciation": "la-gon",
+            "spelling": [
+                "ล",
+                "อา",
+                "ก",
+                "โอะ",
+                "น"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "สวย",
+            "meaning": "beautiful",
+            "pronunciation": "suay",
+            "spelling": [
+                "ส",
+                "ว",
+                "ย"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "คน",
+            "meaning": "person",
+            "pronunciation": "khon",
+            "spelling": [
+                "ค",
+                "โอะ",
+                "น"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "กิน",
+            "meaning": "to eat",
+            "pronunciation": "gin",
+            "spelling": [
+                "ก",
+                "อิ",
+                "น"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "อยาก",
+            "meaning": "to want",
+            "pronunciation": "yaak",
+            "spelling": [
+                "อ",
+                "ย",
+                "อา",
+                "ก"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ชอบ",
+            "meaning": "to like",
+            "pronunciation": "chop",
+            "spelling": [
+                "ช",
+                "ออ",
+                "บ"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "รัก",
+            "meaning": "to love",
+            "pronunciation": "rak",
+            "spelling": [
+                "ร",
+                "อะ",
+                "ก"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "อร่อย",
+            "meaning": "delicious",
+            "pronunciation": "a-roy",
+            "spelling": [
+                "อ",
+                "ร",
+                "อ่",
+                "อ",
+                "ย"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "เผ็ด",
+            "meaning": "spicy",
+            "pronunciation": "phet",
+            "spelling": [
+                "ผ",
+                "เอะ",
+                "ด"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "แฟน",
+            "meaning": "boyfriend/girlfriend",
+            "pronunciation": "faen",
+            "spelling": [
+                "ฟ",
+                "แอ",
+                "น"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ไป",
+            "meaning": "to go",
+            "pronunciation": "pai",
+            "spelling": [
+                "ป",
+                "ไ"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ข้าว",
+            "meaning": "rice",
+            "pronunciation": "khao",
+            "spelling": [
+                "ข",
+                "อ้า",
+                "ว"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "เป็น",
+            "meaning": "to be",
+            "pronunciation": "pen",
+            "spelling": [
+                "ป",
+                "เอ็",
+                "น"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "มา",
+            "meaning": "to come",
+            "pronunciation": "maa",
+            "spelling": [
+                "ม",
+                "อา"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ดู",
+            "meaning": "to see / to watch",
+            "pronunciation": "duu",
+            "spelling": [
+                "ด",
+                "อู"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "พูด",
+            "meaning": "to speak",
+            "pronunciation": "phuut",
+            "spelling": [
+                "พ",
+                "อู",
+                "ด"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ทำ",
+            "meaning": "to do / to make",
+            "pronunciation": "tham",
+            "spelling": [
+                "ท",
+                "อำ"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "มี",
+            "meaning": "to have",
+            "pronunciation": "mee",
+            "spelling": [
+                "ม",
+                "อี"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ดี",
+            "meaning": "good",
+            "pronunciation": "dee",
+            "spelling": [
+                "ด",
+                "อี"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "มาก",
+            "meaning": "very / much",
+            "pronunciation": "maak",
+            "spelling": [
+                "ม",
+                "อา",
+                "ก"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "น้อย",
+            "meaning": "little / few",
+            "pronunciation": "noi",
+            "spelling": [
+                "น",
+                "อ้",
+                "ย"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "บ้าน",
+            "meaning": "house / home",
+            "pronunciation": "baan",
+            "spelling": [
+                "บ",
+                "อ้า",
+                "น"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "น้ำ",
+            "meaning": "water",
+            "pronunciation": "nam",
+            "spelling": [
+                "น",
+                "อำ"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "งาน",
+            "meaning": "work / job / event",
+            "pronunciation": "ngaan",
+            "spelling": [
+                "ง",
+                "อา",
+                "น"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "เงิน",
+            "meaning": "money",
+            "pronunciation": "ngoen",
+            "spelling": [
+                "ง",
+                "เอ",
+                "น"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "เวลา",
+            "meaning": "time",
+            "pronunciation": "we-laa",
+            "spelling": [
+                "ว",
+                "เอ",
+                "ล",
+                "อา"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "วัน",
+            "meaning": "day",
+            "pronunciation": "wan",
+            "spelling": [
+                "ว",
+                "อะ",
+                "น"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ชื่อ",
+            "meaning": "name",
+            "pronunciation": "chue",
+            "spelling": [
+                "ช",
+                "อือ"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "อะไร",
+            "meaning": "what",
+            "pronunciation": "a-rai",
+            "spelling": [
+                "อ",
+                "ะ",
+                "ร",
+                "ไ"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ที่",
+            "meaning": "at / that / place",
+            "pronunciation": "thee",
+            "spelling": [
+                "ท",
+                "อี"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "นี่",
+            "meaning": "this",
+            "pronunciation": "nee",
+            "spelling": [
+                "น",
+                "อี"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "นั้น",
+            "meaning": "that",
+            "pronunciation": "nan",
+            "spelling": [
+                "น",
+                "อะ",
+                "น"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "อยู่",
+            "meaning": "to stay / to be located",
+            "pronunciation": "yuu",
+            "spelling": [
+                "อ",
+                "ย",
+                "อู"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "ก็",
+            "meaning": "also / then",
+            "pronunciation": "go",
+            "spelling": [
+                "ก",
+                "โอะ"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "ยัง",
+            "meaning": "still / yet",
+            "pronunciation": "yang",
+            "spelling": [
+                "ย",
+                "อะ",
+                "ง"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "แล้ว",
+            "meaning": "already",
+            "pronunciation": "laeo",
+            "spelling": [
+                "ล",
+                "แอ",
+                "ว"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "อีก",
+            "meaning": "again / another",
+            "pronunciation": "eek",
+            "spelling": [
+                "อ",
+                "อี",
+                "ก"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "แต่",
+            "meaning": "but",
+            "pronunciation": "tae",
+            "spelling": [
+                "ต",
+                "แอ"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "หรือ",
+            "meaning": "or",
+            "pronunciation": "rue",
+            "spelling": [
+                "ห",
+                "ร",
+                "อือ"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "เพราะ",
+            "meaning": "because",
+            "pronunciation": "phrao",
+            "spelling": [
+                "พ",
+                "เอาะ"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "ถ้า",
+            "meaning": "if",
+            "pronunciation": "thaa",
+            "spelling": [
+                "ถ",
+                "อา"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "เมื่อ",
+            "meaning": "when",
+            "pronunciation": "muea",
+            "spelling": [
+                "ม",
+                "เอือ"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "ตอน",
+            "meaning": "time / period",
+            "pronunciation": "ton",
+            "spelling": [
+                "ต",
+                "ออ",
+                "น"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "ฉัน",
+            "meaning": "I (informal)",
+            "pronunciation": "chan",
+            "spelling": [
+                "ฉ",
+                "อะ",
+                "น"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "เรา",
+            "meaning": "we",
+            "pronunciation": "rao",
+            "spelling": [
+                "ร",
+                "เอา"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "เขา",
+            "meaning": "he / she / they",
+            "pronunciation": "khao",
+            "spelling": [
+                "ข",
+                "เอา"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "มัน",
+            "meaning": "it",
+            "pronunciation": "man",
+            "spelling": [
+                "ม",
+                "อะ",
+                "น"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ใคร",
+            "meaning": "who",
+            "pronunciation": "khrai",
+            "spelling": [
+                "ใ",
+                "ค",
+                "ร"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ที่ไหน",
+            "meaning": "where",
+            "pronunciation": "thi-nai",
+            "spelling": [
+                "ท",
+                "อี",
+                "ไ",
+                "ห",
+                "น"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "เมื่อไร",
+            "meaning": "when",
+            "pronunciation": "muea-rai",
+            "spelling": [
+                "ม",
+                "เอือ",
+                "ร",
+                "ไ"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "ทำไม",
+            "meaning": "why",
+            "pronunciation": "tham-mai",
+            "spelling": [
+                "ท",
+                "อำ",
+                "ไ",
+                "ม"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "อย่างไร",
+            "meaning": "how",
+            "pronunciation": "yang-rai",
+            "spelling": [
+                "ย",
+                "อา",
+                "ง",
+                "ร",
+                "ไ"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "ทุก",
+            "meaning": "every",
+            "pronunciation": "thuk",
+            "spelling": [
+                "ท",
+                "อุ",
+                "ก"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "บาง",
+            "meaning": "some",
+            "pronunciation": "baang",
+            "spelling": [
+                "บ",
+                "อา",
+                "ง"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "ทั้งหมด",
+            "meaning": "all",
+            "pronunciation": "thang-mod",
+            "spelling": [
+                "ท",
+                "อะ",
+                "ง",
+                "ห",
+                "ม",
+                "โอะ",
+                "ด"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "หลาย",
+            "meaning": "many",
+            "pronunciation": "lai",
+            "spelling": [
+                "ห",
+                "ล",
+                "ไ"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "เดียว",
+            "meaning": "single / only",
+            "pronunciation": "diao",
+            "spelling": [
+                "ด",
+                "เอีย",
+                "ว"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "แรก",
+            "meaning": "first",
+            "pronunciation": "raek",
+            "spelling": [
+                "ร",
+                "แอ",
+                "ก"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "สุด",
+            "meaning": "most / end",
+            "pronunciation": "sut",
+            "spelling": [
+                "ส",
+                "อุ",
+                "ด"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "ใหม่",
+            "meaning": "new",
+            "pronunciation": "mai",
+            "spelling": [
+                "ห",
+                "ม",
+                "ไ"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "เก่า",
+            "meaning": "old",
+            "pronunciation": "gao",
+            "spelling": [
+                "ก",
+                "เอา"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "สูง",
+            "meaning": "tall / high",
+            "pronunciation": "suung",
+            "spelling": [
+                "ส",
+                "อู",
+                "ง"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "เล็ก",
+            "meaning": "small",
+            "pronunciation": "lek",
+            "spelling": [
+                "ล",
+                "เอะ",
+                "ก"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ใหญ่",
+            "meaning": "big",
+            "pronunciation": "yai",
+            "spelling": [
+                "ห",
+                "ญ",
+                "ไ"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ยาว",
+            "meaning": "long",
+            "pronunciation": "yao",
+            "spelling": [
+                "ย",
+                "อา",
+                "ว"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "สั้น",
+            "meaning": "short",
+            "pronunciation": "san",
+            "spelling": [
+                "ส",
+                "อะ",
+                "น"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "เร็ว",
+            "meaning": "fast",
+            "pronunciation": "reo",
+            "spelling": [
+                "ร",
+                "เอ",
+                "ว"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "ช้า",
+            "meaning": "slow",
+            "pronunciation": "chaa",
+            "spelling": [
+                "ช",
+                "อา"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "ง่าย",
+            "meaning": "easy",
+            "pronunciation": "ngaai",
+            "spelling": [
+                "ง",
+                "อา",
+                "ย"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "ยาก",
+            "meaning": "difficult",
+            "pronunciation": "yaak",
+            "spelling": [
+                "ย",
+                "อา",
+                "ก"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "ถูก",
+            "meaning": "correct / cheap",
+            "pronunciation": "thuuk",
+            "spelling": [
+                "ถ",
+                "อู",
+                "ก"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "แพง",
+            "meaning": "expensive",
+            "pronunciation": "phaeng",
+            "spelling": [
+                "พ",
+                "แอ",
+                "ง"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "เต็ม",
+            "meaning": "full",
+            "pronunciation": "tem",
+            "spelling": [
+                "ต",
+                "เอะ",
+                "ม"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "ว่าง",
+            "meaning": "free / empty",
+            "pronunciation": "waang",
+            "spelling": [
+                "ว",
+                "อา",
+                "ง"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "เปิด",
+            "meaning": "open",
+            "pronunciation": "poet",
+            "spelling": [
+                "ป",
+                "เอิ",
+                "ด"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "ปิด",
+            "meaning": "close",
+            "pronunciation": "pit",
+            "spelling": [
+                "ป",
+                "อิ",
+                "ด"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "เข้า",
+            "meaning": "enter",
+            "pronunciation": "khao",
+            "spelling": [
+                "ข",
+                "เอา"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "ออก",
+            "meaning": "exit",
+            "pronunciation": "ok",
+            "spelling": [
+                "อ",
+                "ออ",
+                "ก"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "นั่ง",
+            "meaning": "sit",
+            "pronunciation": "nang",
+            "spelling": [
+                "น",
+                "อะ",
+                "ง"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ยืน",
+            "meaning": "stand",
+            "pronunciation": "yuen",
+            "spelling": [
+                "ย",
+                "อือ",
+                "น"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "เดิน",
+            "meaning": "walk",
+            "pronunciation": "dern",
+            "spelling": [
+                "ด",
+                "เอิ",
+                "น"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "วิ่ง",
+            "meaning": "run",
+            "pronunciation": "wing",
+            "spelling": [
+                "ว",
+                "อิ",
+                "ง"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "หยุด",
+            "meaning": "stop",
+            "pronunciation": "yut",
+            "spelling": [
+                "ห",
+                "ย",
+                "อุ",
+                "ด"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "เอา",
+            "meaning": "to take",
+            "pronunciation": "ao",
+            "spelling": [
+                "อ",
+                "เอา"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "ให้",
+            "meaning": "to give",
+            "pronunciation": "hai",
+            "spelling": [
+                "ห",
+                "ไ"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "รับ",
+            "meaning": "to receive",
+            "pronunciation": "rap",
+            "spelling": [
+                "ร",
+                "อะ",
+                "บ"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "ส่ง",
+            "meaning": "to send",
+            "pronunciation": "song",
+            "spelling": [
+                "ส",
+                "โอะ",
+                "ง"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "ซื้อ",
+            "meaning": "to buy",
+            "pronunciation": "sue",
+            "spelling": [
+                "ซ",
+                "อือ"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ขาย",
+            "meaning": "to sell",
+            "pronunciation": "khaai",
+            "spelling": [
+                "ข",
+                "อา",
+                "ย"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "จ่าย",
+            "meaning": "to pay",
+            "pronunciation": "jaai",
+            "spelling": [
+                "จ",
+                "อา",
+                "ย"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ใช้",
+            "meaning": "to use",
+            "pronunciation": "chai",
+            "spelling": [
+                "ช",
+                "ไ"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "หา",
+            "meaning": "to find",
+            "pronunciation": "haa",
+            "spelling": [
+                "ห",
+                "อา"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "เจอ",
+            "meaning": "to meet / find",
+            "pronunciation": "jer",
+            "spelling": [
+                "จ",
+                "เออ"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "คิด",
+            "meaning": "to think",
+            "pronunciation": "khit",
+            "spelling": [
+                "ค",
+                "อิ",
+                "ด"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "รู้",
+            "meaning": "to know",
+            "pronunciation": "ruu",
+            "spelling": [
+                "ร",
+                "อู"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "เข้าใจ",
+            "meaning": "to understand",
+            "pronunciation": "khao-jai",
+            "spelling": [
+                "ข",
+                "เอา",
+                "จ",
+                "ไ"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "จำ",
+            "meaning": "to remember",
+            "pronunciation": "jam",
+            "spelling": [
+                "จ",
+                "อำ"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "ลืม",
+            "meaning": "to forget",
+            "pronunciation": "luem",
+            "spelling": [
+                "ล",
+                "อือ",
+                "ม"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "เรียน",
+            "meaning": "to study",
+            "pronunciation": "rian",
+            "spelling": [
+                "ร",
+                "เอีย",
+                "น"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "สอน",
+            "meaning": "to teach",
+            "pronunciation": "son",
+            "spelling": [
+                "ส",
+                "ออ",
+                "น"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "อ่าน",
+            "meaning": "to read",
+            "pronunciation": "aan",
+            "spelling": [
+                "อ",
+                "อา",
+                "น"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "เขียน",
+            "meaning": "to write",
+            "pronunciation": "khian",
+            "spelling": [
+                "ข",
+                "เอีย",
+                "น"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "ฟัง",
+            "meaning": "to listen",
+            "pronunciation": "fang",
+            "spelling": [
+                "ฟ",
+                "อะ",
+                "ง"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "ถาม",
+            "meaning": "to ask",
+            "pronunciation": "thaam",
+            "spelling": [
+                "ถ",
+                "อา",
+                "ม"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "ตอบ",
+            "meaning": "to answer",
+            "pronunciation": "top",
+            "spelling": [
+                "ต",
+                "ออ",
+                "บ"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "บอก",
+            "meaning": "to tell",
+            "pronunciation": "bok",
+            "spelling": [
+                "บ",
+                "ออ",
+                "ก"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "พูดคุย",
+            "meaning": "to talk",
+            "pronunciation": "phuut-khui",
+            "spelling": [
+                "พ",
+                "อู",
+                "ด",
+                "ค",
+                "อุ",
+                "ย"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "พบ",
+            "meaning": "to meet (formal)",
+            "pronunciation": "phop",
+            "spelling": [
+                "พ",
+                "โอะ",
+                "บ"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "รอ",
+            "meaning": "to wait",
+            "pronunciation": "ro",
+            "spelling": [
+                "ร",
+                "ออ"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "กลับ",
+            "meaning": "to return",
+            "pronunciation": "klap",
+            "spelling": [
+                "ก",
+                "ล",
+                "อะ",
+                "บ"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "ถึง",
+            "meaning": "to arrive",
+            "pronunciation": "thueng",
+            "spelling": [
+                "ถ",
+                "อึ",
+                "ง"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "เริ่ม",
+            "meaning": "to start",
+            "pronunciation": "roem",
+            "spelling": [
+                "ร",
+                "เอิ",
+                "ม"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "จบ",
+            "meaning": "to finish",
+            "pronunciation": "jop",
+            "spelling": [
+                "จ",
+                "โอะ",
+                "บ"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "เล่น",
+            "meaning": "to play",
+            "pronunciation": "len",
+            "spelling": [
+                "ล",
+                "เอะ",
+                "น"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "ทำงาน",
+            "meaning": "to work",
+            "pronunciation": "tham-ngaan",
+            "spelling": [
+                "ท",
+                "อำ",
+                "ง",
+                "อา",
+                "น"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "พัก",
+            "meaning": "to rest",
+            "pronunciation": "phak",
+            "spelling": [
+                "พ",
+                "อะ",
+                "ก"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "นอน",
+            "meaning": "to sleep",
+            "pronunciation": "non",
+            "spelling": [
+                "น",
+                "ออ",
+                "น"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "ตื่น",
+            "meaning": "to wake up",
+            "pronunciation": "tuen",
+            "spelling": [
+                "ต",
+                "อือ",
+                "น"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "อาบ",
+            "meaning": "to bathe",
+            "pronunciation": "aap",
+            "spelling": [
+                "อ",
+                "อา",
+                "บ"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "แต่ง",
+            "meaning": "to dress",
+            "pronunciation": "taeng",
+            "spelling": [
+                "ต",
+                "แอ",
+                "ง"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "ดื่ม",
+            "meaning": "to drink",
+            "pronunciation": "duem",
+            "spelling": [
+                "ด",
+                "อือ",
+                "ม"
+            ],
+            "priority": 1,
+            "is_seen": false
+        },
+        {
+            "word": "นั่งลง",
+            "meaning": "sit down",
+            "pronunciation": "nang-long",
+            "spelling": [
+                "น",
+                "อะ",
+                "ง",
+                "ล",
+                "โอะ",
+                "ง"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "วันนี้",
+            "meaning": "today",
+            "pronunciation": "wan-nee",
+            "spelling": [
+                "ว",
+                "อะ",
+                "น",
+                "น",
+                "อี"
+            ],
+            "priority": 2,
+            "is_seen": false
+        },
+        {
+            "word": "พรุ่งนี้",
+            "meaning": "tomorrow",
+            "pronunciation": "phrung-nee",
+            "spelling": [
+                "พ",
+                "ร",
+                "อุ",
+                "ง",
+                "น",
+                "อี"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "เมื่อวาน",
+            "meaning": "yesterday",
+            "pronunciation": "muea-waan",
+            "spelling": [
+                "ม",
+                "เอือ",
+                "ว",
+                "อา",
+                "น"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "ตอนนี้",
+            "meaning": "now",
+            "pronunciation": "ton-nee",
+            "spelling": [
+                "ต",
+                "ออ",
+                "น",
+                "น",
+                "อี"
+            ],
+            "priority": 3,
+            "is_seen": false
+        },
+        {
+            "word": "เร็วๆ",
+            "meaning": "quickly",
+            "pronunciation": "reo-reo",
+            "spelling": [
+                "ร",
+                "เอ",
+                "ว"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "ช้าๆ",
+            "meaning": "slowly",
+            "pronunciation": "chaa-chaa",
+            "spelling": [
+                "ช",
+                "อา"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "บ่อย",
+            "meaning": "often",
+            "pronunciation": "boi",
+            "spelling": [
+                "บ",
+                "ออ",
+                "ย"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "บางครั้ง",
+            "meaning": "sometimes",
+            "pronunciation": "baang-khrang",
+            "spelling": [
+                "บ",
+                "อา",
+                "ง",
+                "ค",
+                "ร",
+                "อะ",
+                "ง"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "เสมอ",
+            "meaning": "always",
+            "pronunciation": "samo",
+            "spelling": [
+                "ส",
+                "เอ",
+                "ม",
+                "อ"
+            ],
+            "priority": 4,
+            "is_seen": false
+        },
+        {
+            "word": "ไม่เคย",
+            "meaning": "never",
+            "pronunciation": "mai-khoei",
+            "spelling": [
+                "ม",
+                "ไ",
+                "ค",
+                "เอ",
+                "ย"
+            ],
+            "priority": 4,
+            "is_seen": false
+        }
+    ],
+    "settings": {
+        "letters_per_session": 3
+    },
+    "statistics": {
+        "total_sessions": 22,
+        "total_questions": 221,
+        "total_correct": 217
     }
-  ],
-  "thai_words": [
-    {
-      "word": "สวัสดี",
-      "meaning": "hello",
-      "pronunciation": "sa-wat-dee",
-      "spelling": [
-        "ส",
-        "ว",
-        "อะ",
-        "ส",
-        "ด",
-        "อี"
-      ],
-      "priority": 1,
-      "is_seen": false
-    },
-    {
-      "word": "ขอบคุณ",
-      "meaning": "thank you",
-      "pronunciation": "khop-khun",
-      "spelling": [
-        "ข",
-        "อ",
-        "บ",
-        "ค",
-        "อุ",
-        "ณ"
-      ],
-      "priority": 1,
-      "is_seen": false
-    },
-    {
-      "word": "ใช่",
-      "meaning": "correct/yes",
-      "pronunciation": "chai",
-      "spelling": [
-        "ช",
-        "ไ",
-        "อี"
-      ],
-      "priority": 1,
-      "is_seen": false
-    },
-    {
-      "word": "ไม่ใช่",
-      "meaning": "incorrect/no",
-      "pronunciation": "mai-chai",
-      "spelling": [
-        "ม",
-        "ไ",
-        "ช",
-        "อี"
-      ],
-      "priority": 1,
-      "is_seen": false
-    },
-    {
-      "word": "ลาก่อน",
-      "meaning": "goodbye",
-      "pronunciation": "la-gon",
-      "spelling": [
-        "ล",
-        "อา",
-        "ก",
-        "โอะ",
-        "น"
-      ],
-      "priority": 1,
-      "is_seen": false
-    },
-    {
-      "word": "สวย",
-      "meaning": "beautiful",
-      "pronunciation": "suay",
-      "spelling": [
-        "ส",
-        "ว",
-        "ย"
-      ],
-      "priority": 1,
-      "is_seen": false
-    },
-    {
-      "word": "คน",
-      "meaning": "person",
-      "pronunciation": "khon",
-      "spelling": [
-        "ค",
-        "โอะ",
-        "น"
-      ],
-      "priority": 1,
-      "is_seen": false
-    },
-    {
-      "word": "กิน",
-      "meaning": "to eat",
-      "pronunciation": "gin",
-      "spelling": [
-        "ก",
-        "อิ",
-        "น"
-      ],
-      "priority": 1,
-      "is_seen": false
-    },
-    {
-      "word": "อยาก",
-      "meaning": "to want",
-      "pronunciation": "yaak",
-      "spelling": [
-        "อ",
-        "ย",
-        "อา",
-        "ก"
-      ],
-      "priority": 1,
-      "is_seen": false
-    },
-    {
-      "word": "ชอบ",
-      "meaning": "to like",
-      "pronunciation": "chop",
-      "spelling": [
-        "ช",
-        "ออ",
-        "บ"
-      ],
-      "priority": 1,
-      "is_seen": false
-    },
-    {
-      "word": "รัก",
-      "meaning": "to love",
-      "pronunciation": "rak",
-      "spelling": [
-        "ร",
-        "อะ",
-        "ก"
-      ],
-      "priority": 1,
-      "is_seen": false
-    },
-    {
-      "word": "อร่อย",
-      "meaning": "delicious",
-      "pronunciation": "a-roy",
-      "spelling": [
-        "อ",
-        "ร",
-        "อ่",
-        "อ",
-        "ย"
-      ],
-      "priority": 1,
-      "is_seen": false
-    },
-    {
-      "word": "เผ็ด",
-      "meaning": "spicy",
-      "pronunciation": "phet",
-      "spelling": [
-        "ผ",
-        "เอะ",
-        "ด"
-      ],
-      "priority": 1,
-      "is_seen": false
-    },
-    {
-      "word": "แฟน",
-      "meaning": "boyfriend/girlfriend",
-      "pronunciation": "faen",
-      "spelling": [
-        "ฟ",
-        "แอ",
-        "น"
-      ],
-      "priority": 1,
-      "is_seen": false
-    },
-    {
-      "word": "ไป",
-      "meaning": "to go",
-      "pronunciation": "pai",
-      "spelling": [
-        "ป",
-        "ไ"
-      ],
-      "priority": 1,
-      "is_seen": false
-    },
-    {
-      "word": "ข้าว",
-      "meaning": "rice",
-      "pronunciation": "khao",
-      "spelling": [
-        "ข",
-        "อ้า",
-        "ว"
-      ],
-      "priority": 1,
-      "is_seen": false
-    },
-    {
-      "word": "เป็น",
-      "meaning": "to be",
-      "pronunciation": "pen",
-      "spelling": [
-        "ป",
-        "เอ็",
-        "น"
-      ],
-      "priority": 1,
-      "is_seen": false
-    },
-    {
-        "word": "มา",
-        "meaning": "to come",
-        "pronunciation": "maa",
-        "spelling": ["ม", "อา"],
-        "priority": 1,
-        "is_seen": false
-    },
-    {
-        "word": "ดู",
-        "meaning": "to see / to watch",
-        "pronunciation": "duu",
-        "spelling": ["ด", "อู"],
-        "priority": 1,
-        "is_seen": false
-    },
-    {
-        "word": "พูด",
-        "meaning": "to speak",
-        "pronunciation": "phuut",
-        "spelling": ["พ", "อู", "ด"],
-        "priority": 1,
-        "is_seen": false
-    },
-    {
-        "word": "ทำ",
-        "meaning": "to do / to make",
-        "pronunciation": "tham",
-        "spelling": ["ท", "อำ"],
-        "priority": 1,
-        "is_seen": false
-    },
-    {
-        "word": "มี",
-        "meaning": "to have",
-        "pronunciation": "mee",
-        "spelling": ["ม", "อี"],
-        "priority": 1,
-        "is_seen": false
-    },
-    {
-        "word": "ดี",
-        "meaning": "good",
-        "pronunciation": "dee",
-        "spelling": ["ด", "อี"],
-        "priority": 1,
-        "is_seen": false
-    },
-    {
-        "word": "มาก",
-        "meaning": "very / much",
-        "pronunciation": "maak",
-        "spelling": ["ม", "อา", "ก"],
-        "priority": 1,
-        "is_seen": false
-    },
-    {
-        "word": "น้อย",
-        "meaning": "little / few",
-        "pronunciation": "noi",
-        "spelling": ["น", "อ้", "ย"],
-        "priority": 1,
-        "is_seen": false
-    },
-    {
-        "word": "บ้าน",
-        "meaning": "house / home",
-        "pronunciation": "baan",
-        "spelling": ["บ", "อ้า", "น"],
-        "priority": 1,
-        "is_seen": false
-    },
-    {
-        "word": "น้ำ",
-        "meaning": "water",
-        "pronunciation": "nam",
-        "spelling": ["น", "อำ"],
-        "priority": 1,
-        "is_seen": false
-    },
-    {
-        "word": "งาน",
-        "meaning": "work / job / event",
-        "pronunciation": "ngaan",
-        "spelling": ["ง", "อา", "น"],
-        "priority": 2,
-        "is_seen": false
-    },
-    {
-        "word": "เงิน",
-        "meaning": "money",
-        "pronunciation": "ngoen",
-        "spelling": ["ง", "เอ", "น"],
-        "priority": 1,
-        "is_seen": false
-    },
-    {
-        "word": "เวลา",
-        "meaning": "time",
-        "pronunciation": "we-laa",
-        "spelling": ["ว", "เอ", "ล", "อา"],
-        "priority": 2,
-        "is_seen": false
-    },
-    {
-        "word": "วัน",
-        "meaning": "day",
-        "pronunciation": "wan",
-        "spelling": ["ว", "อะ", "น"],
-        "priority": 1,
-        "is_seen": false
-    },
-    {
-        "word": "ชื่อ",
-        "meaning": "name",
-        "pronunciation": "chue",
-        "spelling": ["ช", "อือ"],
-        "priority": 1,
-        "is_seen": false
-    },
-    {
-        "word": "อะไร",
-        "meaning": "what",
-        "pronunciation": "a-rai",
-        "spelling": ["อ", "ะ", "ร", "ไ"],
-        "priority": 1,
-        "is_seen": false
-    },
-    {
-        "word": "ที่",
-        "meaning": "at / that / place",
-        "pronunciation": "thee",
-        "spelling": ["ท", "อี"],
-        "priority": 2,
-        "is_seen": false
-    },
-    {
-        "word": "นี่",
-        "meaning": "this",
-        "pronunciation": "nee",
-        "spelling": ["น", "อี"],
-        "priority": 2,
-        "is_seen": false
-    },
-    {
-        "word": "นั้น",
-        "meaning": "that",
-        "pronunciation": "nan",
-        "spelling": ["น", "อะ", "น"],
-        "priority": 2,
-        "is_seen": false
-    },
-    {
-        "word": "อยู่",
-        "meaning": "to stay / to be located",
-        "pronunciation": "yuu",
-        "spelling": ["อ", "ย", "อู"],
-        "priority": 2,
-        "is_seen": false
-    },
-    {"word":"ก็","meaning":"also / then","pronunciation":"go","spelling":["ก","โอะ"],"priority":3,"is_seen":false},
-    {"word":"ยัง","meaning":"still / yet","pronunciation":"yang","spelling":["ย","อะ","ง"],"priority":3,"is_seen":false},
-    {"word":"แล้ว","meaning":"already","pronunciation":"laeo","spelling":["ล","แอ","ว"],"priority":3,"is_seen":false},
-    {"word":"อีก","meaning":"again / another","pronunciation":"eek","spelling":["อ","อี","ก"],"priority":3,"is_seen":false},
-    {"word":"แต่","meaning":"but","pronunciation":"tae","spelling":["ต","แอ"],"priority":2,"is_seen":false},
-    {"word":"หรือ","meaning":"or","pronunciation":"rue","spelling":["ห","ร","อือ"],"priority":2,"is_seen":false},
-    {"word":"เพราะ","meaning":"because","pronunciation":"phrao","spelling":["พ","เอาะ"],"priority":2,"is_seen":false},
-    {"word":"ถ้า","meaning":"if","pronunciation":"thaa","spelling":["ถ","อา"],"priority":3,"is_seen":false},
-    {"word":"เมื่อ","meaning":"when","pronunciation":"muea","spelling":["ม","เอือ"],"priority":3,"is_seen":false},
-    {"word":"ตอน","meaning":"time / period","pronunciation":"ton","spelling":["ต","ออ","น"],"priority":3,"is_seen":false},
-    {"word":"ฉัน","meaning":"I (informal)","pronunciation":"chan","spelling":["ฉ","อะ","น"],"priority":1,"is_seen":false},
-    {"word":"เรา","meaning":"we","pronunciation":"rao","spelling":["ร","เอา"],"priority":1,"is_seen":false},
-    {"word":"เขา","meaning":"he / she / they","pronunciation":"khao","spelling":["ข","เอา"],"priority":1,"is_seen":false},
-    {"word":"มัน","meaning":"it","pronunciation":"man","spelling":["ม","อะ","น"],"priority":1,"is_seen":false},
-    {"word":"ใคร","meaning":"who","pronunciation":"khrai","spelling":["ใ","ค","ร"],"priority":1,"is_seen":false},
-    {"word":"ที่ไหน","meaning":"where","pronunciation":"thi-nai","spelling":["ท","อี","ไ","ห","น"],"priority":3,"is_seen":false},
-    {"word":"เมื่อไร","meaning":"when","pronunciation":"muea-rai","spelling":["ม","เอือ","ร","ไ"],"priority":3,"is_seen":false},
-    {"word":"ทำไม","meaning":"why","pronunciation":"tham-mai","spelling":["ท","อำ","ไ","ม"],"priority":1,"is_seen":false},
-    {"word":"อย่างไร","meaning":"how","pronunciation":"yang-rai","spelling":["ย","อา","ง","ร","ไ"],"priority":2,"is_seen":false},
-    {"word":"ทุก","meaning":"every","pronunciation":"thuk","spelling":["ท","อุ","ก"],"priority":3,"is_seen":false},
-    {"word":"บาง","meaning":"some","pronunciation":"baang","spelling":["บ","อา","ง"],"priority":3,"is_seen":false},
-    {"word":"ทั้งหมด","meaning":"all","pronunciation":"thang-mod","spelling":["ท","อะ","ง","ห","ม","โอะ","ด"],"priority":3,"is_seen":false},
-    {"word":"หลาย","meaning":"many","pronunciation":"lai","spelling":["ห","ล","ไ"],"priority":3,"is_seen":false},
-    {"word":"เดียว","meaning":"single / only","pronunciation":"diao","spelling":["ด","เอีย","ว"],"priority":3,"is_seen":false},
-    {"word":"แรก","meaning":"first","pronunciation":"raek","spelling":["ร","แอ","ก"],"priority":3,"is_seen":false},
-    {"word":"สุด","meaning":"most / end","pronunciation":"sut","spelling":["ส","อุ","ด"],"priority":2,"is_seen":false},
-    {"word":"ใหม่","meaning":"new","pronunciation":"mai","spelling":["ห","ม","ไ"],"priority":2,"is_seen":false},
-    {"word":"เก่า","meaning":"old","pronunciation":"gao","spelling":["ก","เอา"],"priority":2,"is_seen":false},
-    {"word":"สูง","meaning":"tall / high","pronunciation":"suung","spelling":["ส","อู","ง"],"priority":3,"is_seen":false},
-    {"word":"เล็ก","meaning":"small","pronunciation":"lek","spelling":["ล","เอะ","ก"],"priority":1,"is_seen":false},
-    {"word":"ใหญ่","meaning":"big","pronunciation":"yai","spelling":["ห","ญ","ไ"],"priority":1,"is_seen":false},
-    {"word":"ยาว","meaning":"long","pronunciation":"yao","spelling":["ย","อา","ว"],"priority":1,"is_seen":false},
-    {"word":"สั้น","meaning":"short","pronunciation":"san","spelling":["ส","อะ","น"],"priority":1,"is_seen":false},
-    {"word":"เร็ว","meaning":"fast","pronunciation":"reo","spelling":["ร","เอ","ว"],"priority":3,"is_seen":false},
-    {"word":"ช้า","meaning":"slow","pronunciation":"chaa","spelling":["ช","อา"],"priority":3,"is_seen":false},
-    {"word":"ง่าย","meaning":"easy","pronunciation":"ngaai","spelling":["ง","อา","ย"],"priority":2,"is_seen":false},
-    {"word":"ยาก","meaning":"difficult","pronunciation":"yaak","spelling":["ย","อา","ก"],"priority":2,"is_seen":false},
-    {"word":"ถูก","meaning":"correct / cheap","pronunciation":"thuuk","spelling":["ถ","อู","ก"],"priority":2,"is_seen":false},
-    {"word":"แพง","meaning":"expensive","pronunciation":"phaeng","spelling":["พ","แอ","ง"],"priority":2,"is_seen":false},
-    {"word":"เต็ม","meaning":"full","pronunciation":"tem","spelling":["ต","เอะ","ม"],"priority":3,"is_seen":false},
-    {"word":"ว่าง","meaning":"free / empty","pronunciation":"waang","spelling":["ว","อา","ง"],"priority":3,"is_seen":false},
-    {"word":"เปิด","meaning":"open","pronunciation":"poet","spelling":["ป","เอิ","ด"],"priority":3,"is_seen":false},
-    {"word":"ปิด","meaning":"close","pronunciation":"pit","spelling":["ป","อิ","ด"],"priority":3,"is_seen":false},
-    {"word":"เข้า","meaning":"enter","pronunciation":"khao","spelling":["ข","เอา"],"priority":3,"is_seen":false},
-    {"word":"ออก","meaning":"exit","pronunciation":"ok","spelling":["อ","ออ","ก"],"priority":3,"is_seen":false},
-    {"word":"นั่ง","meaning":"sit","pronunciation":"nang","spelling":["น","อะ","ง"],"priority":1,"is_seen":false},
-    {"word":"ยืน","meaning":"stand","pronunciation":"yuen","spelling":["ย","อือ","น"],"priority":2,"is_seen":false},
-    {"word":"เดิน","meaning":"walk","pronunciation":"dern","spelling":["ด","เอิ","น"],"priority":2,"is_seen":false},
-    {"word":"วิ่ง","meaning":"run","pronunciation":"wing","spelling":["ว","อิ","ง"],"priority":2,"is_seen":false},
-    {"word":"หยุด","meaning":"stop","pronunciation":"yut","spelling":["ห","ย","อุ","ด"],"priority":3,"is_seen":false},
-    {"word":"เอา","meaning":"to take","pronunciation":"ao","spelling":["อ","เอา"],"priority":2,"is_seen":false},
-    {"word":"ให้","meaning":"to give","pronunciation":"hai","spelling":["ห","ไ"],"priority":2,"is_seen":false},
-    {"word":"รับ","meaning":"to receive","pronunciation":"rap","spelling":["ร","อะ","บ"],"priority":3,"is_seen":false},
-    {"word":"ส่ง","meaning":"to send","pronunciation":"song","spelling":["ส","โอะ","ง"],"priority":3,"is_seen":false},
-    {"word":"ซื้อ","meaning":"to buy","pronunciation":"sue","spelling":["ซ","อือ"],"priority":1,"is_seen":false},
-    {"word":"ขาย","meaning":"to sell","pronunciation":"khaai","spelling":["ข","อา","ย"],"priority":2,"is_seen":false},
-    {"word":"จ่าย","meaning":"to pay","pronunciation":"jaai","spelling":["จ","อา","ย"],"priority":1,"is_seen":false},
-    {"word":"ใช้","meaning":"to use","pronunciation":"chai","spelling":["ช","ไ"],"priority":2,"is_seen":false},
-    {"word":"หา","meaning":"to find","pronunciation":"haa","spelling":["ห","อา"],"priority":2,"is_seen":false},
-    {"word":"เจอ","meaning":"to meet / find","pronunciation":"jer","spelling":["จ","เออ"],"priority":3,"is_seen":false},
-    {"word":"คิด","meaning":"to think","pronunciation":"khit","spelling":["ค","อิ","ด"],"priority":4,"is_seen":false},
-    {"word":"รู้","meaning":"to know","pronunciation":"ruu","spelling":["ร","อู"],"priority":1,"is_seen":false},
-    {"word":"เข้าใจ","meaning":"to understand","pronunciation":"khao-jai","spelling":["ข","เอา","จ","ไ"],"priority":2,"is_seen":false},
-    {"word":"จำ","meaning":"to remember","pronunciation":"jam","spelling":["จ","อำ"],"priority":4,"is_seen":false},
-    {"word":"ลืม","meaning":"to forget","pronunciation":"luem","spelling":["ล","อือ","ม"],"priority":3,"is_seen":false},
-    {"word":"เรียน","meaning":"to study","pronunciation":"rian","spelling":["ร","เอีย","น"],"priority":3,"is_seen":false},
-    {"word":"สอน","meaning":"to teach","pronunciation":"son","spelling":["ส","ออ","น"],"priority":4,"is_seen":false},
-    {"word":"อ่าน","meaning":"to read","pronunciation":"aan","spelling":["อ","อา","น"],"priority":2,"is_seen":false},
-    {"word":"เขียน","meaning":"to write","pronunciation":"khian","spelling":["ข","เอีย","น"],"priority":3,"is_seen":false},
-    {"word":"ฟัง","meaning":"to listen","pronunciation":"fang","spelling":["ฟ","อะ","ง"],"priority":2,"is_seen":false},
-    {"word":"ถาม","meaning":"to ask","pronunciation":"thaam","spelling":["ถ","อา","ม"],"priority":3,"is_seen":false},
-    {"word":"ตอบ","meaning":"to answer","pronunciation":"top","spelling":["ต","ออ","บ"],"priority":4,"is_seen":false},
-    {"word":"บอก","meaning":"to tell","pronunciation":"bok","spelling":["บ","ออ","ก"],"priority":4,"is_seen":false},
-    {"word":"พูดคุย","meaning":"to talk","pronunciation":"phuut-khui","spelling":["พ","อู","ด","ค","อุ","ย"],"priority":4,"is_seen":false},
-    {"word":"พบ","meaning":"to meet (formal)","pronunciation":"phop","spelling":["พ","โอะ","บ"],"priority":4,"is_seen":false},
-    {"word":"รอ","meaning":"to wait","pronunciation":"ro","spelling":["ร","ออ"],"priority":4,"is_seen":false},
-    {"word":"กลับ","meaning":"to return","pronunciation":"klap","spelling":["ก","ล","อะ","บ"],"priority":4,"is_seen":false},
-    {"word":"ถึง","meaning":"to arrive","pronunciation":"thueng","spelling":["ถ","อึ","ง"],"priority":4,"is_seen":false},
-    {"word":"เริ่ม","meaning":"to start","pronunciation":"roem","spelling":["ร","เอิ","ม"],"priority":4,"is_seen":false},
-    {"word":"จบ","meaning":"to finish","pronunciation":"jop","spelling":["จ","โอะ","บ"],"priority":4,"is_seen":false},
-    {"word":"เล่น","meaning":"to play","pronunciation":"len","spelling":["ล","เอะ","น"],"priority":4,"is_seen":false},
-    {"word":"ทำงาน","meaning":"to work","pronunciation":"tham-ngaan","spelling":["ท","อำ","ง","อา","น"],"priority":1,"is_seen":false},
-    {"word":"พัก","meaning":"to rest","pronunciation":"phak","spelling":["พ","อะ","ก"],"priority":3,"is_seen":false},
-    {"word":"นอน","meaning":"to sleep","pronunciation":"non","spelling":["น","ออ","น"],"priority":1,"is_seen":false},
-    {"word":"ตื่น","meaning":"to wake up","pronunciation":"tuen","spelling":["ต","อือ","น"],"priority":2,"is_seen":false},
-    {"word":"อาบ","meaning":"to bathe","pronunciation":"aap","spelling":["อ","อา","บ"],"priority":3,"is_seen":false},
-    {"word":"แต่ง","meaning":"to dress","pronunciation":"taeng","spelling":["ต","แอ","ง"],"priority":3,"is_seen":false},
-    {"word":"ดื่ม","meaning":"to drink","pronunciation":"duem","spelling":["ด","อือ","ม"],"priority":1,"is_seen":false},
-    {"word":"นั่งลง","meaning":"sit down","pronunciation":"nang-long","spelling":["น","อะ","ง","ล","โอะ","ง"],"priority":2,"is_seen":false},
-    {"word":"วันนี้","meaning":"today","pronunciation":"wan-nee","spelling":["ว","อะ","น","น","อี"],"priority":2,"is_seen":false},
-    {"word":"พรุ่งนี้","meaning":"tomorrow","pronunciation":"phrung-nee","spelling":["พ","ร","อุ","ง","น","อี"],"priority":4,"is_seen":false},
-    {"word":"เมื่อวาน","meaning":"yesterday","pronunciation":"muea-waan","spelling":["ม","เอือ","ว","อา","น"],"priority":4,"is_seen":false},
-    {"word":"ตอนนี้","meaning":"now","pronunciation":"ton-nee","spelling":["ต","ออ","น","น","อี"],"priority":3,"is_seen":false},
-    {"word":"เร็วๆ","meaning":"quickly","pronunciation":"reo-reo","spelling":["ร","เอ","ว"],"priority":4,"is_seen":false},
-    {"word":"ช้าๆ","meaning":"slowly","pronunciation":"chaa-chaa","spelling":["ช","อา"],"priority":4,"is_seen":false},
-    {"word":"บ่อย","meaning":"often","pronunciation":"boi","spelling":["บ","ออ","ย"],"priority":4,"is_seen":false},
-    {"word":"บางครั้ง","meaning":"sometimes","pronunciation":"baang-khrang","spelling":["บ","อา","ง","ค","ร","อะ","ง"],"priority":4,"is_seen":false},
-    {"word":"เสมอ","meaning":"always","pronunciation":"samo","spelling":["ส","เอ","ม","อ"],"priority":4,"is_seen":false},
-    {"word":"ไม่เคย","meaning":"never","pronunciation":"mai-khoei","spelling":["ม","ไ","ค","เอ","ย"],"priority":4,"is_seen":false}
-  ],
-  "settings": {
-    "letters_per_session": 3
-  },
-  "statistics": {
-    "total_sessions": 18,
-    "total_questions": 160,
-    "total_correct": 156
-  }
 }

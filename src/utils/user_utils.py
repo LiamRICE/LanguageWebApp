@@ -144,6 +144,7 @@ def get_global_learning_statistics(username:str) -> dict:
     Returns an empty dict if the file does not exist or cannot be read/parsed.
     """
     user_data = read_user_json(username)
+    print("Fetching global user statistics for user", username, user_data.get("statistics", {}))
     return user_data.get("statistics", {})
 
 
@@ -184,6 +185,7 @@ def add_user_statistics(username:str, statistics: dict) -> bool:
     Adds or updates the user's learning statistics in their JSON file.
     Returns True if the statistics were saved successfully, False otherwise.
     """
+    print("Writing global user statistics for user", username, statistics)
     user_data = read_user_json(username)
     user_data['statistics'] = statistics
     return save_user_json(username, user_data)

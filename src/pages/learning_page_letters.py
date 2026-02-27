@@ -126,31 +126,33 @@ def load_question(_, header_text, next_clicks, question_items, confusion_items, 
     prevent_initial_call=True
 )
 def go_to_learn_thai(n_clicks, num_correct, total_questions, question_items, username, is_practice):
-    # read user info from file
-    user_learning_info = read_user_json(username=username)
-    # letters that are practiced are marked as seen
-    question_names = {item.get("letter_char") for item in question_items}
-    if is_practice:
-        for letter in user_learning_info.get("thai_letters", []):
-            if letter.get("letter_char") in question_names:
-                if last_20_percentage(letter) >= 0.95:
-                    # letters that are practiced and answered 100% correctly have their priority decreased
-                    letter["letter_priority"] = max(0, letter.get("letter_priority", 0) + 1)
-    else:
-        for letter in user_learning_info.get("thai_letters", []):
-            if letter.get("letter_char") in question_names:
-                letter["is_seen"] = True
-                if last_20_percentage(letter) >= 0.95:
-                    # letters that are practiced and answered 100% correctly have their priority decreased
-                    letter["letter_priority"] = max(0, letter.get("letter_priority", 0) + 1)
-    
-    # write user info back to file
-    save_user_json(username=username, user_data=user_learning_info)
+    if n_clicks > 0:
+        # read user info from file
+        user_learning_info = read_user_json(username=username)
+        # letters that are practiced are marked as seen
+        question_names = {item.get("letter_char") for item in question_items}
+        if is_practice:
+            for letter in user_learning_info.get("thai_letters", []):
+                if letter.get("letter_char") in question_names:
+                    if last_20_percentage(letter) >= 0.95:
+                        # letters that are practiced and answered 100% correctly have their priority decreased
+                        letter["letter_priority"] = max(0, letter.get("letter_priority", 0) + 1)
+        else:
+            for letter in user_learning_info.get("thai_letters", []):
+                if letter.get("letter_char") in question_names:
+                    letter["is_seen"] = True
+                    if last_20_percentage(letter) >= 0.95:
+                        # letters that are practiced and answered 100% correctly have their priority decreased
+                        letter["letter_priority"] = max(0, letter.get("letter_priority", 0) + 1)
+        
+        # write user info back to file
+        save_user_json(username=username, user_data=user_learning_info)
 
-    # update user statistics
-    user_statistics = get_global_learning_statistics("liam")
-    user_statistics["total_sessions"] = user_statistics.get("total_sessions", 0) + 1
-    add_user_statistics("liam", user_statistics)
+        # update user statistics
+        print("Num Questions Correct:", num_correct)
+        user_statistics = get_global_learning_statistics("liam")
+        user_statistics["total_sessions"] = user_statistics.get("total_sessions", 0) + 1
+        add_user_statistics("liam", user_statistics)
 
     return "/learn-thai"
 

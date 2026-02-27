@@ -195,10 +195,7 @@ def _highlight_pick_one(n1, n2, n3, n4, validate_clicks, selected, truth, num_co
                 styles[correct_idx - 1] = correct_style
         
         # update letter statistics
-        if is_letters:
-            update_user_information_letter(username, letter_in_question, is_correct)
-        else:
-            update_user_information_word(username, letter_in_question, is_correct)
+        update_user_information_word(username, letter_in_question, is_correct)
 
         return styles[0], styles[1], styles[2], styles[3], unclickable_style, no_update, False, num_correct
 

@@ -133,31 +133,32 @@ def load_question_word(_, header_text, next_clicks, question_items, confusion_it
     prevent_initial_call=True
 )
 def go_to_learn_thai_word(n_clicks, num_correct, total_questions, question_items, username, is_practice):
-    # read user info from file
-    user_learning_info = read_user_json(username=username)
-    # words that are practiced are marked as seen
-    question_names = {item.get("word") for item in question_items}
-    if is_practice:
-        for word in user_learning_info.get("thai_words", []):
-            if word.get("word") in question_names:
-                if last_20_percentage(word) >= 0.95:
-                    # words that are practiced and answered 100% correctly have their priority decreased
-                    word["priority"] = max(0, word.get("priority", 0) + 1)
-    else:
-        for word in user_learning_info.get("thai_words", []):
-            if word.get("word") in question_names:
-                word["is_seen"] = True
-                if last_20_percentage(word) >= 0.95:
-                    # words that are practiced and answered 100% correctly have their priority decreased
-                    word["priority"] = max(0, word.get("priority", 0) + 1)
-    
-    # write user info back to file
-    save_user_json(username=username, user_data=user_learning_info)
+    if n_clicks > 0:
+        # read user info from file
+        user_learning_info = read_user_json(username=username)
+        # words that are practiced are marked as seen
+        question_names = {item.get("word") for item in question_items}
+        if is_practice:
+            for word in user_learning_info.get("thai_words", []):
+                if word.get("word") in question_names:
+                    if last_20_percentage(word) >= 0.95:
+                        # words that are practiced and answered 100% correctly have their priority decreased
+                        word["priority"] = max(0, word.get("priority", 0) + 1)
+        else:
+            for word in user_learning_info.get("thai_words", []):
+                if word.get("word") in question_names:
+                    word["is_seen"] = True
+                    if last_20_percentage(word) >= 0.95:
+                        # words that are practiced and answered 100% correctly have their priority decreased
+                        word["priority"] = max(0, word.get("priority", 0) + 1)
+        
+        # write user info back to file
+        save_user_json(username=username, user_data=user_learning_info)
 
-    # update user statistics
-    user_statistics = get_global_learning_statistics("liam")
-    user_statistics["total_sessions"] = user_statistics.get("total_sessions", 0) + 1
-    add_user_statistics("liam", user_statistics)
+        # update user statistics
+        user_statistics = get_global_learning_statistics("liam")
+        user_statistics["total_sessions"] = user_statistics.get("total_sessions", 0) + 1
+        add_user_statistics("liam", user_statistics)
 
     return "/learn-thai"
 

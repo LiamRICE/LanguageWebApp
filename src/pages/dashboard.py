@@ -1,7 +1,8 @@
-from dash import html, dcc
-from src.utils.user_utils import get_global_learning_statistics, get_thai_letters_learning_statistics, get_thai_words_learning_statistics, read_user_json
+from dash import html, dcc, callback, Input, Output, State
+from src.utils.user_utils import get_global_learning_statistics, get_thai_letters_learning_statistics, get_thai_words_learning_statistics, read_user_json, save_user_json
 import json
 import urllib.parse
+import base64
 
 
 def dashboard_page(user_name):
@@ -31,25 +32,50 @@ def dashboard_page(user_name):
     download_button = html.A(
         "Download your data",
         href=data_uri,
-        download=f"{user_name}_data.json",
+        download=f"{user_name}.json",
         style={
             "display": "inline-block",
-            "margin": "10px 0",
+            "margin": "5px",
             "padding": "8px 12px",
             "background": "#007BFF",
             "color": "white",
             "borderRadius": "4px",
             "textDecoration": "none",
+            "fontSize": "14px",
         },
     )
 
-    download_component = html.Div(download_button, style={"textAlign": "center", "width": "100%", "marginBottom": "10px"})
+    upload_button = dcc.Upload(
+        id='upload-data',
+        children=html.Div([
+            "Upload your data"
+        ]),
+        style={
+            "display": "inline-block",
+            "margin": "5px",
+            "padding": "8px 12px",
+            "background": "#28A745",
+            "color": "white",
+            "borderRadius": "4px",
+            "cursor": "pointer",
+            "fontSize": "14px",
+        },
+        multiple=False,
+        accept='.json'
+    )
+
+    download_component = html.Div(
+        [download_button, upload_button],
+        style={"textAlign": "center", "width": "100%", "marginBottom": "10px", "display": "flex", "flexWrap": "wrap", "justifyContent": "center"}
+    )
+
     layout = html.Div([
         html.H1(f"Hi {user_name}", style={'textAlign': 'center'}),
         html.Div(
             download_component,
             style={"textAlign": "center"}
         ),
+        html.Div(id='upload-status', style={'textAlign': 'center', 'color': 'green', 'marginBottom': '10px'}),
         html.Div(
             [
                 html.Div(
@@ -71,7 +97,7 @@ def dashboard_page(user_name):
                             style={"textAlign": "center", "padding": "10px", "border": "1px solid #e1e1e1", "borderRadius": "4px", "width": "30%"},
                         ),
                     ],
-                    style={"display": "flex", "justifyContent": "space-between", "marginBottom": "10px"},
+                    style={"display": "flex", "justifyContent": "space-between", "marginBottom": "10px", "flexWrap": "wrap", "gap": "10px"},
                 ),
                 dcc.Graph(
                     figure={
@@ -87,3 +113,26 @@ def dashboard_page(user_name):
     ])
     
     return layout
+
+
+@callback(
+    Output('upload-status', 'children'),
+    Input('upload-data', 'contents'),
+    State('upload-data', 'filename'),
+    State('user-info', 'data'),
+    prevent_initial_call=True
+)
+def handle_upload(contents, filename, user_info):
+    user_name = user_info.get("username", "")
+    print(f"Received upload: {filename}")
+    if contents is None:
+        print("No file uploaded.")
+        return ""
+    try:
+        content_string = contents.split(',')[1]
+        print(base64.b64decode(content_string)[:100])  # Print the first 100 characters of the content for debugging
+        decoded = json.loads(base64.b64decode(content_string))
+        save_user_json(user_name, decoded)
+        return "✓ Data uploaded successfully!"
+    except Exception as e:
+        return f"✗ Upload failed: {str(e)}"

@@ -15,7 +15,7 @@ DEFAULT_USER_DATA_FILE = os.path.join(
 # Initialise Firebase. Guarded so re-importing this module doesn't raise
 # "The default Firebase app already exists" errors.
 if not firebase_admin._apps:
-    cred = credentials.Certificate("etc/secrets/liamslanguagelearningappdb-firebase.json")
+    cred = credentials.Certificate("/etc/secrets/liamslanguagelearningappdb-firebase.json")
     firebase_admin.initialize_app(cred)
 
 db = firestore.client()

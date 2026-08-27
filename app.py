@@ -4,7 +4,6 @@ import dash_bootstrap_components as dbc
 from src.pages.main import main_page
 
 
-
 # Initialize the Dash app.
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 server = app.server
@@ -12,8 +11,6 @@ app.title = "Liam's Language Learning App"
 # app.favicon = path_to_favicon.ico
 
 # Define the app layout with two side-by-side pie charts.
-
-
 app.layout = html.Div(children=[
     main_page()
 ])

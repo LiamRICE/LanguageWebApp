@@ -2,6 +2,7 @@ import random
 from typing import List, Dict, Any
 import json
 from src.utils.technical_utils import string_similarity
+from src.utils.user_utils import read_user_json
 
 
 def load_thai_json_as_list(username:str = "", path: str = "src/data/language_data/thai_data/thai.json", is_letters: bool = True) -> List[Dict[str, Any]]:
@@ -13,14 +14,7 @@ def load_thai_json_as_list(username:str = "", path: str = "src/data/language_dat
     - On error or unexpected structure, returns an empty list.
     """
     if username != "":
-        path = f"src/data/user_data/user_data/{username}.json"
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            print(f"Loading JSON data from {path}")
-            data = json.load(f)
-    except Exception:
-        print(f"Error loading JSON data from {path}")
-        return []
+        data = read_user_json(username)
     
     if is_letters:
         data = data.get("thai_letters", [])

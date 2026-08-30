@@ -1,0 +1,9 @@
+body {
+    font-family: 'Noto Sans Thai', 'Sarabun', sans-serif;
+}
+
+/* Native form controls (button, input, select, textarea) don't inherit
+   font-family by default in all browsers — force it explicitly */
+button, input, select, textarea {
+    font-family: inherit;
+}
